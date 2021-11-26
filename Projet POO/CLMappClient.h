@@ -1,7 +1,9 @@
 #pragma once
+#include "CLMappAdresse.h"
+
 namespace NS_Comp_Client
 {
-	ref class CLMappClient
+	ref class CLMappClient : public NS_Comp_Adresse::CLMappAdresse
 	{
 	private:
 		System::String^ sSql;
@@ -21,9 +23,9 @@ namespace NS_Comp_Client
 		System::String^ getDate_1er_Achat(void);
 		System::String^ getNom_Client(void);
 		System::String^ getPrenom_Client(void);
-		System::String^ Select(void);
-		System::String^ Insert(void);
-		System::String^ Delete(void);
-		System::String^ Update(void);
+		System::String^ Select(void) override;
+		System::String^ Insert(void) override;
+		System::String^ Delete(void) override;
+		System::String^ Update(void) override;
 	};
 }
