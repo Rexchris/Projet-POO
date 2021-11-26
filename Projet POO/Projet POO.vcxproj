@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="CLmappage.cpp" />
     <ClCompile Include="CLMappAdresse.cpp" />
+    <ClCompile Include="CLMappClient.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,7 @@
   <ItemGroup>
     <ClInclude Include="CLmappage.h" />
     <ClInclude Include="CLMappAdresse.h" />
+    <ClInclude Include="CLMappClient.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
