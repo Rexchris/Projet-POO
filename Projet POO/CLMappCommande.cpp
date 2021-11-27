@@ -15,11 +15,6 @@ void NS_Comp_Commande::CLMappCommande::setDate_Emission(System::String^ Date_Emi
 	this->Date_Emission = Date_Emission;
 }
 
-void NS_Comp_Commande::CLMappCommande::setDate_Reglement(System::String^ Date_Reglement)
-{
-	this->Date_Reglement = Date_Reglement;
-}
-
 void NS_Comp_Commande::CLMappCommande::setDate_Facturation(System::String^ Date_Facturation)
 {
 	this->Date_Facturation = Date_Facturation;
@@ -30,19 +25,19 @@ void NS_Comp_Commande::CLMappCommande::setMontant_Total_HT(float Montant_Total_H
 	this->Montant_Total_HT = Montant_Total_HT;
 }
 
-void NS_Comp_Commande::CLMappCommande::setMontant_TVA(float Montant_TVA)
-{
-	this->Montant_TVA = Montant_TVA;
-}
-
-void NS_Comp_Commande::CLMappCommande::setMontant_TTC(float Montant_TTC)
-{
-	this->Montant_TTC = Montant_TTC;
-}
-
 void NS_Comp_Commande::CLMappCommande::setID_Client(int ID_Client)
 {
 	this->ID_Client = ID_Client;
+}
+
+void NS_Comp_Commande::CLMappCommande::setID_Adresse_Facturation(int ID_Adresse_Facturation)
+{
+	this->ID_Adresse_Facturation = ID_Adresse_Facturation;
+}
+
+void NS_Comp_Commande::CLMappCommande::setID_Adresse_Livraison(int ID_Adresse_Livraison)
+{
+	this->ID_Adresse_Livraison = ID_Adresse_Livraison;
 }
 
 void NS_Comp_Commande::CLMappCommande::setReference_Article(int Reference_Article)
@@ -80,6 +75,11 @@ void NS_Comp_Commande::CLMappCommande::setMontant_Payement(float Montant_Payemen
 	this->Montant_Payement = Montant_Payement;
 }
 
+void NS_Comp_Commande::CLMappCommande::setTaux_TVA(float Taux_TVA)
+{
+	this->Taux_TVA = Taux_TVA;
+}
+
 int NS_Comp_Commande::CLMappCommande::getReference_Commande(void)
 {
 	return this->Reference_Commande;
@@ -95,11 +95,6 @@ System::String^ NS_Comp_Commande::CLMappCommande::getDate_Emission(void)
 	return this->Date_Emission;
 }
 
-System::String^ NS_Comp_Commande::CLMappCommande::getDate_Reglement(void)
-{
-	return this->Date_Reglement;
-}
-
 System::String^ NS_Comp_Commande::CLMappCommande::getDate_Facturation(void)
 {
 	return this->Date_Facturation;
@@ -110,19 +105,19 @@ float NS_Comp_Commande::CLMappCommande::getMontant_Total_HT(void)
 	return this->Montant_Total_HT;
 }
 
-float NS_Comp_Commande::CLMappCommande::getMontant_TVA(void)
-{
-	return this->Montant_TVA;
-}
-
-float NS_Comp_Commande::CLMappCommande::getMontant_TTC(void)
-{
-	return this->Montant_TTC;
-}
-
 int NS_Comp_Commande::CLMappCommande::getID_Client(void)
 {
 	return this->ID_Client;
+}
+
+int NS_Comp_Commande::CLMappCommande::getID_Adresse_Facturation(void)
+{
+	return this->ID_Adresse_Facturation;
+}
+
+int NS_Comp_Commande::CLMappCommande::getID_Adresse_Livraison(void)
+{
+	return this->ID_Adresse_Livraison;
 }
 
 int NS_Comp_Commande::CLMappCommande::getReference_Article(void)
@@ -160,6 +155,11 @@ float NS_Comp_Commande::CLMappCommande::getMontant_Payement(void)
 	return this->Montant_Payement;
 }
 
+float NS_Comp_Commande::CLMappCommande::getTaux_TVA(void)
+{
+	return this->Taux_TVA;
+}
+
 System::String^ NS_Comp_Commande::CLMappCommande::Select() {
 	return "";
 }
@@ -173,5 +173,42 @@ System::String^ NS_Comp_Commande::CLMappCommande::Update() {
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::Delete() {
+	return "";
+}
+
+System::String^ NS_Comp_Commande::CLMappCommande::SelectPayement(void) 
+{
+	return "";
+}
+System::String^ NS_Comp_Commande::CLMappCommande::InsertPayement(void) 
+{
+	return "";
+}
+System::String^ NS_Comp_Commande::CLMappCommande::UpdatePayement(void) 
+{
+	return "";
+}
+System::String^ NS_Comp_Commande::CLMappCommande::DeletePayement(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Commande::CLMappCommande::SelectArticleDeCommande(void)
+{
+	return "";
+}
+
+System::String^ NS_Comp_Commande::CLMappCommande::InsertArticleDeCommande(void)
+{
+	return "";
+}
+
+System::String^ NS_Comp_Commande::CLMappCommande::UpdateArticleDeCommande(void)
+{
+	return "";
+}
+
+System::String^ NS_Comp_Commande::CLMappCommande::DeleteArticleDeCommande(void)
+{
 	return "";
 }

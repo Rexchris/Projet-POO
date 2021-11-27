@@ -25,6 +25,11 @@ void NS_Comp_Employe::CLMappEmploye::setPrenom_Employe(System::String^ Prenom_Em
 	this->Prenom_Employe = Prenom_Employe;
 }
 
+void NS_Comp_Employe::CLMappEmploye::setSuperieur_Hierarchique(bool Superieur_Hierarchique)
+{
+	this->Superieur_Hierarchique = Superieur_Hierarchique;
+}
+
 int NS_Comp_Employe::CLMappEmploye::getID_Employe(void) 
 { 
 	return this->ID_Employe; 
@@ -48,6 +53,11 @@ System::String^ NS_Comp_Employe::CLMappEmploye::getNom_Employe(void)
 System::String^ NS_Comp_Employe::CLMappEmploye::getPrenom_Employe(void)
 {
 	return this->Prenom_Employe;
+}
+
+bool NS_Comp_Employe::CLMappEmploye::getSuperieur_Hierarchique(void)
+{
+	return this->Superieur_Hierarchique;
 }
 
 System::String^ NS_Comp_Employe::CLMappEmploye::Select()

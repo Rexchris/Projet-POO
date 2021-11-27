@@ -10,9 +10,9 @@ void NS_Comp_Stock::CLMappStock::setNom_Article(System::String^ Nom_Article)
 	this->Nom_Article = Nom_Article;
 }
 
-void NS_Comp_Stock::CLMappStock::setQuantite_Stock_Article(int Quantite_Stock_Article)
+void NS_Comp_Stock::CLMappStock::setQuantite_Stock(int Quantite_Stock)
 {
-	this->Quantite_Stock_Article = Quantite_Stock_Article;
+	this->Quantite_Stock = Quantite_Stock;
 }
 
 void NS_Comp_Stock::CLMappStock::setSeuil_Reapprovisionnement(int Seuil_Reapprovisionnement)
@@ -55,9 +55,9 @@ System::String^ NS_Comp_Stock::CLMappStock::getNom_Article(void)
 	return this->Nom_Article;
 }
 
-int NS_Comp_Stock::CLMappStock::getQuantite_Stock_Article(void)
+int NS_Comp_Stock::CLMappStock::getQuantite_Stock(void)
 {
-	return this->Quantite_Stock_Article;
+	return this->Quantite_Stock;
 }
 
 int NS_Comp_Stock::CLMappStock::getSeuil_Reapprovisionnement(void)
@@ -90,18 +90,62 @@ int NS_Comp_Stock::CLMappStock::getID_Stock(void)
 	return this->ID_Stock;
 }
 
-System::String^ NS_Comp_Stock::CLMappStock::Select(void) {
+System::String^ NS_Comp_Stock::CLMappStock::Select(void) 
+{
 	return "";
 }
 
-System::String^ NS_Comp_Stock::CLMappStock::Insert(void) {
+System::String^ NS_Comp_Stock::CLMappStock::Insert(void) 
+{
 	return "";
 }
 
-System::String^ NS_Comp_Stock::CLMappStock::Update(void) {
+System::String^ NS_Comp_Stock::CLMappStock::Update(void) 
+{
 	return "";
 }
 
-System::String^ NS_Comp_Stock::CLMappStock::Delete(void) {
+System::String^ NS_Comp_Stock::CLMappStock::Delete(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stock::CLMappStock::SelectStock(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stock::CLMappStock::InsertStock(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stock::CLMappStock::UpdateStock(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stock::CLMappStock::DeleteStock(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stock::CLMappStock::SelectCouleur(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stock::CLMappStock::InsertCouleur(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stock::CLMappStock::UpdateCouleur(void) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stock::CLMappStock::DeleteCouleur(void) 
+{
 	return "";
 }

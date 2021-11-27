@@ -1,9 +1,9 @@
 #pragma once
-#include "CLMappAdresse.h"
+#include "CLmappage.h"
 
 namespace NS_Comp_Client
 {
-	ref class CLMappClient : public NS_Comp_Adresse::CLMappAdresse
+	ref class CLMappClient : public NS_Comp_Mappage::CLmappage
 	{
 	private:
 		System::String^ sSql;

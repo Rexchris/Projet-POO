@@ -44,3 +44,13 @@ System::String^ NS_Comp_Adresse::CLMappAdresse::getNom_Rue_Adresse(void)
 { 
 	return this->Nom_Rue_Adresse; 
 }
+
+System::String^ NS_Comp_Adresse::CLMappAdresse::InsertAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville) 
+{
+	return "";
+}
+
+System::String^ NS_Comp_Adresse::CLMappAdresse::UpdateAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville)
+{
+	return "";
+}

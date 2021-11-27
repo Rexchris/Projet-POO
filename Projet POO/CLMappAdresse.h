@@ -27,6 +27,8 @@ namespace NS_Comp_Adresse
 		int getID_Adresse(void);
 		int getNumero_Adresse(void);
 		System::String^ getNom_Rue_Adresse(void);
+		System::String^ InsertAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville);
+		System::String^ UpdateAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville);
 	};
 }
 
