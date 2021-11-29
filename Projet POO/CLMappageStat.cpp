@@ -14,3 +14,18 @@ System::String^ NS_Comp_Stat::CLMappageStat::Select(void)
 {
 	return "";
 }
+
+System::String^ NS_Comp_Stat::CLMappageStat::Insert(void)
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stat::CLMappageStat::Update(void)
+{
+	return "";
+}
+
+System::String^ NS_Comp_Stat::CLMappageStat::Delete(void)
+{
+	return "";
+}

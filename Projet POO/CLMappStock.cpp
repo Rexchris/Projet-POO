@@ -110,22 +110,22 @@ System::String^ NS_Comp_Stock::CLMappStock::Delete(void)
 	return "";
 }
 
-System::String^ NS_Comp_Stock::CLMappStock::SelectStock(void) 
+System::String^ NS_Comp_Stock::CLMappStock::SelectArticle(void) 
 {
 	return "";
 }
 
-System::String^ NS_Comp_Stock::CLMappStock::InsertStock(void) 
+System::String^ NS_Comp_Stock::CLMappStock::InsertArticle(void)
 {
 	return "";
 }
 
-System::String^ NS_Comp_Stock::CLMappStock::UpdateStock(void) 
+System::String^ NS_Comp_Stock::CLMappStock::UpdateArticle(void)
 {
 	return "";
 }
 
-System::String^ NS_Comp_Stock::CLMappStock::DeleteStock(void) 
+System::String^ NS_Comp_Stock::CLMappStock::DeleteArticle(void)
 {
 	return "";
 }

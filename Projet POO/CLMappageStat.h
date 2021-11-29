@@ -10,5 +10,8 @@ namespace NS_Comp_Stat {
 		void setCommande(System::String^ Commande);
 		System::String^ getCommande(void);
 		System::String^ Select(void) override;
+		System::String^ Insert(void) override;
+		System::String^ Update(void) override;
+		System::String^ Delete(void) override;
 	};
 }

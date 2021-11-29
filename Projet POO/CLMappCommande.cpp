@@ -45,9 +45,9 @@ void NS_Comp_Commande::CLMappCommande::setReference_Article(int Reference_Articl
 	this->Reference_Article = Reference_Article;
 }
 
-void NS_Comp_Commande::CLMappCommande::setPrix_quantitatif_Remise(float Prix_quantitatif_Remise)
+void NS_Comp_Commande::CLMappCommande::setPrix_Unitaire_Remise(float Prix_Unitaire_Remise)
 {
-	this->Prix_quantitatif_Remise = Prix_quantitatif_Remise;
+	this->Prix_Unitaire_Remise = Prix_Unitaire_Remise;
 }
 
 void NS_Comp_Commande::CLMappCommande::setQuantite_Commande_Article(int Quantite_Commande_Article)
@@ -125,9 +125,9 @@ int NS_Comp_Commande::CLMappCommande::getReference_Article(void)
 	return this->Reference_Article;
 }
 
-float NS_Comp_Commande::CLMappCommande::getPrix_quantitatif_Remise(void)
+float NS_Comp_Commande::CLMappCommande::getPrix_Unitaire_Remise(void)
 {
-	return this->Prix_quantitatif_Remise;
+	return this->Prix_Unitaire_Remise;
 }
 
 int NS_Comp_Commande::CLMappCommande::getQuantite_Commande_Article(void)

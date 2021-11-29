@@ -15,7 +15,7 @@ namespace NS_Comp_Commande
 		int ID_Adresse_Livraison;
 		int ID_Adresse_Facturation;
 		int Reference_Article;
-		float Prix_quantitatif_Remise;
+		float Prix_Unitaire_Remise;
 		int Quantite_Commande_Article;
 		int ID_Payement;
 		System::String^ Date_Payement;
@@ -32,7 +32,7 @@ namespace NS_Comp_Commande
 		void setID_Adresse_Livraison(int ID_Adresse_Livraison);
 		void setID_Adresse_Facturation(int ID_Adresse_Facturation);
 		void setReference_Article(int Reference_Article);
-		void setPrix_quantitatif_Remise(float Prix_quantitatif_Remise);
+		void setPrix_Unitaire_Remise(float Prix_Unitaire_Remise);
 		void setQuantite_Commande_Article(int Quantite_Commande_Article);
 		void setID_Payement(int ID_Payement);
 		void setDate_Payement(System::String^ Date_Payement);
@@ -48,7 +48,7 @@ namespace NS_Comp_Commande
 		int getID_Adresse_Livraison(void);
 		int getID_Adresse_Facturation(void);
 		int getReference_Article(void);
-		float getPrix_quantitatif_Remise(void);
+		float getPrix_Unitaire_Remise(void);
 		int getQuantite_Commande_Article(void);
 		int getID_Payement(void);
 		System::String^ getDate_Payement(void);

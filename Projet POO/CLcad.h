@@ -10,10 +10,10 @@ namespace NS_Comp_Data
 		System::Data::SqlClient::SqlConnection^ oCnx;
 		System::Data::SqlClient::SqlCommand^ oCmd;
 		System::Data::SqlClient::SqlDataAdapter^ oDA;
-		System::Data::DataSet^ oDs;
+		System::Data::DataTable^ oDs;
 	public:
 		CLcad(void);
-		System::Data::DataSet^ getRows(System::String^, System::String^);
+		System::Data::DataTable^ getRows(System::String^ sSql);
 		void actionRows(System::String^);
 	};
 }

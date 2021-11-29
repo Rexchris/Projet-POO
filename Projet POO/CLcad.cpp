@@ -10,17 +10,17 @@ NS_Comp_Data::CLcad::CLcad(void)
 	this->oCnx = gcnew System::Data::SqlClient::SqlConnection(this->sCnx);
 	this->oCmd = gcnew System::Data::SqlClient::SqlCommand(this->sSql, this->oCnx);
 	this->oDA = gcnew System::Data::SqlClient::SqlDataAdapter();
-	this->oDs = gcnew System::Data::DataSet();
+	this->oDs = gcnew System::Data::DataTable();
 
 	this->oCmd->CommandType = System::Data::CommandType::Text;
 }
-System::Data::DataSet^ NS_Comp_Data::CLcad::getRows(System::String^ sSql, System::String^ sDataTableName)
+System::Data::DataTable^ NS_Comp_Data::CLcad::getRows(System::String^ sSql)
 {
 	this->oDs->Clear();
 	this->sSql = sSql;
 	this->oCmd->CommandText = this->sSql;
 	this->oDA->SelectCommand = this->oCmd;
-	this->oDA->Fill(this->oDs, sDataTableName);
+	this->oDA->Fill(this->oDs);
 
 	return this->oDs;
 }

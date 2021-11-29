@@ -37,10 +37,10 @@ namespace NS_Comp_Stock {
 		System::String^ Insert(void) override;
 		System::String^ Update(void) override;
 		System::String^ Delete(void) override;
-		System::String^ SelectStock(void);
-		System::String^ InsertStock(void);
-		System::String^ UpdateStock(void);
-		System::String^ DeleteStock(void);
+		System::String^ SelectArticle(void);
+		System::String^ InsertArticle(void);
+		System::String^ UpdateArticle(void);
+		System::String^ DeleteArticle(void);
 		System::String^ SelectCouleur(void);
 		System::String^ InsertCouleur(void);
 		System::String^ UpdateCouleur(void);
