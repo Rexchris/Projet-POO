@@ -9,12 +9,12 @@ namespace ProjetPOO {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Description résumée de MyForm1
+	/// Description résumée de Employe
 	/// </summary>
-	public ref class MyForm1 : public System::Windows::Forms::Form
+	public ref class Employe : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm1(void)
+		Employe(void)
 		{
 			InitializeComponent();
 			//
@@ -26,7 +26,7 @@ namespace ProjetPOO {
 		/// <summary>
 		/// Nettoyage des ressources utilisées.
 		/// </summary>
-		~MyForm1()
+		~Employe()
 		{
 			if (components)
 			{
@@ -61,14 +61,14 @@ namespace ProjetPOO {
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
 			// 
-			// MyForm1
+			// Employe
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(645, 290);
 			this->Controls->Add(this->button1);
-			this->Name = L"MyForm1";
-			this->Text = L"MyForm1";
+			this->Name = L"Employe";
+			this->Text = L"Employe";
 			this->ResumeLayout(false);
 
 		}
