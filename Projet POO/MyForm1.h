@@ -1,6 +1,4 @@
 #pragma once
-#include "MyForm1.h"
-
 namespace ProjetPOO {
 
 	using namespace System;
@@ -11,13 +9,12 @@ namespace ProjetPOO {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Description résumée de MyForm
+	/// Description résumée de MyForm1
 	/// </summary>
-	
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class MyForm1 : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		MyForm1(void)
 		{
 			InitializeComponent();
 			//
@@ -29,7 +26,7 @@ namespace ProjetPOO {
 		/// <summary>
 		/// Nettoyage des ressources utilisées.
 		/// </summary>
-		~MyForm()
+		~MyForm1()
 		{
 			if (components)
 			{
@@ -57,30 +54,24 @@ namespace ProjetPOO {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(248, 120);
+			this->button1->Location = System::Drawing::Point(275, 146);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(150, 76);
+			this->button1->Size = System::Drawing::Size(184, 75);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"button1";
 			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
-			// MyForm
+			// MyForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(523, 289);
+			this->ClientSize = System::Drawing::Size(645, 290);
 			this->Controls->Add(this->button1);
-			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Name = L"MyForm1";
+			this->Text = L"MyForm1";
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		MyForm1^ Menu = gcnew MyForm1;
-		Menu->Show();
-	}
 	};
 }
