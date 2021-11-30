@@ -20,12 +20,12 @@ void NS_Comp_Stock::CLMappStock::setSeuil_Reapprovisionnement(int Seuil_Reapprov
 	this->Seuil_Reapprovisionnement = Seuil_Reapprovisionnement;
 }
 
-void NS_Comp_Stock::CLMappStock::setTaux_TVA_Article(float Taux_TVA_Article)
+void NS_Comp_Stock::CLMappStock::setTaux_TVA_Article(System::String^ Taux_TVA_Article)
 {
 	this->Taux_TVA_Article = Taux_TVA_Article;
 }
 
-void NS_Comp_Stock::CLMappStock::setPrix_Article_HT(float Prix_Article_HT)
+void NS_Comp_Stock::CLMappStock::setPrix_Article_HT(System::String^ Prix_Article_HT)
 {
 	this->Prix_Article_HT = Prix_Article_HT;
 }
@@ -65,12 +65,12 @@ int NS_Comp_Stock::CLMappStock::getSeuil_Reapprovisionnement(void)
 	return this->Seuil_Reapprovisionnement;
 }
 
-float NS_Comp_Stock::CLMappStock::getTaux_TVA_Article(void)
+System::String^ NS_Comp_Stock::CLMappStock::getTaux_TVA_Article(void)
 {
 	return this->Taux_TVA_Article;
 }
 
-float NS_Comp_Stock::CLMappStock::getPrix_Article_HT(void)
+System::String^ NS_Comp_Stock::CLMappStock::getPrix_Article_HT(void)
 {
 	return this->Prix_Article_HT;
 }

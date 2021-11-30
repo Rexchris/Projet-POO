@@ -321,14 +321,14 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle11 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle12 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle13 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle14 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle15 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle16 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
@@ -662,9 +662,9 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(153, 186);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(182, 17);
+			this->label1->Size = System::Drawing::Size(129, 17);
 			this->label1->TabIndex = 13;
-			this->label1->Text = L"Référence de la commande";
+			this->label1->Text = L"ID de la commande";
 			// 
 			// txt_adr_fac_com
 			// 
@@ -716,6 +716,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_del_com->TabIndex = 4;
 			this->but_del_com->Text = L"Supprimer";
 			this->but_del_com->UseVisualStyleBackColor = true;
+			this->but_del_com->Click += gcnew System::EventHandler(this, &MyForm::but_del_com_Click);
 			// 
 			// but_upd_com
 			// 
@@ -726,6 +727,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_upd_com->TabIndex = 3;
 			this->but_upd_com->Text = L"Modifier";
 			this->but_upd_com->UseVisualStyleBackColor = true;
+			this->but_upd_com->Click += gcnew System::EventHandler(this, &MyForm::but_upd_com_Click);
 			// 
 			// but_ins_com
 			// 
@@ -736,7 +738,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_ins_com->TabIndex = 2;
 			this->but_ins_com->Text = L"Insérer";
 			this->but_ins_com->UseVisualStyleBackColor = true;
-			this->but_ins_com->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			this->but_ins_com->Click += gcnew System::EventHandler(this, &MyForm::but_ins_com_Click);
 			// 
 			// but_act_com
 			// 
@@ -747,30 +749,31 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_act_com->TabIndex = 1;
 			this->but_act_com->Text = L"Actualiser";
 			this->but_act_com->UseVisualStyleBackColor = true;
+			this->but_act_com->Click += gcnew System::EventHandler(this, &MyForm::but_act_com_Click);
 			// 
 			// dataGridView2
 			// 
 			this->dataGridView2->AllowUserToAddRows = false;
 			this->dataGridView2->AllowUserToDeleteRows = false;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle9->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView2->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle9->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle9->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle9->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle9->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView2->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridView2->DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle10->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle10->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle10->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle10->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle10->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle10->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView2->DefaultCellStyle = dataGridViewCellStyle10;
 			this->dataGridView2->Location = System::Drawing::Point(0, 0);
 			this->dataGridView2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dataGridView2->Name = L"dataGridView2";
@@ -942,25 +945,25 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			// 
 			this->dataGridView3->AllowUserToAddRows = false;
 			this->dataGridView3->AllowUserToDeleteRows = false;
-			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView3->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle11->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle11->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle11->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle11->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle11->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle11->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView3->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
 			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridView3->DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle12->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle12->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle12->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle12->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle12->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle12->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView3->DefaultCellStyle = dataGridViewCellStyle12;
 			this->dataGridView3->Location = System::Drawing::Point(0, 0);
 			this->dataGridView3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dataGridView3->Name = L"dataGridView3";
@@ -1131,25 +1134,25 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			// 
 			this->dataGridView4->AllowUserToAddRows = false;
 			this->dataGridView4->AllowUserToDeleteRows = false;
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle5->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView4->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle13->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle13->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle13->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle13->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle13->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle13->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView4->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
 			this->dataGridView4->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle6->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridView4->DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle14->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle14->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle14->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle14->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle14->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle14->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView4->DefaultCellStyle = dataGridViewCellStyle14;
 			this->dataGridView4->Location = System::Drawing::Point(0, 0);
 			this->dataGridView4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dataGridView4->Name = L"dataGridView4";
@@ -1928,25 +1931,25 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			// 
 			this->dataGridView7->AllowUserToAddRows = false;
 			this->dataGridView7->AllowUserToDeleteRows = false;
-			dataGridViewCellStyle7->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle7->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle7->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle7->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle7->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle7->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView7->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle15->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle15->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle15->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle15->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle15->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle15->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView7->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
 			this->dataGridView7->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle8->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridView7->DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle16->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle16->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle16->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle16->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle16->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle16->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView7->DefaultCellStyle = dataGridViewCellStyle16;
 			this->dataGridView7->Location = System::Drawing::Point(0, 0);
 			this->dataGridView7->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dataGridView7->Name = L"dataGridView7";
@@ -2276,28 +2279,60 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 
 	private: System::Void but_ins_pay_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->AjouterUnPayement(Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->txt_mon_pay->Text, Convert::ToDouble(this->txt_mon_pay), this->txt_ref_com_pay->Text);
-		this->dataGridView5->Refresh();
-		this->oDs = this->oService->AfficherClients();
-		this->dataGridView5->DataSource = this->oDs;
+		this->oService->AjouterUnPayement(Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->txt_mon_pay->Text, Convert::ToString(this->txt_mon_pay->Text), Convert::ToInt32(this->txt_ref_com_pay->Text));
+		this->dataGridView4->Refresh();
+		this->oDs = this->oService->AfficherPayements();
+		this->dataGridView4->DataSource = this->oDs;
 	}
 
 	private: System::Void but_upd_pay_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->ModifierUnPayement(Convert::ToInt32(this->txt_ID_pay), Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->txt_mon_pay->Text, Convert::ToDouble(this->txt_mon_pay), this->txt_ref_com_pay->Text);
-		this->dataGridView5->Refresh();
-		this->oDs = this->oService->AfficherClients();
-		this->dataGridView5->DataSource = this->oDs;
+		this->oService->ModifierUnPayement(Convert::ToInt32(this->txt_ID_pay->Text), Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->txt_mon_pay->Text, Convert::ToString(this->txt_mon_pay->Text), Convert::ToInt32(this->txt_ref_com_pay->Text));
+		this->dataGridView4->Refresh();
+		this->oDs = this->oService->AfficherPayements();
+		this->dataGridView4->DataSource = this->oDs;
 	}
 
 	private: System::Void but_del_pay_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->SupprimerUnPayement(Convert::ToInt32(this->txt_ID_pay));
+		this->oService->SupprimerUnPayement(Convert::ToInt32(this->txt_ID_pay->Text));
 		this->dataGridView5->Refresh();
-		this->oDs = this->oService->AfficherClients();
+		this->oDs = this->oService->AfficherPayements();
 		this->dataGridView5->DataSource = this->oDs;
 	}
  
+	private: System::Void but_act_com_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->dataGridView2->Refresh();
+		this->oDs = this->oService->AfficherCommandes();
+		this->dataGridView2->DataSource = this->oDs;
+	}
+
+	private: System::Void but_ins_com_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->AjouterUneCommande(Convert::ToString(this->date_liv_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(0, 2), Convert::ToString(this->date_emi_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(0, 2), Convert::ToString(this->date_fac_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(0, 2), this->txt_tot_HT_com->Text, Convert::ToInt32(this->txt_ID_cli_com->Text), Convert::ToInt32(this->txt_adr_liv_com->Text), Convert::ToInt32(this->txt_adr_fac_com->Text));
+		this->dataGridView2->Refresh();
+		this->oDs = this->oService->AfficherCommandes();
+		this->dataGridView2->DataSource = this->oDs;
+	}
+
+	private: System::Void but_upd_com_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->ModifierUneCommande(Convert::ToInt32(this->txt_ref_com_com->Text), Convert::ToString(this->date_liv_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(0, 2), Convert::ToString(this->date_emi_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(0, 2), Convert::ToString(this->date_fac_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(0, 2), this->txt_tot_HT_com->Text, Convert::ToInt32(this->txt_ID_cli_com->Text), Convert::ToInt32(this->txt_adr_liv_com->Text), Convert::ToInt32(this->txt_adr_fac_com->Text));
+		this->dataGridView2->Refresh();
+		this->oDs = this->oService->AfficherCommandes();
+		this->dataGridView2->DataSource = this->oDs;
+	}
+
+	private: System::Void but_del_com_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->SupprimerUneCommande(Convert::ToInt32(this->txt_ref_com_com->Text));
+		this->dataGridView2->Refresh();
+		this->oDs = this->oService->AfficherCommandes();
+		this->dataGridView2->DataSource = this->oDs;
+	}
+
+
 
 
 
@@ -2401,6 +2436,5 @@ private: System::Void dataGridView5_CellContentClick(System::Object^ sender, Sys
 	this->txt_nom_cli->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[1]);
 	this->txt_pre_cli->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[2]);
 }
-
 };
 }
