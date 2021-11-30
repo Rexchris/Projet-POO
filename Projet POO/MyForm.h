@@ -186,11 +186,13 @@ private: System::Windows::Forms::Button^ but_act_emp;
 
 private: System::Windows::Forms::DataGridView^ dataGridView6;
 private: System::Windows::Forms::TextBox^ txt_pre_emp;
-private: System::Windows::Forms::TextBox^ txt_sup_hie_emp;
+
+
 
 
 private: System::Windows::Forms::TextBox^ txt_nom_emp;
-private: System::Windows::Forms::TextBox^ txt_dat_emb_emp;
+
+
 
 
 private: System::Windows::Forms::TextBox^ txt_ID_emp;
@@ -274,6 +276,10 @@ private: System::Windows::Forms::ComboBox^ comboBox1;
 private: System::Windows::Forms::DateTimePicker^ er_ach_cli;
 
 private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
+private: System::Windows::Forms::DateTimePicker^ dat_emb_emp;
+private: System::Windows::Forms::ComboBox^ txt_sup_hie_emp;
+
+
 
 
 
@@ -310,6 +316,12 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle91 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle92 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle93 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle94 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle95 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle96 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
@@ -368,6 +380,8 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->but_act_pay = (gcnew System::Windows::Forms::Button());
 			this->dataGridView4 = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->er_ach_cli = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dat_nai_cli = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label23 = (gcnew System::Windows::Forms::Label());
 			this->label22 = (gcnew System::Windows::Forms::Label());
 			this->label21 = (gcnew System::Windows::Forms::Label());
@@ -382,6 +396,8 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->but_act_cli = (gcnew System::Windows::Forms::Button());
 			this->dataGridView5 = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->txt_sup_hie_emp = (gcnew System::Windows::Forms::ComboBox());
+			this->dat_emb_emp = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label29 = (gcnew System::Windows::Forms::Label());
 			this->txt_ID_sup_hie_emp = (gcnew System::Windows::Forms::TextBox());
 			this->label28 = (gcnew System::Windows::Forms::Label());
@@ -390,9 +406,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->label25 = (gcnew System::Windows::Forms::Label());
 			this->label24 = (gcnew System::Windows::Forms::Label());
 			this->txt_pre_emp = (gcnew System::Windows::Forms::TextBox());
-			this->txt_sup_hie_emp = (gcnew System::Windows::Forms::TextBox());
 			this->txt_nom_emp = (gcnew System::Windows::Forms::TextBox());
-			this->txt_dat_emb_emp = (gcnew System::Windows::Forms::TextBox());
 			this->txt_ID_emp = (gcnew System::Windows::Forms::TextBox());
 			this->but_del_emp = (gcnew System::Windows::Forms::Button());
 			this->but_upd_emp = (gcnew System::Windows::Forms::Button());
@@ -447,8 +461,6 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->but_ins_adr = (gcnew System::Windows::Forms::Button());
 			this->but_act_adr = (gcnew System::Windows::Forms::Button());
 			this->dataGridView8 = (gcnew System::Windows::Forms::DataGridView());
-			this->dat_nai_cli = (gcnew System::Windows::Forms::DateTimePicker());
-			this->er_ach_cli = (gcnew System::Windows::Forms::DateTimePicker());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabControl2->SuspendLayout();
@@ -485,7 +497,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabControl1->Margin = System::Windows::Forms::Padding(2);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(860, 409);
+			this->tabControl1->Size = System::Drawing::Size(837, 371);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPage1
@@ -497,7 +509,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabPage1->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage1->Size = System::Drawing::Size(852, 383);
+			this->tabPage1->Size = System::Drawing::Size(829, 345);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Commandes";
 			// 
@@ -1123,11 +1135,25 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabPage2->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage2->Size = System::Drawing::Size(852, 383);
+			this->tabPage2->Size = System::Drawing::Size(829, 345);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Clients";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			this->tabPage2->Click += gcnew System::EventHandler(this, &MyForm::tabPage2_Click);
+			// 
+			// er_ach_cli
+			// 
+			this->er_ach_cli->Location = System::Drawing::Point(302, 211);
+			this->er_ach_cli->Name = L"er_ach_cli";
+			this->er_ach_cli->Size = System::Drawing::Size(164, 20);
+			this->er_ach_cli->TabIndex = 16;
+			// 
+			// dat_nai_cli
+			// 
+			this->dat_nai_cli->Location = System::Drawing::Point(302, 168);
+			this->dat_nai_cli->Name = L"dat_nai_cli";
+			this->dat_nai_cli->Size = System::Drawing::Size(164, 20);
+			this->dat_nai_cli->TabIndex = 15;
 			// 
 			// label23
 			// 
@@ -1267,7 +1293,25 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			this->dataGridView5->AllowUserToAddRows = false;
 			this->dataGridView5->AllowUserToDeleteRows = false;
+			dataGridViewCellStyle91->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle91->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle91->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle91->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle91->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle91->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle91->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView5->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle91;
 			this->dataGridView5->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			dataGridViewCellStyle92->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle92->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle92->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle92->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle92->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle92->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle92->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView5->DefaultCellStyle = dataGridViewCellStyle92;
 			this->dataGridView5->Location = System::Drawing::Point(0, 0);
 			this->dataGridView5->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView5->Name = L"dataGridView5";
@@ -1279,6 +1323,8 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			// tabPage3
 			// 
+			this->tabPage3->Controls->Add(this->txt_sup_hie_emp);
+			this->tabPage3->Controls->Add(this->dat_emb_emp);
 			this->tabPage3->Controls->Add(this->label29);
 			this->tabPage3->Controls->Add(this->txt_ID_sup_hie_emp);
 			this->tabPage3->Controls->Add(this->label28);
@@ -1287,9 +1333,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabPage3->Controls->Add(this->label25);
 			this->tabPage3->Controls->Add(this->label24);
 			this->tabPage3->Controls->Add(this->txt_pre_emp);
-			this->tabPage3->Controls->Add(this->txt_sup_hie_emp);
 			this->tabPage3->Controls->Add(this->txt_nom_emp);
-			this->tabPage3->Controls->Add(this->txt_dat_emb_emp);
 			this->tabPage3->Controls->Add(this->txt_ID_emp);
 			this->tabPage3->Controls->Add(this->but_del_emp);
 			this->tabPage3->Controls->Add(this->but_upd_emp);
@@ -1300,30 +1344,46 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabPage3->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage3->Size = System::Drawing::Size(852, 383);
+			this->tabPage3->Size = System::Drawing::Size(829, 345);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Employes";
 			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// txt_sup_hie_emp
+			// 
+			this->txt_sup_hie_emp->FormattingEnabled = true;
+			this->txt_sup_hie_emp->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Oui", L"Non" });
+			this->txt_sup_hie_emp->Location = System::Drawing::Point(302, 211);
+			this->txt_sup_hie_emp->Name = L"txt_sup_hie_emp";
+			this->txt_sup_hie_emp->Size = System::Drawing::Size(164, 21);
+			this->txt_sup_hie_emp->TabIndex = 18;
+			// 
+			// dat_emb_emp
+			// 
+			this->dat_emb_emp->Location = System::Drawing::Point(302, 168);
+			this->dat_emb_emp->Name = L"dat_emb_emp";
+			this->dat_emb_emp->Size = System::Drawing::Size(164, 20);
+			this->dat_emb_emp->TabIndex = 17;
 			// 
 			// label29
 			// 
 			this->label29->AutoSize = true;
 			this->label29->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label29->Location = System::Drawing::Point(567, 297);
+			this->label29->Location = System::Drawing::Point(302, 237);
 			this->label29->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label29->Name = L"label29";
 			this->label29->Size = System::Drawing::Size(140, 13);
 			this->label29->TabIndex = 16;
-			this->label29->Text = L"ID du superieur hierarchique";
+			this->label29->Text = L"ID du supérieur hiérarchique";
 			this->label29->Click += gcnew System::EventHandler(this, &MyForm::label29_Click);
 			// 
 			// txt_ID_sup_hie_emp
 			// 
-			this->txt_ID_sup_hie_emp->Location = System::Drawing::Point(566, 316);
+			this->txt_ID_sup_hie_emp->Location = System::Drawing::Point(302, 254);
 			this->txt_ID_sup_hie_emp->Margin = System::Windows::Forms::Padding(2);
 			this->txt_ID_sup_hie_emp->Name = L"txt_ID_sup_hie_emp";
-			this->txt_ID_sup_hie_emp->Size = System::Drawing::Size(267, 20);
+			this->txt_ID_sup_hie_emp->Size = System::Drawing::Size(164, 20);
 			this->txt_ID_sup_hie_emp->TabIndex = 15;
 			// 
 			// label28
@@ -1331,110 +1391,95 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->label28->AutoSize = true;
 			this->label28->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label28->Location = System::Drawing::Point(567, 226);
+			this->label28->Location = System::Drawing::Point(302, 194);
 			this->label28->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label28->Name = L"label28";
-			this->label28->Size = System::Drawing::Size(238, 13);
+			this->label28->Size = System::Drawing::Size(113, 13);
 			this->label28->TabIndex = 14;
-			this->label28->Text = L"Superieur hierarchique (1 pour oui ou 0 pour non)";
+			this->label28->Text = L"Supérieur hiérarchique";
 			// 
 			// label27
 			// 
 			this->label27->AutoSize = true;
 			this->label27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label27->Location = System::Drawing::Point(567, 156);
+			this->label27->Location = System::Drawing::Point(302, 151);
 			this->label27->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label27->Name = L"label27";
-			this->label27->Size = System::Drawing::Size(152, 13);
+			this->label27->Size = System::Drawing::Size(91, 13);
 			this->label27->TabIndex = 13;
-			this->label27->Text = L"Date d\'embauche de l\'employe";
+			this->label27->Text = L"Date d\'embauche";
 			// 
 			// label26
 			// 
 			this->label26->AutoSize = true;
 			this->label26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label26->Location = System::Drawing::Point(274, 297);
+			this->label26->Location = System::Drawing::Point(115, 237);
 			this->label26->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label26->Name = L"label26";
 			this->label26->Size = System::Drawing::Size(104, 13);
 			this->label26->TabIndex = 12;
-			this->label26->Text = L"Prenom de l\'employe";
+			this->label26->Text = L"Prénom de l\'employé";
+			this->label26->Click += gcnew System::EventHandler(this, &MyForm::label26_Click);
 			// 
 			// label25
 			// 
 			this->label25->AutoSize = true;
 			this->label25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label25->Location = System::Drawing::Point(278, 226);
+			this->label25->Location = System::Drawing::Point(115, 194);
 			this->label25->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label25->Name = L"label25";
 			this->label25->Size = System::Drawing::Size(90, 13);
 			this->label25->TabIndex = 11;
-			this->label25->Text = L"Nom de l\'employe";
+			this->label25->Text = L"Nom de l\'employé";
 			// 
 			// label24
 			// 
 			this->label24->AutoSize = true;
 			this->label24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label24->Location = System::Drawing::Point(278, 156);
+			this->label24->Location = System::Drawing::Point(115, 151);
 			this->label24->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label24->Name = L"label24";
 			this->label24->Size = System::Drawing::Size(79, 13);
 			this->label24->TabIndex = 10;
-			this->label24->Text = L"ID de l\'employe";
+			this->label24->Text = L"ID de l\'employé";
 			// 
 			// txt_pre_emp
 			// 
-			this->txt_pre_emp->Location = System::Drawing::Point(278, 316);
+			this->txt_pre_emp->Location = System::Drawing::Point(115, 254);
 			this->txt_pre_emp->Margin = System::Windows::Forms::Padding(2);
 			this->txt_pre_emp->Name = L"txt_pre_emp";
-			this->txt_pre_emp->Size = System::Drawing::Size(266, 20);
+			this->txt_pre_emp->Size = System::Drawing::Size(164, 20);
 			this->txt_pre_emp->TabIndex = 9;
 			this->txt_pre_emp->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox5_TextChanged_1);
 			// 
-			// txt_sup_hie_emp
-			// 
-			this->txt_sup_hie_emp->Location = System::Drawing::Point(567, 245);
-			this->txt_sup_hie_emp->Margin = System::Windows::Forms::Padding(2);
-			this->txt_sup_hie_emp->Name = L"txt_sup_hie_emp";
-			this->txt_sup_hie_emp->Size = System::Drawing::Size(266, 20);
-			this->txt_sup_hie_emp->TabIndex = 8;
-			// 
 			// txt_nom_emp
 			// 
-			this->txt_nom_emp->Location = System::Drawing::Point(278, 245);
+			this->txt_nom_emp->Location = System::Drawing::Point(115, 211);
 			this->txt_nom_emp->Margin = System::Windows::Forms::Padding(2);
 			this->txt_nom_emp->Name = L"txt_nom_emp";
-			this->txt_nom_emp->Size = System::Drawing::Size(266, 20);
+			this->txt_nom_emp->Size = System::Drawing::Size(164, 20);
 			this->txt_nom_emp->TabIndex = 7;
-			// 
-			// txt_dat_emb_emp
-			// 
-			this->txt_dat_emb_emp->Location = System::Drawing::Point(567, 175);
-			this->txt_dat_emb_emp->Margin = System::Windows::Forms::Padding(2);
-			this->txt_dat_emb_emp->Name = L"txt_dat_emb_emp";
-			this->txt_dat_emb_emp->Size = System::Drawing::Size(266, 20);
-			this->txt_dat_emb_emp->TabIndex = 6;
 			// 
 			// txt_ID_emp
 			// 
-			this->txt_ID_emp->Location = System::Drawing::Point(278, 175);
+			this->txt_ID_emp->Location = System::Drawing::Point(115, 168);
 			this->txt_ID_emp->Margin = System::Windows::Forms::Padding(2);
 			this->txt_ID_emp->Name = L"txt_ID_emp";
-			this->txt_ID_emp->Size = System::Drawing::Size(266, 20);
+			this->txt_ID_emp->Size = System::Drawing::Size(164, 20);
 			this->txt_ID_emp->TabIndex = 5;
 			// 
 			// but_del_emp
 			// 
 			this->but_del_emp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->but_del_emp->Location = System::Drawing::Point(134, 254);
+			this->but_del_emp->Location = System::Drawing::Point(5, 274);
 			this->but_del_emp->Margin = System::Windows::Forms::Padding(2);
 			this->but_del_emp->Name = L"but_del_emp";
-			this->but_del_emp->Size = System::Drawing::Size(94, 53);
+			this->but_del_emp->Size = System::Drawing::Size(94, 34);
 			this->but_del_emp->TabIndex = 4;
 			this->but_del_emp->Text = L"Supprimer";
 			this->but_del_emp->UseVisualStyleBackColor = true;
@@ -1443,10 +1488,10 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			this->but_upd_emp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->but_upd_emp->Location = System::Drawing::Point(19, 254);
+			this->but_upd_emp->Location = System::Drawing::Point(5, 234);
 			this->but_upd_emp->Margin = System::Windows::Forms::Padding(2);
 			this->but_upd_emp->Name = L"but_upd_emp";
-			this->but_upd_emp->Size = System::Drawing::Size(94, 53);
+			this->but_upd_emp->Size = System::Drawing::Size(94, 34);
 			this->but_upd_emp->TabIndex = 3;
 			this->but_upd_emp->Text = L"Modifier";
 			this->but_upd_emp->UseVisualStyleBackColor = true;
@@ -1455,22 +1500,22 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			this->but_ins_emp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->but_ins_emp->Location = System::Drawing::Point(134, 175);
+			this->but_ins_emp->Location = System::Drawing::Point(5, 194);
 			this->but_ins_emp->Margin = System::Windows::Forms::Padding(2);
 			this->but_ins_emp->Name = L"but_ins_emp";
-			this->but_ins_emp->Size = System::Drawing::Size(94, 53);
+			this->but_ins_emp->Size = System::Drawing::Size(94, 34);
 			this->but_ins_emp->TabIndex = 2;
-			this->but_ins_emp->Text = L"Ajouter";
+			this->but_ins_emp->Text = L"Insérer";
 			this->but_ins_emp->UseVisualStyleBackColor = true;
 			// 
 			// but_act_emp
 			// 
 			this->but_act_emp->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->but_act_emp->Location = System::Drawing::Point(19, 175);
+			this->but_act_emp->Location = System::Drawing::Point(5, 154);
 			this->but_act_emp->Margin = System::Windows::Forms::Padding(2);
 			this->but_act_emp->Name = L"but_act_emp";
-			this->but_act_emp->Size = System::Drawing::Size(94, 53);
+			this->but_act_emp->Size = System::Drawing::Size(94, 34);
 			this->but_act_emp->TabIndex = 1;
 			this->but_act_emp->Text = L"Actualiser";
 			this->but_act_emp->UseVisualStyleBackColor = true;
@@ -1479,7 +1524,25 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			this->dataGridView6->AllowUserToAddRows = false;
 			this->dataGridView6->AllowUserToDeleteRows = false;
+			dataGridViewCellStyle93->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle93->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle93->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle93->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle93->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle93->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle93->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView6->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle93;
 			this->dataGridView6->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			dataGridViewCellStyle94->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle94->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle94->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle94->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle94->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle94->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle94->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView6->DefaultCellStyle = dataGridViewCellStyle94;
 			this->dataGridView6->Location = System::Drawing::Point(-3, 0);
 			this->dataGridView6->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView6->Name = L"dataGridView6";
@@ -1496,7 +1559,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabPage4->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage4->Size = System::Drawing::Size(852, 383);
+			this->tabPage4->Size = System::Drawing::Size(829, 345);
 			this->tabPage4->TabIndex = 3;
 			this->tabPage4->Text = L"Articles";
 			this->tabPage4->UseVisualStyleBackColor = true;
@@ -1507,11 +1570,11 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabControl3->Controls->Add(this->tabPage7);
 			this->tabControl3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->tabControl3->Location = System::Drawing::Point(-3, 0);
+			this->tabControl3->Location = System::Drawing::Point(0, 0);
 			this->tabControl3->Margin = System::Windows::Forms::Padding(2);
 			this->tabControl3->Name = L"tabControl3";
 			this->tabControl3->SelectedIndex = 0;
-			this->tabControl3->Size = System::Drawing::Size(860, 374);
+			this->tabControl3->Size = System::Drawing::Size(834, 352);
 			this->tabControl3->TabIndex = 0;
 			// 
 			// tabPage6
@@ -1543,34 +1606,34 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabPage6->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage6->Name = L"tabPage6";
 			this->tabPage6->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage6->Size = System::Drawing::Size(852, 348);
+			this->tabPage6->Size = System::Drawing::Size(826, 326);
 			this->tabPage6->TabIndex = 0;
 			this->tabPage6->Text = L"Articles";
 			this->tabPage6->UseVisualStyleBackColor = true;
 			// 
 			// textBox8
 			// 
-			this->textBox8->Location = System::Drawing::Point(561, 306);
+			this->textBox8->Location = System::Drawing::Point(302, 297);
 			this->textBox8->Margin = System::Windows::Forms::Padding(2);
 			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(255, 19);
+			this->textBox8->Size = System::Drawing::Size(164, 19);
 			this->textBox8->TabIndex = 20;
 			// 
 			// label37
 			// 
 			this->label37->AutoSize = true;
-			this->label37->Location = System::Drawing::Point(559, 289);
+			this->label37->Location = System::Drawing::Point(302, 280);
 			this->label37->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label37->Name = L"label37";
-			this->label37->Size = System::Drawing::Size(190, 13);
+			this->label37->Size = System::Drawing::Size(140, 13);
 			this->label37->TabIndex = 19;
-			this->label37->Text = L"Seuil de reapprovisionnment de l\'article";
+			this->label37->Text = L"Seuil de réapprovisionnment";
 			this->label37->Click += gcnew System::EventHandler(this, &MyForm::label37_Click);
 			// 
 			// label36
 			// 
 			this->label36->AutoSize = true;
-			this->label36->Location = System::Drawing::Point(264, 290);
+			this->label36->Location = System::Drawing::Point(115, 280);
 			this->label36->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label36->Name = L"label36";
 			this->label36->Size = System::Drawing::Size(92, 13);
@@ -1580,7 +1643,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// label35
 			// 
 			this->label35->AutoSize = true;
-			this->label35->Location = System::Drawing::Point(561, 245);
+			this->label35->Location = System::Drawing::Point(302, 237);
 			this->label35->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label35->Name = L"label35";
 			this->label35->Size = System::Drawing::Size(91, 13);
@@ -1590,17 +1653,18 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// label34
 			// 
 			this->label34->AutoSize = true;
-			this->label34->Location = System::Drawing::Point(262, 245);
+			this->label34->Location = System::Drawing::Point(115, 237);
 			this->label34->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label34->Name = L"label34";
 			this->label34->Size = System::Drawing::Size(105, 13);
 			this->label34->TabIndex = 16;
 			this->label34->Text = L"Taux TVA de l\'article";
+			this->label34->Click += gcnew System::EventHandler(this, &MyForm::label34_Click);
 			// 
 			// label33
 			// 
 			this->label33->AutoSize = true;
-			this->label33->Location = System::Drawing::Point(561, 202);
+			this->label33->Location = System::Drawing::Point(302, 194);
 			this->label33->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label33->Name = L"label33";
 			this->label33->Size = System::Drawing::Size(62, 13);
@@ -1610,7 +1674,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// label32
 			// 
 			this->label32->AutoSize = true;
-			this->label32->Location = System::Drawing::Point(264, 198);
+			this->label32->Location = System::Drawing::Point(115, 194);
 			this->label32->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label32->Name = L"label32";
 			this->label32->Size = System::Drawing::Size(79, 13);
@@ -1620,7 +1684,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// label31
 			// 
 			this->label31->AutoSize = true;
-			this->label31->Location = System::Drawing::Point(561, 156);
+			this->label31->Location = System::Drawing::Point(302, 151);
 			this->label31->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label31->Name = L"label31";
 			this->label31->Size = System::Drawing::Size(82, 13);
@@ -1630,108 +1694,108 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// label30
 			// 
 			this->label30->AutoSize = true;
-			this->label30->Location = System::Drawing::Point(264, 156);
+			this->label30->Location = System::Drawing::Point(115, 151);
 			this->label30->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label30->Name = L"label30";
 			this->label30->Size = System::Drawing::Size(107, 13);
 			this->label30->TabIndex = 12;
-			this->label30->Text = L"Reference de l\'article";
+			this->label30->Text = L"Référence de l\'article";
 			// 
 			// textBox7
 			// 
-			this->textBox7->Location = System::Drawing::Point(264, 306);
+			this->textBox7->Location = System::Drawing::Point(115, 297);
 			this->textBox7->Margin = System::Windows::Forms::Padding(2);
 			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(255, 19);
+			this->textBox7->Size = System::Drawing::Size(164, 19);
 			this->textBox7->TabIndex = 11;
 			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(561, 261);
+			this->textBox6->Location = System::Drawing::Point(302, 254);
 			this->textBox6->Margin = System::Windows::Forms::Padding(2);
 			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(255, 19);
+			this->textBox6->Size = System::Drawing::Size(164, 19);
 			this->textBox6->TabIndex = 10;
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(264, 261);
+			this->textBox5->Location = System::Drawing::Point(115, 254);
 			this->textBox5->Margin = System::Windows::Forms::Padding(2);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(255, 19);
+			this->textBox5->Size = System::Drawing::Size(164, 19);
 			this->textBox5->TabIndex = 9;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(561, 218);
+			this->textBox4->Location = System::Drawing::Point(302, 211);
 			this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(255, 19);
+			this->textBox4->Size = System::Drawing::Size(164, 19);
 			this->textBox4->TabIndex = 8;
 			this->textBox4->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox4_TextChanged);
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(264, 218);
+			this->textBox3->Location = System::Drawing::Point(115, 211);
 			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(255, 19);
+			this->textBox3->Size = System::Drawing::Size(164, 19);
 			this->textBox3->TabIndex = 7;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged_1);
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(561, 175);
+			this->textBox2->Location = System::Drawing::Point(302, 168);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(255, 19);
+			this->textBox2->Size = System::Drawing::Size(164, 19);
 			this->textBox2->TabIndex = 6;
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged_1);
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(264, 175);
+			this->textBox1->Location = System::Drawing::Point(115, 168);
 			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(255, 19);
+			this->textBox1->Size = System::Drawing::Size(164, 19);
 			this->textBox1->TabIndex = 5;
 			// 
 			// but_del_art
 			// 
-			this->but_del_art->Location = System::Drawing::Point(130, 256);
+			this->but_del_art->Location = System::Drawing::Point(5, 274);
 			this->but_del_art->Margin = System::Windows::Forms::Padding(2);
 			this->but_del_art->Name = L"but_del_art";
-			this->but_del_art->Size = System::Drawing::Size(94, 53);
+			this->but_del_art->Size = System::Drawing::Size(94, 34);
 			this->but_del_art->TabIndex = 4;
 			this->but_del_art->Text = L"Supprimer";
 			this->but_del_art->UseVisualStyleBackColor = true;
 			// 
 			// but_upd_art
 			// 
-			this->but_upd_art->Location = System::Drawing::Point(20, 256);
+			this->but_upd_art->Location = System::Drawing::Point(5, 234);
 			this->but_upd_art->Margin = System::Windows::Forms::Padding(2);
 			this->but_upd_art->Name = L"but_upd_art";
-			this->but_upd_art->Size = System::Drawing::Size(94, 53);
+			this->but_upd_art->Size = System::Drawing::Size(94, 34);
 			this->but_upd_art->TabIndex = 3;
 			this->but_upd_art->Text = L"Modifier";
 			this->but_upd_art->UseVisualStyleBackColor = true;
 			// 
 			// but_ins_act
 			// 
-			this->but_ins_act->Location = System::Drawing::Point(130, 175);
+			this->but_ins_act->Location = System::Drawing::Point(5, 194);
 			this->but_ins_act->Margin = System::Windows::Forms::Padding(2);
 			this->but_ins_act->Name = L"but_ins_act";
-			this->but_ins_act->Size = System::Drawing::Size(94, 53);
+			this->but_ins_act->Size = System::Drawing::Size(94, 34);
 			this->but_ins_act->TabIndex = 2;
-			this->but_ins_act->Text = L"Ajouter";
+			this->but_ins_act->Text = L"Insérer";
 			this->but_ins_act->UseVisualStyleBackColor = true;
 			// 
 			// but_act_art
 			// 
-			this->but_act_art->Location = System::Drawing::Point(20, 175);
+			this->but_act_art->Location = System::Drawing::Point(5, 154);
 			this->but_act_art->Margin = System::Windows::Forms::Padding(2);
 			this->but_act_art->Name = L"but_act_art";
-			this->but_act_art->Size = System::Drawing::Size(94, 53);
+			this->but_act_art->Size = System::Drawing::Size(94, 34);
 			this->but_act_art->TabIndex = 1;
 			this->but_act_art->Text = L"Actualiser";
 			this->but_act_art->UseVisualStyleBackColor = true;
@@ -1765,7 +1829,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabPage7->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage7->Name = L"tabPage7";
 			this->tabPage7->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage7->Size = System::Drawing::Size(852, 348);
+			this->tabPage7->Size = System::Drawing::Size(826, 326);
 			this->tabPage7->TabIndex = 1;
 			this->tabPage7->Text = L"Couleurs";
 			this->tabPage7->UseVisualStyleBackColor = true;
@@ -1773,7 +1837,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// label39
 			// 
 			this->label39->AutoSize = true;
-			this->label39->Location = System::Drawing::Point(268, 190);
+			this->label39->Location = System::Drawing::Point(115, 194);
 			this->label39->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label39->Name = L"label39";
 			this->label39->Size = System::Drawing::Size(93, 13);
@@ -1783,7 +1847,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// label38
 			// 
 			this->label38->AutoSize = true;
-			this->label38->Location = System::Drawing::Point(268, 150);
+			this->label38->Location = System::Drawing::Point(115, 151);
 			this->label38->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label38->Name = L"label38";
 			this->label38->Size = System::Drawing::Size(82, 13);
@@ -1792,56 +1856,56 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			// txt_nom_cou
 			// 
-			this->txt_nom_cou->Location = System::Drawing::Point(268, 206);
+			this->txt_nom_cou->Location = System::Drawing::Point(115, 211);
 			this->txt_nom_cou->Margin = System::Windows::Forms::Padding(2);
 			this->txt_nom_cou->Name = L"txt_nom_cou";
-			this->txt_nom_cou->Size = System::Drawing::Size(242, 19);
+			this->txt_nom_cou->Size = System::Drawing::Size(164, 19);
 			this->txt_nom_cou->TabIndex = 6;
 			// 
 			// txt_ID_cou
 			// 
-			this->txt_ID_cou->Location = System::Drawing::Point(268, 167);
+			this->txt_ID_cou->Location = System::Drawing::Point(115, 168);
 			this->txt_ID_cou->Margin = System::Windows::Forms::Padding(2);
 			this->txt_ID_cou->Name = L"txt_ID_cou";
-			this->txt_ID_cou->Size = System::Drawing::Size(242, 19);
+			this->txt_ID_cou->Size = System::Drawing::Size(164, 19);
 			this->txt_ID_cou->TabIndex = 5;
 			// 
 			// but_del_cou
 			// 
-			this->but_del_cou->Location = System::Drawing::Point(138, 237);
+			this->but_del_cou->Location = System::Drawing::Point(5, 274);
 			this->but_del_cou->Margin = System::Windows::Forms::Padding(2);
 			this->but_del_cou->Name = L"but_del_cou";
-			this->but_del_cou->Size = System::Drawing::Size(94, 53);
+			this->but_del_cou->Size = System::Drawing::Size(94, 34);
 			this->but_del_cou->TabIndex = 4;
 			this->but_del_cou->Text = L"Supprimer";
 			this->but_del_cou->UseVisualStyleBackColor = true;
 			// 
 			// but_upd_cou
 			// 
-			this->but_upd_cou->Location = System::Drawing::Point(23, 237);
+			this->but_upd_cou->Location = System::Drawing::Point(5, 234);
 			this->but_upd_cou->Margin = System::Windows::Forms::Padding(2);
 			this->but_upd_cou->Name = L"but_upd_cou";
-			this->but_upd_cou->Size = System::Drawing::Size(94, 53);
+			this->but_upd_cou->Size = System::Drawing::Size(94, 34);
 			this->but_upd_cou->TabIndex = 3;
 			this->but_upd_cou->Text = L"Modifier";
 			this->but_upd_cou->UseVisualStyleBackColor = true;
 			// 
 			// but_ins_cou
 			// 
-			this->but_ins_cou->Location = System::Drawing::Point(138, 167);
+			this->but_ins_cou->Location = System::Drawing::Point(5, 194);
 			this->but_ins_cou->Margin = System::Windows::Forms::Padding(2);
 			this->but_ins_cou->Name = L"but_ins_cou";
-			this->but_ins_cou->Size = System::Drawing::Size(94, 53);
+			this->but_ins_cou->Size = System::Drawing::Size(94, 34);
 			this->but_ins_cou->TabIndex = 2;
-			this->but_ins_cou->Text = L"Ajouter";
+			this->but_ins_cou->Text = L"Insérer";
 			this->but_ins_cou->UseVisualStyleBackColor = true;
 			// 
 			// but_act_cou
 			// 
-			this->but_act_cou->Location = System::Drawing::Point(23, 167);
+			this->but_act_cou->Location = System::Drawing::Point(5, 154);
 			this->but_act_cou->Margin = System::Windows::Forms::Padding(2);
 			this->but_act_cou->Name = L"but_act_cou";
-			this->but_act_cou->Size = System::Drawing::Size(94, 53);
+			this->but_act_cou->Size = System::Drawing::Size(94, 34);
 			this->but_act_cou->TabIndex = 1;
 			this->but_act_cou->Text = L"Actualiser";
 			this->but_act_cou->UseVisualStyleBackColor = true;
@@ -1879,7 +1943,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->tabPage5->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage5->Name = L"tabPage5";
 			this->tabPage5->Padding = System::Windows::Forms::Padding(2);
-			this->tabPage5->Size = System::Drawing::Size(852, 383);
+			this->tabPage5->Size = System::Drawing::Size(829, 345);
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Adresses";
 			this->tabPage5->UseVisualStyleBackColor = true;
@@ -1889,7 +1953,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->label43->AutoSize = true;
 			this->label43->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label43->Location = System::Drawing::Point(256, 301);
+			this->label43->Location = System::Drawing::Point(115, 280);
 			this->label43->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label43->Name = L"label43";
 			this->label43->Size = System::Drawing::Size(124, 13);
@@ -1902,7 +1966,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->label42->AutoSize = true;
 			this->label42->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label42->Location = System::Drawing::Point(256, 248);
+			this->label42->Location = System::Drawing::Point(115, 237);
 			this->label42->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label42->Name = L"label42";
 			this->label42->Size = System::Drawing::Size(132, 13);
@@ -1915,7 +1979,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->label41->AutoSize = true;
 			this->label41->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label41->Location = System::Drawing::Point(256, 199);
+			this->label41->Location = System::Drawing::Point(115, 194);
 			this->label41->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label41->Name = L"label41";
 			this->label41->Size = System::Drawing::Size(103, 13);
@@ -1927,7 +1991,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->label40->AutoSize = true;
 			this->label40->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label40->Location = System::Drawing::Point(256, 150);
+			this->label40->Location = System::Drawing::Point(115, 151);
 			this->label40->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label40->Name = L"label40";
 			this->label40->Size = System::Drawing::Size(77, 13);
@@ -1936,7 +2000,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			// txt_ID_ville_adr
 			// 
-			this->txt_ID_ville_adr->Location = System::Drawing::Point(256, 319);
+			this->txt_ID_ville_adr->Location = System::Drawing::Point(115, 297);
 			this->txt_ID_ville_adr->Margin = System::Windows::Forms::Padding(2);
 			this->txt_ID_ville_adr->Name = L"txt_ID_ville_adr";
 			this->txt_ID_ville_adr->Size = System::Drawing::Size(275, 20);
@@ -1944,7 +2008,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			// txt_nom_rue_adr
 			// 
-			this->txt_nom_rue_adr->Location = System::Drawing::Point(256, 266);
+			this->txt_nom_rue_adr->Location = System::Drawing::Point(115, 254);
 			this->txt_nom_rue_adr->Margin = System::Windows::Forms::Padding(2);
 			this->txt_nom_rue_adr->Name = L"txt_nom_rue_adr";
 			this->txt_nom_rue_adr->Size = System::Drawing::Size(275, 20);
@@ -1952,7 +2016,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			// txt_num_adr
 			// 
-			this->txt_num_adr->Location = System::Drawing::Point(256, 218);
+			this->txt_num_adr->Location = System::Drawing::Point(115, 211);
 			this->txt_num_adr->Margin = System::Windows::Forms::Padding(2);
 			this->txt_num_adr->Name = L"txt_num_adr";
 			this->txt_num_adr->Size = System::Drawing::Size(275, 20);
@@ -1960,7 +2024,7 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			// txt_ID_adr
 			// 
-			this->txt_ID_adr->Location = System::Drawing::Point(256, 171);
+			this->txt_ID_adr->Location = System::Drawing::Point(115, 168);
 			this->txt_ID_adr->Margin = System::Windows::Forms::Padding(2);
 			this->txt_ID_adr->Name = L"txt_ID_adr";
 			this->txt_ID_adr->Size = System::Drawing::Size(275, 20);
@@ -1970,10 +2034,10 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			this->but_del_adr->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->but_del_adr->Location = System::Drawing::Point(127, 242);
+			this->but_del_adr->Location = System::Drawing::Point(4, 274);
 			this->but_del_adr->Margin = System::Windows::Forms::Padding(2);
 			this->but_del_adr->Name = L"but_del_adr";
-			this->but_del_adr->Size = System::Drawing::Size(94, 53);
+			this->but_del_adr->Size = System::Drawing::Size(94, 34);
 			this->but_del_adr->TabIndex = 4;
 			this->but_del_adr->Text = L"Supprimer";
 			this->but_del_adr->UseVisualStyleBackColor = true;
@@ -1982,10 +2046,10 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			this->but_upd_adr->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->but_upd_adr->Location = System::Drawing::Point(16, 242);
+			this->but_upd_adr->Location = System::Drawing::Point(4, 234);
 			this->but_upd_adr->Margin = System::Windows::Forms::Padding(2);
 			this->but_upd_adr->Name = L"but_upd_adr";
-			this->but_upd_adr->Size = System::Drawing::Size(94, 53);
+			this->but_upd_adr->Size = System::Drawing::Size(94, 34);
 			this->but_upd_adr->TabIndex = 3;
 			this->but_upd_adr->Text = L"Modifier";
 			this->but_upd_adr->UseVisualStyleBackColor = true;
@@ -1995,22 +2059,22 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			this->but_ins_adr->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->but_ins_adr->Location = System::Drawing::Point(127, 171);
+			this->but_ins_adr->Location = System::Drawing::Point(4, 194);
 			this->but_ins_adr->Margin = System::Windows::Forms::Padding(2);
 			this->but_ins_adr->Name = L"but_ins_adr";
-			this->but_ins_adr->Size = System::Drawing::Size(94, 53);
+			this->but_ins_adr->Size = System::Drawing::Size(94, 34);
 			this->but_ins_adr->TabIndex = 2;
-			this->but_ins_adr->Text = L"Ajouter";
+			this->but_ins_adr->Text = L"Insérer";
 			this->but_ins_adr->UseVisualStyleBackColor = true;
 			// 
 			// but_act_adr
 			// 
 			this->but_act_adr->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->but_act_adr->Location = System::Drawing::Point(16, 171);
+			this->but_act_adr->Location = System::Drawing::Point(4, 154);
 			this->but_act_adr->Margin = System::Windows::Forms::Padding(2);
 			this->but_act_adr->Name = L"but_act_adr";
-			this->but_act_adr->Size = System::Drawing::Size(94, 53);
+			this->but_act_adr->Size = System::Drawing::Size(94, 34);
 			this->but_act_adr->TabIndex = 1;
 			this->but_act_adr->Text = L"Actualiser";
 			this->but_act_adr->UseVisualStyleBackColor = true;
@@ -2019,7 +2083,25 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			// 
 			this->dataGridView8->AllowUserToAddRows = false;
 			this->dataGridView8->AllowUserToDeleteRows = false;
+			dataGridViewCellStyle95->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle95->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle95->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle95->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle95->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle95->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle95->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView8->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle95;
 			this->dataGridView8->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			dataGridViewCellStyle96->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle96->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle96->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle96->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle96->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle96->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle96->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView8->DefaultCellStyle = dataGridViewCellStyle96;
 			this->dataGridView8->Location = System::Drawing::Point(0, 0);
 			this->dataGridView8->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView8->Name = L"dataGridView8";
@@ -2029,29 +2111,15 @@ private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
 			this->dataGridView8->Size = System::Drawing::Size(823, 145);
 			this->dataGridView8->TabIndex = 0;
 			// 
-			// dat_nai_cli
-			// 
-			this->dat_nai_cli->Location = System::Drawing::Point(302, 168);
-			this->dat_nai_cli->Name = L"dat_nai_cli";
-			this->dat_nai_cli->Size = System::Drawing::Size(164, 20);
-			this->dat_nai_cli->TabIndex = 15;
-			// 
-			// er_ach_cli
-			// 
-			this->er_ach_cli->Location = System::Drawing::Point(302, 211);
-			this->er_ach_cli->Name = L"er_ach_cli";
-			this->er_ach_cli->Size = System::Drawing::Size(164, 20);
-			this->er_ach_cli->TabIndex = 16;
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(997, 495);
+			this->ClientSize = System::Drawing::Size(837, 367);
 			this->Controls->Add(this->tabControl1);
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyForm";
-			this->Text = L"BugsBunny Fortnite";
+			this->Text = L"CESIexpress";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
@@ -2157,6 +2225,10 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 private: System::Void label21_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void tabPage2_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label26_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void label34_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
