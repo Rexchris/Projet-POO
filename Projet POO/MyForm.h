@@ -2036,6 +2036,7 @@ namespace ProjetPOO {
 			this->but_del_adr->TabIndex = 4;
 			this->but_del_adr->Text = L"Supprimer";
 			this->but_del_adr->UseVisualStyleBackColor = true;
+			this->but_del_adr->Click += gcnew System::EventHandler(this, &MyForm::but_del_adr_Click);
 			// 
 			// but_upd_adr
 			// 
@@ -2048,7 +2049,7 @@ namespace ProjetPOO {
 			this->but_upd_adr->TabIndex = 3;
 			this->but_upd_adr->Text = L"Modifier";
 			this->but_upd_adr->UseVisualStyleBackColor = true;
-			this->but_upd_adr->Click += gcnew System::EventHandler(this, &MyForm::button3_Click_2);
+			this->but_upd_adr->Click += gcnew System::EventHandler(this, &MyForm::but_upd_adr_Click);
 			// 
 			// but_ins_adr
 			// 
@@ -2061,6 +2062,7 @@ namespace ProjetPOO {
 			this->but_ins_adr->TabIndex = 2;
 			this->but_ins_adr->Text = L"Insérer";
 			this->but_ins_adr->UseVisualStyleBackColor = true;
+			this->but_ins_adr->Click += gcnew System::EventHandler(this, &MyForm::but_ins_adr_Click);
 			// 
 			// but_act_adr
 			// 
@@ -2165,18 +2167,32 @@ namespace ProjetPOO {
 	private: System::Void but_ins_adr_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->oService->AjouterUneAdresse(Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, Convert::ToInt32(this->txt_ID_ville_adr->Text));
+		this->dataGridView8->Refresh();
+		this->oDs = this->oService->AfficherAdresses();
+		this->dataGridView8->DataSource = this->oDs;
 	}
 
 	private: System::Void but_upd_adr_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->oService->ModifierUneAdresse(Convert::ToInt32(this->txt_ID_adr->Text), Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, Convert::ToInt32(this->txt_ID_ville_adr->Text));
+		this->dataGridView8->Refresh();
+		this->oDs = this->oService->AfficherAdresses();
+		this->dataGridView8->DataSource = this->oDs;
+	}
+
+	private: System::Void but_del_adr_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->SupprimerUneAdresse(Convert::ToInt32(this->txt_ID_adr->Text));
+		this->dataGridView8->Refresh();
+		this->oDs = this->oService->AfficherAdresses();
+		this->dataGridView8->DataSource = this->oDs;
 	}
 
 
 
 
 
-
+		   
 
 
 

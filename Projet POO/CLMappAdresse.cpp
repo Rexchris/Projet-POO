@@ -57,12 +57,12 @@ System::String^ NS_Comp_Adresse::CLMappAdresse::InsertAdresse(void)
 
 System::String^ NS_Comp_Adresse::CLMappAdresse::UpdateAdresse(void)
 {
-	return "UPDATE Adresse SET Numero_Adresse = '" + this->Numero_Adresse + "', Nom_Rue_Adresse = '" + this->Nom_Rue_Adresse + "', ID_Ville = '" + this->ID_Ville + "' WHERE ID_Adresse = " + this->ID_Adresse;
+	return "UPDATE Adresse SET Numero_Adresse = '" + this->getNumero_Adresse() + "', Nom_Rue_Adresse = '" + this->getNom_Rue_Adresse() + "', ID_Ville = '" + this->getID_Ville() + "' WHERE ID_Adresse = " + this->getID_Adresse();
 }
 
 System::String^ NS_Comp_Adresse::CLMappAdresse::DeleteAdresse(void)
 {
-	return "";
+	return "DELETE FROM Adresse WHERE ID_Adresse =" + this->getID_Adresse();
 }
 
 System::String^ NS_Comp_Adresse::CLMappAdresse::Select(void) { return ""; }
