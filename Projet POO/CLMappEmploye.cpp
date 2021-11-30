@@ -62,12 +62,17 @@ bool NS_Comp_Employe::CLMappEmploye::getSuperieur_Hierarchique(void)
 
 System::String^ NS_Comp_Employe::CLMappEmploye::Select()
 {
-	return "";
+	return "SELECT Employe.ID_Employe, Employe.Nom_Employe, Employe.Prenom_Employe, Employe.Date_embauche, Employe.Superieur_Hierarchique, Employe.ID_Employe_Superieur_hierarchique, Employe.ID_Adresse, Adresse.Numero_Adresse, Adresse.Nom_Rue_Adresse, Adresse.ID_Ville, Ville.Nom_Ville, Ville.Code_Postal_Ville FROM Employe LEFT JOIN Adresse ON Employe.ID_Adresse = Adresse.ID_Adresse INNER JOIN Ville ON Adresse.ID_Ville = Ville.ID_Ville";
 }
 
 System::String^ NS_Comp_Employe::CLMappEmploye::Insert()
 {
-	return "";
+	if (getSuperieur_Hierarchique() == true) {
+		return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', '" + getID_Employe_Superieur_Hierarchique() + "', '" + getID_Adresse() + "')";
+	}
+	else {
+		return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', NULL, '" + getID_Adresse() + "')";
+	}
 }
 
 System::String^ NS_Comp_Employe::CLMappEmploye::Update()
@@ -77,5 +82,5 @@ System::String^ NS_Comp_Employe::CLMappEmploye::Update()
 
 System::String^ NS_Comp_Employe::CLMappEmploye::Delete()
 {
-	return "";
+	return "DELETE FROM Employe WHERE ID_Employe =" + getID_Employe();
 }
