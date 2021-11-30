@@ -6,7 +6,7 @@ namespace NS_Comp_Commande
 	ref class CLMappCommande : public NS_Comp_Adresse::CLMappAdresse
 	{
 	private :
-		int Reference_Commande;
+		System::String^ Reference_Commande;
 		System::String^ Date_Livraison;
 		System::String^ Date_Emission;
 		System::String^ Date_Facturation;
@@ -20,10 +20,10 @@ namespace NS_Comp_Commande
 		int ID_Payement;
 		System::String^ Date_Payement;
 		System::String^ Moyen_Payement;
-		float Montant_Payement;
+		double Montant_Payement;
 		float Taux_TVA;
 	public :
-		void setReference_Commande(int Reference_Commande);
+		void setReference_Commande(System::String^ Reference_Commande);
 		void setDate_Livraison(System::String^ Date_Livraison);
 		void setDate_Emission(System::String^ Date_Emission);
 		void setDate_Facturation(System::String^ Date_Facturation);
@@ -37,9 +37,9 @@ namespace NS_Comp_Commande
 		void setID_Payement(int ID_Payement);
 		void setDate_Payement(System::String^ Date_Payement);
 		void setMoyen_Payement(System::String^ Moyent_Payement);
-		void setMontant_Payement(float Montant_Payement);
+		void setMontant_Payement(double Montant_Payement);
 		void setTaux_TVA(float Taux_TVA);
-		int getReference_Commande(void);
+		System::String^ getReference_Commande(void);
 		System::String^ getDate_Livraison(void);
 		System::String^ getDate_Emission(void);
 		System::String^ getDate_Facturation(void);
@@ -53,7 +53,7 @@ namespace NS_Comp_Commande
 		int getID_Payement(void);
 		System::String^ getDate_Payement(void);
 		System::String^ getMoyen_Payement(void);
-		float getMontant_Payement(void);
+		double getMontant_Payement(void);
 		float getTaux_TVA(void);
 		System::String^ Select(void) override;
 		System::String^ Insert(void) override;

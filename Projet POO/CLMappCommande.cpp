@@ -1,6 +1,6 @@
 #include "CLMappCommande.h"
 
-void NS_Comp_Commande::CLMappCommande::setReference_Commande(int Reference_Commande)
+void NS_Comp_Commande::CLMappCommande::setReference_Commande(System::String^ Reference_Commande)
 {
 	this->Reference_Commande = Reference_Commande;
 }
@@ -70,7 +70,7 @@ void NS_Comp_Commande::CLMappCommande::setMoyen_Payement(System::String^ Moyen_P
 	this->Moyen_Payement = Moyen_Payement;
 }
 
-void NS_Comp_Commande::CLMappCommande::setMontant_Payement(float Montant_Payement)
+void NS_Comp_Commande::CLMappCommande::setMontant_Payement(double Montant_Payement)
 {
 	this->Montant_Payement = Montant_Payement;
 }
@@ -80,7 +80,7 @@ void NS_Comp_Commande::CLMappCommande::setTaux_TVA(float Taux_TVA)
 	this->Taux_TVA = Taux_TVA;
 }
 
-int NS_Comp_Commande::CLMappCommande::getReference_Commande(void)
+System::String^ NS_Comp_Commande::CLMappCommande::getReference_Commande(void)
 {
 	return this->Reference_Commande;
 }
@@ -150,7 +150,7 @@ System::String^ NS_Comp_Commande::CLMappCommande::getMoyen_Payement(void)
 	return this->Moyen_Payement;
 }
 
-float NS_Comp_Commande::CLMappCommande::getMontant_Payement(void)
+double NS_Comp_Commande::CLMappCommande::getMontant_Payement(void)
 {
 	return this->Montant_Payement;
 }
@@ -178,15 +178,15 @@ System::String^ NS_Comp_Commande::CLMappCommande::Delete() {
 
 System::String^ NS_Comp_Commande::CLMappCommande::SelectPayement(void) 
 {
-	return "";
+	return "SELECT * FROM Payement";
 }
 System::String^ NS_Comp_Commande::CLMappCommande::InsertPayement(void) 
 {
-	return "";
+	return "INSERT INTO Payement(Date_Payement, Moyen_Payement, Montant_Payement, ID_Commande) VALUES ('" + this->getDate_Payement() + "','" + this->getMoyen_Payement() + "','" + this->getMontant_Payement() + "','" + this->getReference_Commande() + "')";
 }
 System::String^ NS_Comp_Commande::CLMappCommande::UpdatePayement(void) 
 {
-	return "";
+	return "UPDATE Payement SET Date_Payement = '" + this->getDate_Payement() + "', Moyen_Payement = '" + this->getMoyen_Payement() + "', Montant_Payement = '" + this->getMontant_Payement() + "', ID_Commande = '" + this->getReference_Commande() + "' WHERE ID_Payement =" + getID_Payement();
 }
 System::String^ NS_Comp_Commande::CLMappCommande::DeletePayement(void) 
 {

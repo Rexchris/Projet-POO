@@ -49,20 +49,20 @@ System::String^ NS_Comp_Client::CLMappClient::getPrenom_Client(void)
 
 System::String^ NS_Comp_Client::CLMappClient::Select() 
 {
-	return "";
+	return "SELECT * FROM Client";
 }
 
 System::String^ NS_Comp_Client::CLMappClient::Insert()
 {
-	return "";
+	return "INSERT INTO Client (Nom_Client, Prenom_Client, Date_Naissance_Client, Date_1er_Achat) VALUES ('" + this->getNom_Client() + "','" + this->getPrenom_Client() + "','" + this->getDate_Naissance_Client() + "','" + this->getDate_1er_Achat() + "')";
 }
 
 System::String^ NS_Comp_Client::CLMappClient::Update()
 {
-	return "";
+	return "UPDATE Client SET Nom_Client = '" + this->getNom_Client() + "', Prenom_Client = '" + this->getPrenom_Client() + "', Date_Naissance_Client = '" + this->getDate_Naissance_Client() + "', Date_1er_Achat = '" + this->getDate_1er_Achat() + "' WHERE ID_Client =" + this->getID_Client();
 }
 
 System::String^ NS_Comp_Client::CLMappClient::Delete()
 {
-	return "";
+	return "DELETE FROM Client WHERE ID_Client =" + this->getID_Client();
 }

@@ -125,7 +125,7 @@ void NS_Comp_Service::Clservice::AjouterUneCommande(System::String^ Date_Livrais
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::ModifierUneCommande(int Reference_Commande, System::String^ Date_Livraison, System::String^ Date_Emission, System::String^ Date_Facturation, float Montant_Total_HT, int ID_Client, int ID_Adresse_Livraison, int ID_Adresse_Facturation)
+void NS_Comp_Service::Clservice::ModifierUneCommande(System::String^ Reference_Commande, System::String^ Date_Livraison, System::String^ Date_Emission, System::String^ Date_Facturation, float Montant_Total_HT, int ID_Client, int ID_Adresse_Livraison, int ID_Adresse_Facturation)
 {
 	System::String^ sql;
 
@@ -141,7 +141,7 @@ void NS_Comp_Service::Clservice::ModifierUneCommande(int Reference_Commande, Sys
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::SupprimerUneCommande(int Reference_Commande)
+void NS_Comp_Service::Clservice::SupprimerUneCommande(System::String^ Reference_Commande)
 {
 	System::String^ sql;
 
@@ -210,7 +210,7 @@ System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherArticlesDeCommande(
 	return this->oMapp->getRows(sql);
 }
 
-void NS_Comp_Service::Clservice::AjouterUnArticleDeCommande(int Reference_Commande, int Reference_Article, float Prix_Unitaire_Remise, int Quantite_Commande_Article, float Taux_TVA)
+void NS_Comp_Service::Clservice::AjouterUnArticleDeCommande(System::String^ Reference_Commande, int Reference_Article, float Prix_Unitaire_Remise, int Quantite_Commande_Article, float Taux_TVA)
 {
 	System::String^ sql;
 
@@ -223,7 +223,7 @@ void NS_Comp_Service::Clservice::AjouterUnArticleDeCommande(int Reference_Comman
 	return this->oMapp->actionRows(sql);
 }
 
-void  NS_Comp_Service::Clservice::ModifierUnArticleDeCommande(int Reference_Commande, int Reference_Article, float Prix_Unitaire_Remise, int Quantite_Commande_Article, float Taux_TVA)
+void  NS_Comp_Service::Clservice::ModifierUnArticleDeCommande(System::String^ Reference_Commande, int Reference_Article, float Prix_Unitaire_Remise, int Quantite_Commande_Article, float Taux_TVA)
 {
 	System::String^ sql;
 
@@ -236,7 +236,7 @@ void  NS_Comp_Service::Clservice::ModifierUnArticleDeCommande(int Reference_Comm
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::SupprimerUnArticleDeCommande(int Reference_Commande, int Reference_Article)
+void NS_Comp_Service::Clservice::SupprimerUnArticleDeCommande(System::String^ Reference_Commande, int Reference_Article)
 {
 	System::String^ sql;
 
@@ -255,7 +255,7 @@ System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherPayements(void)
 	return this->oMapp->getRows(sql);
 }
 
-void NS_Comp_Service::Clservice::AjouterUnPayement(System::String^ Date_Payement, System::String^ Moyen_Payement, float Montant_Payement, int Reference_Commande)
+void NS_Comp_Service::Clservice::AjouterUnPayement(System::String^ Date_Payement, System::String^ Moyen_Payement, double Montant_Payement, System::String^ Reference_Commande)
 {
 	System::String^ sql;
 
@@ -267,7 +267,7 @@ void NS_Comp_Service::Clservice::AjouterUnPayement(System::String^ Date_Payement
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::ModifierUnPayement(int ID_Payement, System::String^ Date_Payement, System::String^ Moyen_Payement, float Montant_Payement, int Reference_Commande)
+void NS_Comp_Service::Clservice::ModifierUnPayement(int ID_Payement, System::String^ Date_Payement, System::String^ Moyen_Payement, double Montant_Payement, System::String^ Reference_Commande)
 {
 	System::String^ sql;
 
