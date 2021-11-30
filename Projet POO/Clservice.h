@@ -6,7 +6,7 @@
 #include "CLMappCommande.h"
 #include "CLMappStock.h"
 #include "CLMappageStat.h"
-
+#include "CLMappAdresse.h"
 
 namespace NS_Comp_Service {
 	ref class Clservice
@@ -18,6 +18,7 @@ namespace NS_Comp_Service {
 		NS_Comp_Commande::CLMappCommande^ oMappCommande;
 		NS_Comp_Stock::CLMappStock^ oMappStock;
 		NS_Comp_Stat::CLMappageStat^ oMappStat;
+		NS_Comp_Adresse::CLMappAdresse^ oMappAdr;
 	public :
 		Clservice(void);
 		System::Data::DataTable^ AfficherEmployes(void);
@@ -53,5 +54,9 @@ namespace NS_Comp_Service {
 		void AjouterUnStock(int Quantite_Stock, int Seuil_Reapprovisionnement);
 		void ModifierUnStock(int ID_Stock, int Quantite_Stock, int Seuil_Reapprovisionnement);
 		void SupprimerUnStock(int ID_Stock);
+		System::Data::DataTable^ AfficherAdresses(void);
+		void AjouterUneAdresse(int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville);
+		void ModifierUneAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville);
+		void SupprimerUneAdresse(int ID_Adresse);
 	};
 }

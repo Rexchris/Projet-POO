@@ -8,6 +8,7 @@ NS_Comp_Service::Clservice::Clservice(void)
 	this->oMappCommande = gcnew NS_Comp_Commande::CLMappCommande();
 	this->oMappStock = gcnew NS_Comp_Stock::CLMappStock();
 	this->oMappStat = gcnew NS_Comp_Stat::CLMappageStat();
+	this->oMappAdr = gcnew NS_Comp_Adresse::CLMappAdresse();
 }
 
 System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherEmployes(void)
@@ -359,5 +360,45 @@ void NS_Comp_Service::Clservice::SupprimerUnStock(int ID_Stock)
 
 	this->oMappStock->setID_Stock(ID_Stock);
 	sql = this->oMappStock->Delete();
+	return this->oMapp->actionRows(sql);
+}
+
+System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherAdresses(void)
+{
+	System::String^ sql;
+
+	sql = this->oMappAdr->SelectAdresse();
+	return this->oMapp->getRows(sql);
+}
+
+void NS_Comp_Service::Clservice::AjouterUneAdresse(int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville)
+{
+	System::String^ sql;
+
+	this->oMappAdr->setNumero_Adresse(Numero_Adresse);
+	this->oMappAdr->setNom_Rue_Adresse(Nom_Rue_Adresse);
+	this->oMappAdr->setID_Ville(ID_Ville);
+	sql = this->oMappAdr->InsertAdresse();
+	return this->oMapp->actionRows(sql);
+}
+
+void NS_Comp_Service::Clservice::ModifierUneAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville)
+{
+	System::String^ sql;
+
+	this->oMappAdr->setID_Adresse(ID_Adresse);
+	this->oMappAdr->setNumero_Adresse(Numero_Adresse);
+	this->oMappAdr->setNom_Rue_Adresse(Nom_Rue_Adresse);
+	this->oMappAdr->setID_Ville(ID_Ville);
+	sql = this->oMappAdr->UpdateAdresse();
+	return this->oMapp->actionRows(sql);
+}
+
+void NS_Comp_Service::Clservice::SupprimerUneAdresse(int ID_Adresse)
+{
+	System::String^ sql;
+
+	this->oMappAdr->setID_Adresse(ID_Adresse);
+	sql = this->oMappAdr->DeleteAdresse();
 	return this->oMapp->actionRows(sql);
 }

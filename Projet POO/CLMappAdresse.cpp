@@ -27,7 +27,7 @@ void NS_Comp_Adresse::CLMappAdresse::setNumero_Adresse(int Numero_Adresse)
 
 void NS_Comp_Adresse::CLMappAdresse::setNom_Rue_Adresse(System::String^ Nom_Rue_Adresse)
 {
-	this->Nom_Rue_Adresse = Nom_Rue_Adresse;
+	NS_Comp_Adresse::CLMappAdresse::Nom_Rue_Adresse = Nom_Rue_Adresse;
 }
 
 int NS_Comp_Adresse::CLMappAdresse::getID_Ville(void) { return this->ID_Ville; }
@@ -45,12 +45,27 @@ System::String^ NS_Comp_Adresse::CLMappAdresse::getNom_Rue_Adresse(void)
 	return this->Nom_Rue_Adresse; 
 }
 
-System::String^ NS_Comp_Adresse::CLMappAdresse::InsertAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville) 
+System::String^ NS_Comp_Adresse::CLMappAdresse::SelectAdresse(void)
+{
+	return "SELECT Adresse.ID_Adresse, Adresse.Numero_Adresse, Adresse.Nom_Rue_Adresse, Adresse.ID_Ville, Ville.Nom_Ville, Ville.Code_Postal_Ville FROM Adresse LEFT JOIN Ville ON Adresse.ID_Ville = Ville.ID_Ville";
+}
+
+System::String^ NS_Comp_Adresse::CLMappAdresse::InsertAdresse(void) 
+{
+	return "INSERT INTO [ProjetPOO].[dbo].[Adresse] (Numero_Adresse, Nom_Rue_Adresse, ID_Ville) VALUES ('" + this->getNumero_Adresse() + "', '" + this->getNom_Rue_Adresse() + "', '" + this->getID_Ville() + "');";
+}
+
+System::String^ NS_Comp_Adresse::CLMappAdresse::UpdateAdresse(void)
+{
+	return "UPDATE Adresse SET Numero_Adresse = '" + this->Numero_Adresse + "', Nom_Rue_Adresse = '" + this->Nom_Rue_Adresse + "', ID_Ville = '" + this->ID_Ville + "' WHERE ID_Adresse = " + this->ID_Adresse;
+}
+
+System::String^ NS_Comp_Adresse::CLMappAdresse::DeleteAdresse(void)
 {
 	return "";
 }
 
-System::String^ NS_Comp_Adresse::CLMappAdresse::UpdateAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville)
-{
-	return "";
-}
+System::String^ NS_Comp_Adresse::CLMappAdresse::Select(void) { return ""; }
+System::String^ NS_Comp_Adresse::CLMappAdresse::Insert(void) { return ""; }
+System::String^ NS_Comp_Adresse::CLMappAdresse::Delete(void) { return ""; }
+System::String^ NS_Comp_Adresse::CLMappAdresse::Update(void) { return ""; }
