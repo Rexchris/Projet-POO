@@ -1,6 +1,6 @@
 #pragma once
 #include "Clservice.h"
-#include <string>
+#include "CLserviceStat.h"
 
 namespace ProjetPOO {
 
@@ -35,6 +35,14 @@ namespace ProjetPOO {
 			this->oService_Article_Stock = gcnew NS_Comp_Service::Clservice();
 			this->oService_Couleur = gcnew NS_Comp_Service::Clservice();
 			this->oService_Payement = gcnew NS_Comp_Service::Clservice();
+			this->oService_Stat_PanierMoyen = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Stat_ChiffreAffaire = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Stat_SousSeuil = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Stat_MontantAchatClient = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Stat_10PlusVendus = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Stat_10MoinsVendus = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Stat_ValeurCommercialeStock = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Stat_ValeurAchatStock = gcnew NS_Comp_Service_Stat::ClserviceStat();
 		}
 
 	protected:
@@ -326,9 +334,37 @@ namespace ProjetPOO {
 	//Payement
 	private: NS_Comp_Service::Clservice^ oService_Payement;
 	private: System::Data::DataTable^ oDs_Payement;
+	//Panier Moyen
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_PanierMoyen;
+	private: System::Data::DataTable^ oDs_Stat_PanierMoyen;
+	//Chiffre Affaire
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_ChiffreAffaire;
+	private: System::Data::DataTable^ oDs_Stat_ChiffreAffaire;
+    //Sous Seuil
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_SousSeuil;
+	private: System::Data::DataTable^ oDs_Stat_SousSeuil;
+	//Montant Achat Client
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_MontantAchatClient;
+	private: System::Data::DataTable^ oDs_Stat_MontantAchatClient;
+	//10 Plus Vendus
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_10PlusVendus;
+	private: System::Data::DataTable^ oDs_Stat_10PlusVendus;
+	//10 Moins Vendus
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_10MoinsVendus;
+	private: System::Data::DataTable^ oDs_Stat_10MoinsVendus;
+	//Valeur Commerciale Stock
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_ValeurCommercialeStock;
+	private: System::Data::DataTable^ oDs_Stat_ValeurCommercialeStock;
+	//Valeur Achat Stock
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_ValeurAchatStock;
+	private: System::Data::DataTable^ oDs_Stat_ValeurAchatStock;
+
 
 private: System::Windows::Forms::Label^ label44;
 private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
+private: System::Windows::Forms::TabPage^ tabPage8;
+private: System::Windows::Forms::ComboBox^ comboBox_Stat;
+private: System::Windows::Forms::DataGridView^ dataGridView9;
 
 
 
@@ -512,6 +548,9 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_ins_adr = (gcnew System::Windows::Forms::Button());
 			this->but_act_adr = (gcnew System::Windows::Forms::Button());
 			this->dataGridView8 = (gcnew System::Windows::Forms::DataGridView());
+			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
+			this->comboBox_Stat = (gcnew System::Windows::Forms::ComboBox());
+			this->dataGridView9 = (gcnew System::Windows::Forms::DataGridView());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabControl2->SuspendLayout();
@@ -533,6 +572,8 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView7))->BeginInit();
 			this->tabPage5->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView8))->BeginInit();
+			this->tabPage8->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView9))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -542,6 +583,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Controls->Add(this->tabPage4);
 			this->tabControl1->Controls->Add(this->tabPage5);
+			this->tabControl1->Controls->Add(this->tabPage8);
 			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tabControl1->Location = System::Drawing::Point(-1, 0);
@@ -651,7 +693,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label7->Size = System::Drawing::Size(178, 17);
 			this->label7->TabIndex = 19;
 			this->label7->Text = L"ID de l\'adresse de livraison";
-			this->label7->Click += gcnew System::EventHandler(this, &MyForm::label7_Click);
 			// 
 			// label6
 			// 
@@ -670,7 +711,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label5->Size = System::Drawing::Size(113, 17);
 			this->label5->TabIndex = 17;
 			this->label5->Text = L"Montant total HT";
-			this->label5->Click += gcnew System::EventHandler(this, &MyForm::label5_Click);
 			// 
 			// label4
 			// 
@@ -689,7 +729,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label3->Size = System::Drawing::Size(108, 17);
 			this->label3->TabIndex = 15;
 			this->label3->Text = L"Date d\'emission";
-			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
 			// 
 			// label2
 			// 
@@ -740,7 +779,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->txt_ID_cli_com->Name = L"txt_ID_cli_com";
 			this->txt_ID_cli_com->Size = System::Drawing::Size(217, 22);
 			this->txt_ID_cli_com->TabIndex = 9;
-			this->txt_ID_cli_com->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox5_TextChanged);
 			// 
 			// txt_ref_com_com
 			// 
@@ -861,7 +899,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label13->Size = System::Drawing::Size(109, 17);
 			this->label13->TabIndex = 15;
 			this->label13->Text = L"Taux de la TVA ";
-			this->label13->Click += gcnew System::EventHandler(this, &MyForm::label13_Click);
 			// 
 			// label12
 			// 
@@ -880,7 +917,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label11->Size = System::Drawing::Size(182, 17);
 			this->label11->TabIndex = 13;
 			this->label11->Text = L"Référence de la commande";
-			this->label11->Click += gcnew System::EventHandler(this, &MyForm::label11_Click);
 			// 
 			// label10
 			// 
@@ -915,7 +951,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->txt_tau_tva_lis->Name = L"txt_tau_tva_lis";
 			this->txt_tau_tva_lis->Size = System::Drawing::Size(217, 22);
 			this->txt_tau_tva_lis->TabIndex = 8;
-			this->txt_tau_tva_lis->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_tau_tva_lis_TextChanged);
 			// 
 			// txt_pri_uni_rem_lis
 			// 
@@ -924,7 +959,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->txt_pri_uni_rem_lis->Name = L"txt_pri_uni_rem_lis";
 			this->txt_pri_uni_rem_lis->Size = System::Drawing::Size(217, 22);
 			this->txt_pri_uni_rem_lis->TabIndex = 7;
-			this->txt_pri_uni_rem_lis->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
 			// 
 			// txt_ref_art_lis
 			// 
@@ -1471,7 +1505,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label29->Size = System::Drawing::Size(188, 17);
 			this->label29->TabIndex = 16;
 			this->label29->Text = L"ID du supérieur hiérarchique";
-			this->label29->Click += gcnew System::EventHandler(this, &MyForm::label29_Click);
 			// 
 			// txt_ID_sup_hie_emp
 			// 
@@ -1543,7 +1576,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->txt_pre_emp->Name = L"txt_pre_emp";
 			this->txt_pre_emp->Size = System::Drawing::Size(217, 23);
 			this->txt_pre_emp->TabIndex = 9;
-			this->txt_pre_emp->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox5_TextChanged_1);
 			// 
 			// txt_nom_emp
 			// 
@@ -1704,7 +1736,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label37->Size = System::Drawing::Size(188, 17);
 			this->label37->TabIndex = 19;
 			this->label37->Text = L"Seuil de réapprovisionnment";
-			this->label37->Click += gcnew System::EventHandler(this, &MyForm::label37_Click);
 			// 
 			// label36
 			// 
@@ -1800,7 +1831,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(217, 22);
 			this->textBox4->TabIndex = 8;
-			this->textBox4->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox4_TextChanged);
 			// 
 			// textBox3
 			// 
@@ -1809,7 +1839,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(217, 22);
 			this->textBox3->TabIndex = 7;
-			this->textBox3->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged_1);
 			// 
 			// textBox2
 			// 
@@ -1818,7 +1847,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(217, 22);
 			this->textBox2->TabIndex = 6;
-			this->textBox2->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged_1);
 			// 
 			// textBox1
 			// 
@@ -2040,7 +2068,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->tabPage5->TabIndex = 4;
 			this->tabPage5->Text = L"Adresses";
 			this->tabPage5->UseVisualStyleBackColor = true;
-			this->tabPage5->Click += gcnew System::EventHandler(this, &MyForm::tabPage5_Click);
 			// 
 			// label43
 			// 
@@ -2052,7 +2079,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label43->Size = System::Drawing::Size(165, 17);
 			this->label43->TabIndex = 12;
 			this->label43->Text = L"ID de la ville de l\'adresse";
-			this->label43->Click += gcnew System::EventHandler(this, &MyForm::label43_Click);
 			// 
 			// label42
 			// 
@@ -2064,7 +2090,6 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->label42->Size = System::Drawing::Size(178, 17);
 			this->label42->TabIndex = 11;
 			this->label42->Text = L"Nom de la rue de l\'adresse";
-			this->label42->Click += gcnew System::EventHandler(this, &MyForm::label42_Click);
 			// 
 			// label41
 			// 
@@ -2187,6 +2212,45 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->dataGridView8->TabIndex = 0;
 			this->dataGridView8->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView8_CellContentClick_1);
 			// 
+			// tabPage8
+			// 
+			this->tabPage8->Controls->Add(this->comboBox_Stat);
+			this->tabPage8->Controls->Add(this->dataGridView9);
+			this->tabPage8->Location = System::Drawing::Point(4, 26);
+			this->tabPage8->Name = L"tabPage8";
+			this->tabPage8->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage8->Size = System::Drawing::Size(1108, 427);
+			this->tabPage8->TabIndex = 5;
+			this->tabPage8->Text = L"Statistiques";
+			this->tabPage8->UseVisualStyleBackColor = true;
+			// 
+			// comboBox_Stat
+			// 
+			this->comboBox_Stat->FormattingEnabled = true;
+			this->comboBox_Stat->Items->AddRange(gcnew cli::array< System::Object^  >(8) {
+				L"Panier moyen (après remise)", L"Chiffre d\'affaire sur un mois",
+					L"Produits sous le seuil de réapprovisionnement", L"Montant total d\'achat pour chaque client", L"Les 10 articles les plus vendus",
+					L"Les 10 articles les moins vendus", L"Valeur commerciale du stock", L"Valeur d\'achat du stock"
+			});
+			this->comboBox_Stat->Location = System::Drawing::Point(41, 207);
+			this->comboBox_Stat->Name = L"comboBox_Stat";
+			this->comboBox_Stat->Size = System::Drawing::Size(324, 25);
+			this->comboBox_Stat->TabIndex = 1;
+			this->comboBox_Stat->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox_Stat_SelectedIndexChanged);
+			// 
+			// dataGridView9
+			// 
+			this->dataGridView9->AllowUserToAddRows = false;
+			this->dataGridView9->AllowUserToDeleteRows = false;
+			this->dataGridView9->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView9->Location = System::Drawing::Point(3, 0);
+			this->dataGridView9->Name = L"dataGridView9";
+			this->dataGridView9->ReadOnly = true;
+			this->dataGridView9->RowHeadersWidth = 51;
+			this->dataGridView9->RowTemplate->Height = 24;
+			this->dataGridView9->Size = System::Drawing::Size(1097, 178);
+			this->dataGridView9->TabIndex = 0;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -2226,6 +2290,8 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->tabPage5->ResumeLayout(false);
 			this->tabPage5->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView8))->EndInit();
+			this->tabPage8->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView9))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -2499,76 +2565,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 		this->txt_ID_ville_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[3]);
 	}
 		   
-		   
 
-
-
-
-	private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	}
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox5_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label7_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void txt_tau_tva_lis_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label13_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button2_Click_2(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button3_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-
-	private: System::Void button2_Click_3(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox2_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label11_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox5_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label29_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox3_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox2_TextChanged_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void textBox4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label37_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button3_Click_2(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label42_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label43_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void dataGridView8_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	}
-	private: System::Void tabPage5_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 private: System::Void tabControl1_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
 	if (Convert::ToInt32(e->TabPageIndex) == 0) {
 		this->dataGridView2->Refresh();
@@ -2687,6 +2684,49 @@ private: System::Void dataGridView1_CellContentClick_1(System::Object^ sender, S
 	this->textBox4->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[5]);
 	this->textBox6->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[7]);
 	this->textBox8->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[8]);
+}
+
+private: System::Void comboBox_Stat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->comboBox_Stat->Text == "Panier moyen (après remise)") {
+		this->dataGridView9->Refresh();
+		this->oDs_Stat_PanierMoyen = this->oService_Stat_PanierMoyen->AfficherPanierMoyen();
+		this->dataGridView9->DataSource = this->oDs_Stat_PanierMoyen;
+	}
+	else if (this->comboBox_Stat->Text == "Chiffre d'affaire sur un mois") {
+		this->dataGridView9->Refresh();
+		this->oDs_Stat_ChiffreAffaire = this->oService_Stat_ChiffreAffaire->AfficherChiffreAffaire();
+		this->dataGridView9->DataSource = this->oDs_Stat_ChiffreAffaire;
+	}
+	else if (this->comboBox_Stat->Text == "Produits sous le seuil de réapprovisionnement") {
+		this->dataGridView9->Refresh();
+		this->oDs_Stat_SousSeuil = this->oService_Stat_SousSeuil->AfficherSousSeuil();
+		this->dataGridView9->DataSource = this->oDs_Stat_SousSeuil;
+	}
+	else if (this->comboBox_Stat->Text == "Montant total d'achat pour chaque client") {
+		this->dataGridView9->Refresh();
+		this->oDs_Stat_MontantAchatClient = this->oService_Stat_MontantAchatClient->AfficherMontantAchatClient();
+		this->dataGridView9->DataSource = this->oDs_Stat_MontantAchatClient;
+	}
+	else if (this->comboBox_Stat->Text == "Les 10 articles les plus vendus") {
+		this->dataGridView9->Refresh();
+		this->oDs_Stat_10PlusVendus = this->oService_Stat_10PlusVendus->Afficher10PlusVendus();
+		this->dataGridView9->DataSource = this->oDs_Stat_10PlusVendus;
+	}
+	else if (this->comboBox_Stat->Text == "Les 10 articles les moins vendus") {
+		this->dataGridView9->Refresh();
+		this->oDs_Stat_10MoinsVendus = this->oService_Stat_10MoinsVendus->Afficher10MoinsVendus();
+		this->dataGridView9->DataSource = this->oDs_Stat_10MoinsVendus;
+	}
+	else if (this->comboBox_Stat->Text == "Valeur commerciale du stock") {
+		this->dataGridView9->Refresh();
+		this->oDs_Stat_ValeurCommercialeStock = this->oService_Stat_ValeurCommercialeStock->AfficherValeurCommercialeStock();
+		this->dataGridView9->DataSource = this->oDs_Stat_ValeurCommercialeStock;
+	}
+	else if (this->comboBox_Stat->Text == "Valeur d'achat du stock") {
+		this->dataGridView9->Refresh();
+		this->oDs_Stat_ValeurAchatStock = this->oService_Stat_ValeurAchatStock->AfficherValeurAchatStock();
+		this->dataGridView9->DataSource = this->oDs_Stat_ValeurAchatStock;
+	}
 }
 };
 }

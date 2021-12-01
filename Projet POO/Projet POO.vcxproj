@@ -124,6 +124,7 @@
     <ClCompile Include="CLMappEmploye.cpp" />
     <ClCompile Include="CLMappStock.cpp" />
     <ClCompile Include="Clservice.cpp" />
+    <ClCompile Include="ClserviceStat.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Employe.cpp" />
   </ItemGroup>
@@ -144,6 +145,7 @@
     <ClInclude Include="CLMappEmploye.h" />
     <ClInclude Include="CLMappStock.h" />
     <ClInclude Include="Clservice.h" />
+    <ClInclude Include="ClserviceStat.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

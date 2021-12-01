@@ -5,7 +5,6 @@
 #include "CLMappClient.h"
 #include "CLMappCommande.h"
 #include "CLMappStock.h"
-#include "CLMappageStat.h"
 #include "CLMappAdresse.h"
 
 namespace NS_Comp_Service {
@@ -17,7 +16,6 @@ namespace NS_Comp_Service {
 		NS_Comp_Client::CLMappClient^ oMappClient;
 		NS_Comp_Commande::CLMappCommande^ oMappCommande;
 		NS_Comp_Stock::CLMappStock^ oMappStock;
-		NS_Comp_Stat::CLMappageStat^ oMappStat;
 		NS_Comp_Adresse::CLMappAdresse^ oMappAdr;
 	public :
 		Clservice(void);

@@ -7,7 +7,6 @@ NS_Comp_Service::Clservice::Clservice(void)
 	this->oMappClient = gcnew NS_Comp_Client::CLMappClient();
 	this->oMappCommande = gcnew NS_Comp_Commande::CLMappCommande();
 	this->oMappStock = gcnew NS_Comp_Stock::CLMappStock();
-	this->oMappStat = gcnew NS_Comp_Stat::CLMappageStat();
 	this->oMappAdr = gcnew NS_Comp_Adresse::CLMappAdresse();
 }
 
