@@ -202,13 +202,6 @@ void NS_Comp_Service::Clservice::SupprimerUnArticle(int Reference_Article)
 	return this->oMapp->actionRows(sql);
 }
 
-System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherUneStat(System::String^ Commande)
-{
-	System::String^ sql;
-
-	return this->oMapp->getRows(sql);
-}
-
 System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherArticlesDeCommande(void)
 {
 	System::String^ sql;
@@ -408,4 +401,21 @@ void NS_Comp_Service::Clservice::SupprimerUneAdresse(int ID_Adresse)
 	this->oMappAdr->setID_Adresse(ID_Adresse);
 	sql = this->oMappAdr->DeleteAdresse();
 	return this->oMapp->actionRows(sql);
+}
+
+int NS_Comp_Service::Clservice::RecupID_VilleFromNom_Ville(System::String^ Nom_Ville)
+{
+	System::String^ sql;
+	this->oMappAdr->setNom_Ville(Nom_Ville);
+	sql = this->oMappAdr->getIDFromNom_Ville();
+	System::Data::DataTable^ ref_com = this->oMapp->getRows(sql);
+	return System::Convert::ToInt32((ref_com->Rows[0])[0]);
+}
+
+
+System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherVilleTopX(System::String^ search) {
+	System::String^ sql;
+
+	sql = this->oMappAdr->SelectVilleTopX(search);
+	return this->oMapp->getRows(sql);
 }

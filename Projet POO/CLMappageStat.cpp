@@ -23,20 +23,20 @@ System::String^ NS_Comp_Stat::CLMappageStat::SelectMontantAchatClient(void)
 
 System::String^ NS_Comp_Stat::CLMappageStat::Select10PlusVendus(void)
 {
-	return "SELECT TOP(10) Article.Reference_Article, Nom_Article, SUM(Quantite_Commande_Article) FROM Contenir JOIN Article ON Contenir.Reference_Article = Article.Reference_Article GROUP BY Article.Reference_Article, Nom_Article ORDER BY SUM(Quantite_Commande_Article) DESC";
+	return "SELECT TOP(10) Article.Reference_Article, Nom_Article, SUM(Quantite_Commande_Article) AS 'Quantité vendu' FROM Contenir JOIN Article ON Contenir.Reference_Article = Article.Reference_Article GROUP BY Article.Reference_Article, Nom_Article ORDER BY SUM(Quantite_Commande_Article) DESC";
 }
 
 System::String^ NS_Comp_Stat::CLMappageStat::Select10MoinsVendus(void)
 {
-	return "SELECT TOP(10) Article.Reference_Article, Nom_Article, SUM(Quantite_Commande_Article) FROM Contenir JOIN Article ON Contenir.Reference_Article = Article.Reference_Article GROUP BY Article.Reference_Article, Nom_Article ORDER BY SUM(Quantite_Commande_Article) ASC";
+	return "SELECT TOP(10) Article.Reference_Article, Nom_Article, SUM(Quantite_Commande_Article) AS 'Quantité vendu' FROM Contenir JOIN Article ON Contenir.Reference_Article = Article.Reference_Article GROUP BY Article.Reference_Article, Nom_Article ORDER BY SUM(Quantite_Commande_Article) ASC";
 }
 
 System::String^ NS_Comp_Stat::CLMappageStat::SelectValeurCommercialeStock(void)
 {
-	return "SELECT SUM(Prix_Article_HT * Quantite_Stock) * (1.2) AS 'Valeur commerciale du stock' FROM Article JOIN Stock ON Article.ID_Stock = Stock.ID_Stock";
+	return "SELECT ROUND(SUM(Prix_Article_HT * Quantite_Stock) * (1.2),2) AS 'Valeur commerciale du stock' FROM Article JOIN Stock ON Article.ID_Stock = Stock.ID_Stock";
 }
 
 System::String^ NS_Comp_Stat::CLMappageStat::SelectValeurAchatStock(void)
 {
-	return "SELECT SUM(Prix_Article_HT * Quantite_Stock) AS 'Valeur d''achat du stock' FROM Article JOIN Stock ON Article.ID_Stock = Stock.ID_Stock";
+	return "SELECT ROUND(SUM(Prix_Article_HT * Quantite_Stock),2) AS 'Valeur d''achat du stock' FROM Article JOIN Stock ON Article.ID_Stock = Stock.ID_Stock";
 }

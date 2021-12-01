@@ -23,6 +23,7 @@ namespace NS_Comp_Adresse
 		void setNom_Rue_Adresse(System::String^ Nom_Rue_Adresse);
 		int getID_Ville(void);
 		System::String^ getNom_Ville(void);
+		System::String^ getIDFromNom_Ville();
 		int getCode_Postal_Ville(void);
 		int getID_Adresse(void);
 		int getNumero_Adresse(void);
@@ -35,6 +36,7 @@ namespace NS_Comp_Adresse
 		virtual System::String^ Insert(void) override;
 		virtual System::String^ Delete(void) override;
 		virtual System::String^ Update(void) override;
+		System::String^ SelectVilleTopX(System::String^);
 	};
 }
 

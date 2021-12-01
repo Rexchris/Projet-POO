@@ -34,6 +34,11 @@ int NS_Comp_Adresse::CLMappAdresse::getID_Ville(void) { return this->ID_Ville; }
 
 System::String^ NS_Comp_Adresse::CLMappAdresse::getNom_Ville(void) { return this->Nom_Ville; }
 
+System::String^ NS_Comp_Adresse::CLMappAdresse::getIDFromNom_Ville()
+{
+	return "SELECT ID_Ville FROM Ville WHERE Nom_Ville = '" + this->getNom_Ville() + "';";
+}
+
 int NS_Comp_Adresse::CLMappAdresse::getCode_Postal_Ville(void) { return this->Code_Postal_Ville; }
 
 int NS_Comp_Adresse::CLMappAdresse::getID_Adresse(void) { return this->ID_Adresse; }
@@ -69,3 +74,8 @@ System::String^ NS_Comp_Adresse::CLMappAdresse::Select(void) { return ""; }
 System::String^ NS_Comp_Adresse::CLMappAdresse::Insert(void) { return ""; }
 System::String^ NS_Comp_Adresse::CLMappAdresse::Delete(void) { return ""; }
 System::String^ NS_Comp_Adresse::CLMappAdresse::Update(void) { return ""; }
+
+System::String^ NS_Comp_Adresse::CLMappAdresse::SelectVilleTopX(System::String^ search)
+{
+	return "SELECT TOP(10) Nom_Ville FROM Ville WHERE Nom_Ville LIKE '" + search + "%' ORDER BY Nom_Ville ASC; ";
+}

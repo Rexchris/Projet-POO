@@ -43,6 +43,8 @@ namespace ProjetPOO {
 			this->oService_Stat_10MoinsVendus = gcnew NS_Comp_Service_Stat::ClserviceStat();
 			this->oService_Stat_ValeurCommercialeStock = gcnew NS_Comp_Service_Stat::ClserviceStat();
 			this->oService_Stat_ValeurAchatStock = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Adresse_Ville = gcnew NS_Comp_Service::Clservice();
+			this->oService_Adresse_Ville2 = gcnew NS_Comp_Service::Clservice();
 		}
 
 	protected:
@@ -284,7 +286,8 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Label^ label42;
 	private: System::Windows::Forms::Label^ label41;
 	private: System::Windows::Forms::Label^ label40;
-	private: System::Windows::Forms::TextBox^ txt_ID_ville_adr;
+
+
 
 	private: System::Windows::Forms::TextBox^ txt_nom_rue_adr;
 
@@ -334,6 +337,12 @@ namespace ProjetPOO {
 	//Payement
 	private: NS_Comp_Service::Clservice^ oService_Payement;
 	private: System::Data::DataTable^ oDs_Payement;
+	//Adresse Ville
+	private: NS_Comp_Service::Clservice^ oService_Adresse_Ville;
+	private: System::Data::DataTable^ oDs_Adresse_Ville;
+	//Adresse Ville 2
+	private: NS_Comp_Service::Clservice^ oService_Adresse_Ville2;
+	private: System::Data::DataTable^ oDs_Adresse_Ville2;
 	//Panier Moyen
 	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_PanierMoyen;
 	private: System::Data::DataTable^ oDs_Stat_PanierMoyen;
@@ -365,6 +374,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 private: System::Windows::Forms::TabPage^ tabPage8;
 private: System::Windows::Forms::ComboBox^ comboBox_Stat;
 private: System::Windows::Forms::DataGridView^ dataGridView9;
+private: System::Windows::Forms::ComboBox^ txt_nom_ville_adr;
 
 
 
@@ -535,11 +545,11 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 			this->but_act_cou = (gcnew System::Windows::Forms::Button());
 			this->dataGridView7 = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
+			this->txt_nom_ville_adr = (gcnew System::Windows::Forms::ComboBox());
 			this->label43 = (gcnew System::Windows::Forms::Label());
 			this->label42 = (gcnew System::Windows::Forms::Label());
 			this->label41 = (gcnew System::Windows::Forms::Label());
 			this->label40 = (gcnew System::Windows::Forms::Label());
-			this->txt_ID_ville_adr = (gcnew System::Windows::Forms::TextBox());
 			this->txt_nom_rue_adr = (gcnew System::Windows::Forms::TextBox());
 			this->txt_num_adr = (gcnew System::Windows::Forms::TextBox());
 			this->txt_ID_adr = (gcnew System::Windows::Forms::TextBox());
@@ -2047,11 +2057,11 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 			// 
 			// tabPage5
 			// 
+			this->tabPage5->Controls->Add(this->txt_nom_ville_adr);
 			this->tabPage5->Controls->Add(this->label43);
 			this->tabPage5->Controls->Add(this->label42);
 			this->tabPage5->Controls->Add(this->label41);
 			this->tabPage5->Controls->Add(this->label40);
-			this->tabPage5->Controls->Add(this->txt_ID_ville_adr);
 			this->tabPage5->Controls->Add(this->txt_nom_rue_adr);
 			this->tabPage5->Controls->Add(this->txt_num_adr);
 			this->tabPage5->Controls->Add(this->txt_ID_adr);
@@ -2069,6 +2079,19 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 			this->tabPage5->Text = L"Adresses";
 			this->tabPage5->UseVisualStyleBackColor = true;
 			// 
+			// txt_nom_ville_adr
+			// 
+			this->txt_nom_ville_adr->FormattingEnabled = true;
+			this->txt_nom_ville_adr->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
+				L"", L"", L"", L"", L"", L"", L"", L"",
+					L"", L""
+			});
+			this->txt_nom_ville_adr->Location = System::Drawing::Point(153, 365);
+			this->txt_nom_ville_adr->Name = L"txt_nom_ville_adr";
+			this->txt_nom_ville_adr->Size = System::Drawing::Size(365, 25);
+			this->txt_nom_ville_adr->TabIndex = 13;
+			this->txt_nom_ville_adr->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_nom_ville_adr_TextChanged);
+			// 
 			// label43
 			// 
 			this->label43->AutoSize = true;
@@ -2076,9 +2099,9 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 				static_cast<System::Byte>(0)));
 			this->label43->Location = System::Drawing::Point(153, 345);
 			this->label43->Name = L"label43";
-			this->label43->Size = System::Drawing::Size(165, 17);
+			this->label43->Size = System::Drawing::Size(115, 17);
 			this->label43->TabIndex = 12;
-			this->label43->Text = L"ID de la ville de l\'adresse";
+			this->label43->Text = L"Ville de l\'adresse";
 			// 
 			// label42
 			// 
@@ -2112,14 +2135,6 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 			this->label40->Size = System::Drawing::Size(102, 17);
 			this->label40->TabIndex = 9;
 			this->label40->Text = L"ID de l\'adresse";
-			// 
-			// txt_ID_ville_adr
-			// 
-			this->txt_ID_ville_adr->Location = System::Drawing::Point(153, 366);
-			this->txt_ID_ville_adr->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->txt_ID_ville_adr->Name = L"txt_ID_ville_adr";
-			this->txt_ID_ville_adr->Size = System::Drawing::Size(365, 23);
-			this->txt_ID_ville_adr->TabIndex = 8;
 			// 
 			// txt_nom_rue_adr
 			// 
@@ -2310,7 +2325,8 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 
 	private: System::Void but_ins_adr_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService_Adresse->AjouterUneAdresse(Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, Convert::ToInt32(this->txt_ID_ville_adr->Text));
+		int id_ville = this->oService_Adresse_Ville2->RecupID_VilleFromNom_Ville(this->txt_nom_ville_adr->Text);
+		this->oService_Adresse->AjouterUneAdresse(Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, id_ville);
 		this->dataGridView8->Refresh();
 		this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
 		this->dataGridView8->DataSource = this->oDs_Adresse;
@@ -2318,7 +2334,8 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 
 	private: System::Void but_upd_adr_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService_Adresse->ModifierUneAdresse(Convert::ToInt32(this->txt_ID_adr->Text), Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, Convert::ToInt32(this->txt_ID_ville_adr->Text));
+		int id_ville = this->oService_Adresse_Ville2->RecupID_VilleFromNom_Ville(this->txt_nom_ville_adr->Text);
+		this->oService_Adresse->ModifierUneAdresse(Convert::ToInt32(this->txt_ID_adr->Text), Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, id_ville);
 		this->dataGridView8->Refresh();
 		this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
 		this->dataGridView8->DataSource = this->oDs_Adresse;
@@ -2559,10 +2576,10 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 
 
 	private: System::Void dataGridView8_CellContentClick_1(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		this->txt_ID_adr->Text = Convert::ToString(e->RowIndex + 1);
+		this->txt_ID_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[0]);
 		this->txt_num_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[1]);
 		this->txt_nom_rue_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[2]);
-		this->txt_ID_ville_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[3]);
+		this->txt_nom_ville_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[4]);
 	}
 		   
 
@@ -2728,5 +2745,22 @@ private: System::Void comboBox_Stat_SelectedIndexChanged(System::Object^ sender,
 		this->dataGridView9->DataSource = this->oDs_Stat_ValeurAchatStock;
 	}
 }
+	private: System::Void txt_nom_ville_adr_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		System::String^ search = this->txt_nom_ville_adr->Text;
+		this->oDs_Adresse_Ville = this->oService_Adresse_Ville->AfficherVilleTopX(search);
+
+		int row_returned = System::Convert::ToInt32(oDs_Adresse_Ville->Rows->Count);
+
+		for (int i = 0; i <= row_returned - 1; i++) {
+			if ((this->oDs_Adresse_Ville->Rows[0])[0]) {
+				this->txt_nom_ville_adr->Items[i] = System::Convert::ToString((this->oDs_Adresse_Ville->Rows[i])[0]);
+			}
+		}
+
+		for (int ii = 9; row_returned+1 <= ii; ii--) {
+			this->txt_nom_ville_adr->Items[ii] = "";
+		}
+
+	}
 };
 }
