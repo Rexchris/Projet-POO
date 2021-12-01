@@ -125,11 +125,10 @@ void NS_Comp_Service::Clservice::AjouterUneCommande(System::String^ Reference_Co
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::ModifierUneCommande(int ID_Commande, System::String^ Reference_Commande, System::String^ Date_Livraison, System::String^ Date_Emission, System::String^ Date_Facturation, System::String^ Montant_Total_HT, int ID_Client, int ID_Adresse_Livraison, int ID_Adresse_Facturation)
+void NS_Comp_Service::Clservice::ModifierUneCommande(System::String^ Reference_Commande, System::String^ Date_Livraison, System::String^ Date_Emission, System::String^ Date_Facturation, System::String^ Montant_Total_HT, int ID_Client, int ID_Adresse_Livraison, int ID_Adresse_Facturation)
 {
 	System::String^ sql;
 
-	this->oMappCommande->setID_Commande(ID_Commande);
 	this->oMappCommande->setReference_Commande(Reference_Commande);
 	this->oMappCommande->setDate_Livraison(Date_Livraison);
 	this->oMappCommande->setDate_Emission(Date_Emission);
@@ -142,11 +141,11 @@ void NS_Comp_Service::Clservice::ModifierUneCommande(int ID_Commande, System::St
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::SupprimerUneCommande(int ID_Commande)
+void NS_Comp_Service::Clservice::SupprimerUneCommande(System::String^ Reference_Commande)
 {
 	System::String^ sql;
 
-	this->oMappCommande->setID_Commande(ID_Commande);
+	this->oMappCommande->setReference_Commande(Reference_Commande);
 	sql = this->oMappCommande->Delete();
 	return this->oMapp->actionRows(sql);
 }

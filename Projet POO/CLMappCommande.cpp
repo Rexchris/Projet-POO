@@ -184,11 +184,11 @@ System::String^ NS_Comp_Commande::CLMappCommande::Insert() {
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::Update() {
-	return "UPDATE Commande SET Reference_Commande = '" + this->getReference_Commande() + "', Date_Livraison = '" + this->getDate_Livraison() + "', Date_Emission = '" + this->getDate_Emission() + "', Date_Facturation = '" + this->getDate_Facturation() + "', Montant_Total_HT = '" + this->getMontant_Total_HT() + "', ID_Client= '" + this->getID_Client() + "', ID_Adresse_Livraison = '" + this->getID_Adresse_Livraison() + "', ID_Adresse_Facturation = '" + this->getID_Adresse_Facturation() + "' WHERE ID_Commande = "+ this->getID_Commande() + ";";
+	return "UPDATE Commande SET Date_Livraison = '" + this->getDate_Livraison() + "', Date_Emission = '" + this->getDate_Emission() + "', Date_Facturation = '" + this->getDate_Facturation() + "', Montant_Total_HT = '" + this->getMontant_Total_HT() + "', ID_Client= '" + this->getID_Client() + "', ID_Adresse_Livraison = '" + this->getID_Adresse_Livraison() + "', ID_Adresse_Facturation = '" + this->getID_Adresse_Facturation() + "' WHERE Reference_Commande = '"+ this->getReference_Commande() + "';";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::Delete() {
-	return "DELETE FROM Commande WHERE ID_Commande = " + this->getID_Commande() + ";";
+	return "DELETE FROM Commande WHERE Reference_Commande = '" + this->getReference_Commande() + "';";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::SelectPayement(void) 

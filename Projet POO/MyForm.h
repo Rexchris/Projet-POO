@@ -2444,7 +2444,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 	private: System::Void but_upd_com_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		System::String^ ref_comm = this->oService_Commande_RefCommande->RecupRefCommande(this->txt_ID_cli_com->Text, this->txt_adr_liv_com->Text);
-		this->oService_Commande->ModifierUneCommande(Convert::ToInt32(this->txt_ref_com_com->Text), ref_comm, Convert::ToString(this->date_liv_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(0, 2), Convert::ToString(this->date_emi_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(0, 2), Convert::ToString(this->date_fac_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(0, 2), this->txt_tot_HT_com->Text, Convert::ToInt32(this->txt_ID_cli_com->Text), Convert::ToInt32(this->txt_adr_liv_com->Text), Convert::ToInt32(this->txt_adr_fac_com->Text));
+		this->oService_Commande->ModifierUneCommande(this->txt_ref_com_com->Text, Convert::ToString(this->date_liv_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(0, 2), Convert::ToString(this->date_emi_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(0, 2), Convert::ToString(this->date_fac_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(0, 2), this->txt_tot_HT_com->Text, Convert::ToInt32(this->txt_ID_cli_com->Text), Convert::ToInt32(this->txt_adr_liv_com->Text), Convert::ToInt32(this->txt_adr_fac_com->Text));
 		this->dataGridView2->Refresh();
 		this->oDs_Commande = this->oService_Commande->AfficherCommandes();
 		this->dataGridView2->DataSource = this->oDs_Commande;
@@ -2452,7 +2452,7 @@ private: System::Windows::Forms::DataGridView^ dataGridView9;
 
 	private: System::Void but_del_com_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService_Commande->SupprimerUneCommande(Convert::ToInt32(this->txt_ref_com_com->Text));
+		this->oService_Commande->SupprimerUneCommande(this->txt_ref_com_com->Text);
 		this->dataGridView2->Refresh();
 		this->oDs_Commande = this->oService_Commande->AfficherCommandes();
 		this->dataGridView2->DataSource = this->oDs_Commande;
