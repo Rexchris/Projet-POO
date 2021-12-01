@@ -5,6 +5,11 @@ void NS_Comp_Commande::CLMappCommande::setID_Commande(int ID_Commande)
 	this->ID_Commande = ID_Commande;
 }
 
+void NS_Comp_Commande::CLMappCommande::setReference_Commande(System::String^ Reference_Commande) 
+{
+	this->Reference_Commande = Reference_Commande;
+}
+
 void NS_Comp_Commande::CLMappCommande::setDate_Livraison(System::String^ Date_Livraison)
 {
 	this->Date_Livraison = Date_Livraison;
@@ -83,6 +88,16 @@ void NS_Comp_Commande::CLMappCommande::setTaux_TVA(System::String^ Taux_TVA)
 int NS_Comp_Commande::CLMappCommande::getID_Commande(void)
 {
 	return this->ID_Commande;
+}
+
+System::String^ NS_Comp_Commande::CLMappCommande::getReference_Commande(System::String^ ID_Client, System::String^ ID_Adresse)
+{
+	return "DECLARE @IDCLIENT AS INT=" + ID_Client + "; DECLARE @IDADRESSE AS INT =" + ID_Adresse + "; SELECT TOP(1) SUBSTRING(Nom_Client, 0, 3) + UPPER(SUBSTRING(Prenom_Client, 0, 3)) + CAST(YEAR(GETDATE()) as varchar(20)) + SUBSTRING((SELECT Nom_Ville FROM Adresse INNER JOIN Ville ON Adresse.ID_Ville = Ville.ID_Ville WHERE ID_Adresse = @IDADRESSE), 0, 4) + CAST((CAST(SUBSTRING(Reference_Commande, 12, 12) as int) + 1) as varchar(20)) FROM Client INNER JOIN Commande ON Client.ID_Client = Commande.ID_Client INNER JOIN Adresse ON Commande.ID_Adresse_Livraison = Adresse.ID_Adresse INNER JOIN Ville ON Adresse.ID_Adresse = Ville.ID_Ville WHERE Client.ID_Client = @IDCLIENT ORDER BY Reference_Commande DESC;";
+}
+
+System::String^ NS_Comp_Commande::CLMappCommande::getReference_Commande()
+{
+	return this->Reference_Commande;
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::getDate_Livraison(void)
@@ -165,15 +180,15 @@ System::String^ NS_Comp_Commande::CLMappCommande::Select() {
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::Insert() {
-	return "INSERT INTO Commande (Reference_Commande, Date_Livraison, Date_Emission, Date_Facturation, Montant_Total_HT, ID_Client, ID_Adresse_Livraison, ID_Adresse_Facturation) VALUES ('','','','','','','','')";
+	return "INSERT INTO Commande (Reference_Commande, Date_Livraison, Date_Emission, Date_Facturation, Montant_Total_HT, ID_Client, ID_Adresse_Livraison, ID_Adresse_Facturation) VALUES ('" + this->getReference_Commande() + "','" + this->getDate_Livraison() + "','" + this->getDate_Emission() + "','" + this->getDate_Facturation() + "','" + this->getMontant_Total_HT() + "','" + this->getID_Client() + "','" + this->getID_Adresse_Livraison() + "','" + this->getID_Adresse_Facturation() + "')";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::Update() {
-	return "";
+	return "UPDATE Commande SET Reference_Commande = '" + this->getReference_Commande() + "', Date_Livraison = '" + this->getDate_Livraison() + "', Date_Emission = '" + this->getDate_Emission() + "', Date_Facturation = '" + this->getDate_Facturation() + "', Montant_Total_HT = '" + this->getMontant_Total_HT() + "', ID_Client= '" + this->getID_Client() + "', ID_Adresse_Livraison = '" + this->getID_Adresse_Livraison() + "', ID_Adresse_Facturation = '" + this->getID_Adresse_Facturation() + "' WHERE ID_Commande = "+ this->getID_Commande() + ";";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::Delete() {
-	return "";
+	return "DELETE FROM Commande WHERE ID_Commande = " + this->getID_Commande() + ";";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::SelectPayement(void) 
@@ -195,20 +210,20 @@ System::String^ NS_Comp_Commande::CLMappCommande::DeletePayement(void)
 
 System::String^ NS_Comp_Commande::CLMappCommande::SelectArticleDeCommande(void)
 {
-	return "";
+	return "SELECT * FROM Contenir;";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::InsertArticleDeCommande(void)
 {
-	return "";
+	return "INSERT INTO Contenir (Reference_Article, ID_Commande, Prix_Quantitatif_Remise, Quantite_Commande_Article, Taux_TVA) VALUES ('" + this->getReference_Article() + "','" + this->getID_Commande() + "','" + this->getPrix_Unitaire_Remise() + "','" + this->getQuantite_Commande_Article() + "','" + this->getTaux_TVA() + "');";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::UpdateArticleDeCommande(void)
 {
-	return "";
+	return "UPDATE Contenir SET Prix_Quantitatif_Remise = '" + this->getPrix_Unitaire_Remise() + "', Quantite_Commande_Article = '" + this->getQuantite_Commande_Article() + "', Taux_TVA = '" + this->getTaux_TVA() + "' WHERE Reference_Article = " + this->getReference_Article() + " AND ID_Commande = " + this->getID_Commande() + ";";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::DeleteArticleDeCommande(void)
 {
-	return "";
+	return "DELETE FROM Contenir WHERE Reference_Article = " + this->getReference_Article() + " AND ID_Commande = " + this->getID_Commande() + ";";
 }

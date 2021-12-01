@@ -7,6 +7,7 @@ namespace NS_Comp_Commande
 	{
 	private :
 		int ID_Commande;
+		System::String^ Reference_Commande;
 		System::String^ Date_Livraison;
 		System::String^ Date_Emission;
 		System::String^ Date_Facturation;
@@ -24,6 +25,7 @@ namespace NS_Comp_Commande
 		System::String^ Taux_TVA;
 	public :
 		void setID_Commande(int ID_Commande);
+		void setReference_Commande(System::String^ Reference_Commande);
 		void setDate_Livraison(System::String^ Date_Livraison);
 		void setDate_Emission(System::String^ Date_Emission);
 		void setDate_Facturation(System::String^ Date_Facturation);
@@ -40,6 +42,8 @@ namespace NS_Comp_Commande
 		void setMontant_Payement(System::String^ Montant_Payement);
 		void setTaux_TVA(System::String^ Taux_TVA);
 		int getID_Commande(void);
+		System::String^ getReference_Commande(System::String^ ID_Client, System::String^ ID_Adresse);
+		System::String^ getReference_Commande();
 		System::String^ getDate_Livraison(void);
 		System::String^ getDate_Emission(void);
 		System::String^ getDate_Facturation(void);
