@@ -927,7 +927,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_upd_lis->TabIndex = 3;
 			this->but_upd_lis->Text = L"Modifier";
 			this->but_upd_lis->UseVisualStyleBackColor = true;
-			this->but_upd_lis->Click += gcnew System::EventHandler(this, &MyForm::but_act_lis_Click);
+			this->but_upd_lis->Click += gcnew System::EventHandler(this, &MyForm::but_upd_lis_Click);
 			// 
 			// but_ins_lis
 			// 
@@ -938,7 +938,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_ins_lis->TabIndex = 2;
 			this->but_ins_lis->Text = L"Insérer";
 			this->but_ins_lis->UseVisualStyleBackColor = true;
-			this->but_ins_lis->Click += gcnew System::EventHandler(this, &MyForm::but_act_lis_Click);
+			this->but_ins_lis->Click += gcnew System::EventHandler(this, &MyForm::but_ins_lis_Click);
 			// 
 			// but_act_lis
 			// 
@@ -1798,6 +1798,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_del_art->TabIndex = 4;
 			this->but_del_art->Text = L"Supprimer";
 			this->but_del_art->UseVisualStyleBackColor = true;
+			this->but_del_art->Click += gcnew System::EventHandler(this, &MyForm::but_del_art_Click);
 			// 
 			// but_upd_art
 			// 
@@ -1808,6 +1809,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_upd_art->TabIndex = 3;
 			this->but_upd_art->Text = L"Modifier";
 			this->but_upd_art->UseVisualStyleBackColor = true;
+			this->but_upd_art->Click += gcnew System::EventHandler(this, &MyForm::but_upd_art_Click);
 			// 
 			// but_ins_act
 			// 
@@ -1818,6 +1820,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_ins_act->TabIndex = 2;
 			this->but_ins_act->Text = L"Insérer";
 			this->but_ins_act->UseVisualStyleBackColor = true;
+			this->but_ins_act->Click += gcnew System::EventHandler(this, &MyForm::but_ins_art_Click);
 			// 
 			// but_act_art
 			// 
@@ -1828,6 +1831,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_act_art->TabIndex = 1;
 			this->but_act_art->Text = L"Actualiser";
 			this->but_act_art->UseVisualStyleBackColor = true;
+			this->but_act_art->Click += gcnew System::EventHandler(this, &MyForm::but_act_art_Click);
 			// 
 			// dataGridView1
 			// 
@@ -1906,6 +1910,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_del_cou->TabIndex = 4;
 			this->but_del_cou->Text = L"Supprimer";
 			this->but_del_cou->UseVisualStyleBackColor = true;
+			this->but_del_cou->Click += gcnew System::EventHandler(this, &MyForm::but_del_cou_Click);
 			// 
 			// but_upd_cou
 			// 
@@ -1916,6 +1921,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_upd_cou->TabIndex = 3;
 			this->but_upd_cou->Text = L"Modifier";
 			this->but_upd_cou->UseVisualStyleBackColor = true;
+			this->but_upd_cou->Click += gcnew System::EventHandler(this, &MyForm::but_upd_cou_Click);
 			// 
 			// but_ins_cou
 			// 
@@ -1926,6 +1932,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_ins_cou->TabIndex = 2;
 			this->but_ins_cou->Text = L"Insérer";
 			this->but_ins_cou->UseVisualStyleBackColor = true;
+			this->but_ins_cou->Click += gcnew System::EventHandler(this, &MyForm::but_ins_cou_Click);
 			// 
 			// but_act_cou
 			// 
@@ -1936,6 +1943,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->but_act_cou->TabIndex = 1;
 			this->but_act_cou->Text = L"Actualiser";
 			this->but_act_cou->UseVisualStyleBackColor = true;
+			this->but_act_cou->Click += gcnew System::EventHandler(this, &MyForm::but_act_cou_Click);
 			// 
 			// dataGridView7
 			// 
@@ -2374,6 +2382,78 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 		this->oDs = this->oService->AfficherArticlesDeCommande();
 		this->dataGridView3->DataSource = this->oDs;
 	}
+
+	private: System::Void but_act_art_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->dataGridView1->Refresh();
+		this->oDs = this->oService->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs;
+	}
+
+	private: System::Void but_ins_art_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->AjouterUnStock(Convert::ToInt32(this->textBox6->Text), Convert::ToInt32(this->textBox8->Text));
+		this->oService->AjouterUnArticle(this->textBox3->Text, this->textBox5->Text, this->textBox7->Text, Convert::ToInt32(this->textBox2->Text), Convert::ToInt32(this->textBox4->Text));
+		this->dataGridView1->Refresh();
+		this->oDs = this->oService->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs;
+	}
+
+	private: System::Void but_upd_art_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->ModifierUnStock(Convert::ToInt32(this->textBox4->Text), Convert::ToInt32(this->textBox6->Text), Convert::ToInt32(this->textBox8->Text));
+		this->oService->ModifierUnArticle(Convert::ToInt32(this->textBox1->Text), this->textBox3->Text, this->textBox5->Text, this->textBox7->Text, Convert::ToInt32(this->textBox2->Text), Convert::ToInt32(this->textBox4->Text));
+		this->dataGridView1->Refresh();
+		this->oDs = this->oService->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs;
+	}
+
+	private: System::Void but_del_art_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->SupprimerUnArticle(Convert::ToInt32(this->textBox1->Text));
+		this->oService->SupprimerUnStock(Convert::ToInt32(this->textBox4->Text));
+		this->dataGridView1->Refresh();
+		this->oDs = this->oService->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs;
+	}
+
+	private: System::Void but_act_cou_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->dataGridView7->Refresh();
+		this->oDs = this->oService->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs;
+	}
+
+	private: System::Void but_ins_cou_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->AjouterUneCouleur(this->txt_nom_cou->Text);
+		this->dataGridView7->Refresh();
+		this->oDs = this->oService->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs;
+	}
+
+	private: System::Void but_upd_cou_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->ModifierUneCouleur(Convert::ToInt32(this->txt_ID_cou->Text), this->txt_nom_cou->Text);
+		this->dataGridView7->Refresh();
+		this->oDs = this->oService->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs;
+	}
+
+	private: System::Void but_del_cou_Click(System::Object^ sender, System::EventArgs^ e)
+	{
+		this->oService->SupprimerUneCouleur(Convert::ToInt32(this->txt_ID_cou->Text));
+		this->dataGridView7->Refresh();
+		this->oDs = this->oService->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs;
+	}
+
+
+
+
+
+
+
 
 
 

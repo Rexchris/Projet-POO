@@ -215,7 +215,7 @@ System::String^ NS_Comp_Commande::CLMappCommande::SelectArticleDeCommande(void)
 
 System::String^ NS_Comp_Commande::CLMappCommande::InsertArticleDeCommande(void)
 {
-	return "INSERT INTO Contenir (Reference_Article, ID_Commande, Prix_Quantitatif_Remise, Quantite_Commande_Article, Taux_TVA) VALUES ('" + this->getReference_Article() + "','" + this->getID_Commande() + "','" + this->getPrix_Unitaire_Remise() + "','" + this->getQuantite_Commande_Article() + "','" + this->getTaux_TVA() + "');";
+	return "INSERT INTO Contenir (Reference_Article, ID_Commande, Prix_Quantitatif_Remise, Quantite_Commande_Article, Taux_TVA) VALUES ('" + this->getReference_Article() + "','" + this->getID_Commande() + "','" + this->getPrix_Unitaire_Remise() + "','" + this->getQuantite_Commande_Article() + "','" + this->getTaux_TVA() + "')";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::UpdateArticleDeCommande(void)

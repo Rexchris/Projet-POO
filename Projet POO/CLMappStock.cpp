@@ -92,60 +92,60 @@ int NS_Comp_Stock::CLMappStock::getID_Stock(void)
 
 System::String^ NS_Comp_Stock::CLMappStock::Select(void) 
 {
-	return "";
+	return "SELECT * FROM Article INNER JOIN Stock ON Article.ID_Stock = Stock.ID_Stock";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::Insert(void) 
 {
-	return "";
+	return "INSERT INTO Stock (Quantite_Stock, Seuil_Approvisionnement) VALUES ('" + this->getQuantite_Stock() + "','" + this->getSeuil_Reapprovisionnement() + "');";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::Update(void) 
 {
-	return "";
+	return "UPDATE Stock SET Quantite_Stock = '" + this->getQuantite_Stock() + "', Seuil_Approvisionnement = '" + this->getSeuil_Reapprovisionnement() + "' WHERE ID_Stock = " + this->getID_Stock() + ";";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::Delete(void) 
 {
-	return "";
+	return "DELETE FROM Stock WHERE ID_Stock = " + this->getID_Stock() + ";";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::SelectArticle(void) 
 {
-	return "";
+	return "SELECT * FROM Article INNER JOIN Stock ON Article.ID_Stock = Stock.ID_Stock";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::InsertArticle(void)
 {
-	return "";
+	return "INSERT INTO Article (Nom_Article, Taux_TVA_Article, Prix_Article_HT, ID_Couleur, ID_Stock) VALUES ('" + this->getNom_Article() + "','" + this->getTaux_TVA_Article() + "','" + this->getPrix_Article_HT() + "','" + this->getID_Couleur() + "','" + this->getID_Stock() + "');";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::UpdateArticle(void)
 {
-	return "";
+	return "UPDATE Article SET Nom_Article = '" + this->getNom_Article() + "', Taux_TVA_Article = '" + this->getTaux_TVA_Article() + "', Prix_Article_HT = '" + this->getPrix_Article_HT() + "', ID_Couleur = '" + this->getID_Couleur() + "', ID_Stock = '" + this->getID_Stock() + "' WHERE Reference_Article = " + this->getReference_Article() + ";";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::DeleteArticle(void)
 {
-	return "";
+	return "DELETE FROM Article WHERE Reference_Article = " + this->getReference_Article() + ";";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::SelectCouleur(void) 
 {
-	return "";
+	return "SELECT * FROM Couleur;";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::InsertCouleur(void) 
 {
-	return "";
+	return "INSERT INTO Couleur (Nom_Couleur) VALUES ('" + this->getNom_Couleur() + "');";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::UpdateCouleur(void) 
 {
-	return "";
+	return "UPDATE Couleur SET Nom_Couleur = '" + this->getNom_Couleur() + "' WHERE ID_Couleur = " + this->getID_Couleur() + ";";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::DeleteCouleur(void) 
 {
-	return "";
+	return "DELETE FROM Couleur WHERE ID_Couleur = " + this->getID_Couleur() + ";";
 }
