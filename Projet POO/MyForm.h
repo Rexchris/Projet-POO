@@ -825,6 +825,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->dataGridView2->RowTemplate->Height = 24;
 			this->dataGridView2->Size = System::Drawing::Size(1097, 178);
 			this->dataGridView2->TabIndex = 0;
+			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView2_CellContentClick);
 			// 
 			// Liste
 			// 
@@ -1016,6 +1017,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->dataGridView3->RowTemplate->Height = 24;
 			this->dataGridView3->Size = System::Drawing::Size(1097, 178);
 			this->dataGridView3->TabIndex = 0;
+			this->dataGridView3->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView3_CellContentClick);
 			// 
 			// Payement
 			// 
@@ -1205,6 +1207,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->dataGridView4->RowTemplate->Height = 24;
 			this->dataGridView4->Size = System::Drawing::Size(1097, 178);
 			this->dataGridView4->TabIndex = 0;
+			this->dataGridView4->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView4_CellContentClick);
 			// 
 			// tabPage2
 			// 
@@ -1623,6 +1626,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->dataGridView6->RowTemplate->Height = 24;
 			this->dataGridView6->Size = System::Drawing::Size(1097, 178);
 			this->dataGridView6->TabIndex = 0;
+			this->dataGridView6->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView6_CellContentClick);
 			// 
 			// tabPage4
 			// 
@@ -1648,6 +1652,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->tabControl3->SelectedIndex = 0;
 			this->tabControl3->Size = System::Drawing::Size(1112, 433);
 			this->tabControl3->TabIndex = 0;
+			this->tabControl3->Selected += gcnew System::Windows::Forms::TabControlEventHandler(this, &MyForm::tabControl3_Selected);
 			// 
 			// tabPage6
 			// 
@@ -1872,7 +1877,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(0, 0);
+			this->dataGridView1->Location = System::Drawing::Point(-4, 0);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
@@ -1880,6 +1885,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->Size = System::Drawing::Size(1097, 178);
 			this->dataGridView1->TabIndex = 0;
+			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick_1);
 			// 
 			// tabPage7
 			// 
@@ -2594,12 +2600,7 @@ private: System::Void tabControl1_Selected(System::Object^ sender, System::Windo
 		this->dataGridView8->DataSource = this->oDs_Adresse;
 	}
 }
-private: System::Void dataGridView5_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) 
-{
-	this->txt_ID_cli->Text = Convert::ToString(e->RowIndex + 1);
-	this->txt_nom_cli->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[1]);
-	this->txt_pre_cli->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[2]);
-}
+
 private: System::Void tabControl2_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
 	if (Convert::ToInt32(e->TabPageIndex) == 0) {
 		this->dataGridView2->Refresh();
@@ -2618,6 +2619,74 @@ private: System::Void tabControl2_Selected(System::Object^ sender, System::Windo
 		this->oDs_Payement = this->oService_Payement->AfficherPayements();
 		this->dataGridView4->DataSource = this->oDs_Payement;
 	}
+}
+private: System::Void tabControl3_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
+	if (Convert::ToInt32(e->TabPageIndex) == 0) {
+		this->dataGridView1->Refresh();
+		this->oDs_Article = this->oService_Article->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs_Article;
+	}
+
+	if (Convert::ToInt32(e->TabPageIndex) == 1) {
+		this->dataGridView7->Refresh();
+		this->oDs_Couleur = this->oService_Couleur->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs_Couleur;
+	}
+}
+
+private: System::Void dataGridView2_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	this->txt_ref_com_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[1]);
+	this->txt_tot_HT_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[5]);
+	this->txt_ID_cli_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[6]);
+	this->txt_adr_liv_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[7]);
+	this->txt_adr_fac_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[8]);
+	this->date_liv_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[2]);
+	this->date_emi_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[3]);
+	this->date_fac_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[4]);
+}
+
+private: System::Void dataGridView5_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+{
+	this->txt_ID_cli->Text = Convert::ToString(e->RowIndex + 1);
+	this->txt_nom_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[1]);
+	this->txt_pre_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[2]);
+	this->dat_nai_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[3]);
+	this->er_ach_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[4]);
+}
+
+
+private: System::Void dataGridView3_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	this->txt_ref_com_lis->Text = Convert::ToString((this->oDs_Commande_Liste->Rows[e->RowIndex])[1]);
+	this->txt_ref_art_lis->Text = Convert::ToString((this->oDs_Commande_Liste->Rows[e->RowIndex])[0]);
+	this->txt_pri_uni_rem_lis->Text = Convert::ToString((this->oDs_Commande_Liste->Rows[e->RowIndex])[2]);
+	this->txt_qua_com_lis->Text = Convert::ToString((this->oDs_Commande_Liste->Rows[e->RowIndex])[3]);
+	this->txt_tau_tva_lis->Text = Convert::ToString((this->oDs_Commande_Liste->Rows[e->RowIndex])[4]);
+}
+private: System::Void dataGridView4_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	this->txt_ID_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[0]);
+	this->dat_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[1]);
+	this->comboBox1->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[2]);
+	this->txt_mon_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[3]);
+	this->txt_ref_com_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[4]);
+}
+private: System::Void dataGridView6_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	this->txt_ID_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[0]);
+	this->txt_nom_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[1]);
+	this->txt_pre_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[2]);
+	this->dat_emb_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[3]);
+	this->txt_sup_hie_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[4]);
+	this->txt_ID_sup_hie_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[5]);
+	this->txt_ID_adr_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[6]);
+}
+private: System::Void dataGridView1_CellContentClick_1(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	this->textBox1->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[0]);
+	this->textBox3->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[1]);
+	this->textBox5->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[2]);
+	this->textBox7->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[3]);
+	this->textBox2->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[4]);
+	this->textBox4->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[5]);
+	this->textBox6->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[7]);
+	this->textBox8->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[8]);
 }
 };
 }
