@@ -24,9 +24,17 @@ namespace ProjetPOO {
 			//
 			//TODO: ajoutez ici le code du constructeur
 			//
-			this->oService = gcnew NS_Comp_Service::Clservice();
-			this->oService_Client = gcnew NS_Comp_Service::Clservice();
+			//this->oService = gcnew NS_Comp_Service::Clservice();
 			this->oService_Commande = gcnew NS_Comp_Service::Clservice();
+			this->oService_Commande_Liste = gcnew NS_Comp_Service::Clservice();
+			this->oService_Commande_RefCommande = gcnew NS_Comp_Service::Clservice();
+			this->oService_Client = gcnew NS_Comp_Service::Clservice();
+			this->oService_Adresse = gcnew NS_Comp_Service::Clservice();
+			this->oService_Employe = gcnew NS_Comp_Service::Clservice();
+			this->oService_Article = gcnew NS_Comp_Service::Clservice();
+			this->oService_Article_Stock = gcnew NS_Comp_Service::Clservice();
+			this->oService_Couleur = gcnew NS_Comp_Service::Clservice();
+			this->oService_Payement = gcnew NS_Comp_Service::Clservice();
 		}
 
 	protected:
@@ -290,9 +298,34 @@ namespace ProjetPOO {
 	//Commande
 	private: NS_Comp_Service::Clservice^ oService_Commande;
 	private: System::Data::DataTable^ oDs_Commande;
+	//Commande_Liste
+	private: NS_Comp_Service::Clservice^ oService_Commande_Liste;
+	private: System::Data::DataTable^ oDs_Commande_Liste;
+	//oService_Commande_RefCommande
+	private: NS_Comp_Service::Clservice^ oService_Commande_RefCommande;
+	private: System::Data::DataTable^ oDs_Commande_RefCommande;
+
 	//Client
 	private: NS_Comp_Service::Clservice^ oService_Client;
 	private: System::Data::DataTable^ oDs_Client;
+	//Adresse
+	private: NS_Comp_Service::Clservice^ oService_Adresse;
+	private: System::Data::DataTable^ oDs_Adresse;
+	//Employe
+	private: NS_Comp_Service::Clservice^ oService_Employe;
+	private: System::Data::DataTable^ oDs_Employe;
+	//Article
+	private: NS_Comp_Service::Clservice^ oService_Article;
+	private: System::Data::DataTable^ oDs_Article;
+	//oService_Article_Stock
+	private: NS_Comp_Service::Clservice^ oService_Article_Stock;
+	private: System::Data::DataTable^ oDs_Article_Stock;
+	//Couleur
+	private: NS_Comp_Service::Clservice^ oService_Couleur;
+	private: System::Data::DataTable^ oDs_Couleur;
+	//Payement
+	private: NS_Comp_Service::Clservice^ oService_Payement;
+	private: System::Data::DataTable^ oDs_Payement;
 
 private: System::Windows::Forms::Label^ label44;
 private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
@@ -543,6 +576,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->tabControl2->SelectedIndex = 0;
 			this->tabControl2->Size = System::Drawing::Size(1111, 430);
 			this->tabControl2->TabIndex = 0;
+			this->tabControl2->Selected += gcnew System::Windows::Forms::TabControlEventHandler(this, &MyForm::tabControl2_Selected);
 			// 
 			// Commande
 			// 
@@ -1974,7 +2008,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 			this->dataGridView7->ReadOnly = true;
 			this->dataGridView7->RowHeadersWidth = 51;
 			this->dataGridView7->RowTemplate->Height = 24;
-			this->dataGridView7->Size = System::Drawing::Size(1135, 178);
+			this->dataGridView7->Size = System::Drawing::Size(1104, 178);
 			this->dataGridView7->TabIndex = 0;
 			// 
 			// tabPage5
@@ -2198,63 +2232,63 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 	private: System::Void but_act_adr_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->dataGridView8->Refresh();
-		this->oDs = this->oService->AfficherAdresses();
-		this->dataGridView8->DataSource = this->oDs;
+		this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
+		this->dataGridView8->DataSource = this->oDs_Adresse;
 	}
 
 	private: System::Void but_ins_adr_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->AjouterUneAdresse(Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, Convert::ToInt32(this->txt_ID_ville_adr->Text));
+		this->oService_Adresse->AjouterUneAdresse(Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, Convert::ToInt32(this->txt_ID_ville_adr->Text));
 		this->dataGridView8->Refresh();
-		this->oDs = this->oService->AfficherAdresses();
-		this->dataGridView8->DataSource = this->oDs;
+		this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
+		this->dataGridView8->DataSource = this->oDs_Adresse;
 	}
 
 	private: System::Void but_upd_adr_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->ModifierUneAdresse(Convert::ToInt32(this->txt_ID_adr->Text), Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, Convert::ToInt32(this->txt_ID_ville_adr->Text));
+		this->oService_Adresse->ModifierUneAdresse(Convert::ToInt32(this->txt_ID_adr->Text), Convert::ToInt32(this->txt_num_adr->Text), this->txt_nom_rue_adr->Text, Convert::ToInt32(this->txt_ID_ville_adr->Text));
 		this->dataGridView8->Refresh();
-		this->oDs = this->oService->AfficherAdresses();
-		this->dataGridView8->DataSource = this->oDs;
+		this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
+		this->dataGridView8->DataSource = this->oDs_Adresse;
 	}
 
 	private: System::Void but_del_adr_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->SupprimerUneAdresse(Convert::ToInt32(this->txt_ID_adr->Text));
+		this->oService_Adresse->SupprimerUneAdresse(Convert::ToInt32(this->txt_ID_adr->Text));
 		this->dataGridView8->Refresh();
-		this->oDs = this->oService->AfficherAdresses();
-		this->dataGridView8->DataSource = this->oDs;
+		this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
+		this->dataGridView8->DataSource = this->oDs_Adresse;
 	}
 
 	private: System::Void but_act_emp_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->dataGridView6->Refresh();
-		this->oDs = this->oService->AfficherEmployes();
-		this->dataGridView6->DataSource = this->oDs;
+		this->oDs_Employe = this->oService_Employe->AfficherEmployes();
+		this->dataGridView6->DataSource = this->oDs_Employe;
 	}
 
 	private: System::Void but_ins_emp_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->AjouterUnEmploye(this->txt_nom_emp->Text, this->txt_pre_emp->Text, Convert::ToString(this->dat_emb_emp->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(0, 2), Convert::ToBoolean(Convert::ToInt32(this->txt_sup_hie_emp->Text)), Convert::ToInt32(this->txt_ID_adr_emp->Text), Convert::ToInt32(this->txt_ID_sup_hie_emp->Text));
+		this->oService_Employe->AjouterUnEmploye(this->txt_nom_emp->Text, this->txt_pre_emp->Text, Convert::ToString(this->dat_emb_emp->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(0, 2), Convert::ToBoolean(Convert::ToInt32(this->txt_sup_hie_emp->Text)), Convert::ToInt32(this->txt_ID_adr_emp->Text), Convert::ToInt32(this->txt_ID_sup_hie_emp->Text));
 		this->dataGridView6->Refresh();
-		this->oDs = this->oService->AfficherEmployes();
-		this->dataGridView6->DataSource = this->oDs;
+		this->oDs_Employe = this->oService_Employe->AfficherEmployes();
+		this->dataGridView6->DataSource = this->oDs_Employe;
 	}
 
 	private: System::Void but_upd_emp_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->ModifierUnEmploye(Convert::ToInt32(this->txt_ID_emp->Text), this->txt_nom_emp->Text, this->txt_pre_emp->Text, Convert::ToString(this->dat_emb_emp->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(0, 2), Convert::ToBoolean(Convert::ToInt32(this->txt_sup_hie_emp->Text)), Convert::ToInt32(this->txt_ID_adr_emp->Text), Convert::ToInt32(this->txt_ID_sup_hie_emp->Text));
+		this->oService_Employe->ModifierUnEmploye(Convert::ToInt32(this->txt_ID_emp->Text), this->txt_nom_emp->Text, this->txt_pre_emp->Text, Convert::ToString(this->dat_emb_emp->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(0, 2), Convert::ToBoolean(Convert::ToInt32(this->txt_sup_hie_emp->Text)), Convert::ToInt32(this->txt_ID_adr_emp->Text), Convert::ToInt32(this->txt_ID_sup_hie_emp->Text));
 		this->dataGridView6->Refresh();
-		this->oDs = this->oService->AfficherEmployes();
-		this->dataGridView6->DataSource = this->oDs;
+		this->oDs_Employe = this->oService_Employe->AfficherEmployes();
+		this->dataGridView6->DataSource = this->oDs_Employe;
 	}
 
 	private: System::Void but_del_emp_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->SupprimerUnEmploye(Convert::ToInt32(this->txt_ID_emp->Text));
+		this->oService_Employe->SupprimerUnEmploye(Convert::ToInt32(this->txt_ID_emp->Text));
 		this->dataGridView6->Refresh();
-		this->oDs = this->oService->AfficherEmployes();
-		this->dataGridView6->DataSource = this->oDs;
+		this->oDs_Employe = this->oService_Employe->AfficherEmployes();
+		this->dataGridView6->DataSource = this->oDs_Employe;
 	}
 	
 	private: System::Void but_act_cli_Click(System::Object^ sender, System::EventArgs^ e)
@@ -2291,32 +2325,32 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 	private: System::Void but_act_pay_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->dataGridView4->Refresh();
-		this->oDs = this->oService->AfficherPayements();
-		this->dataGridView4->DataSource = this->oDs;
+		this->oDs_Payement = this->oService_Payement->AfficherPayements();
+		this->dataGridView4->DataSource = this->oDs_Payement;
 	}
 
 	private: System::Void but_ins_pay_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->AjouterUnPayement(Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->txt_mon_pay->Text, Convert::ToString(this->txt_mon_pay->Text), Convert::ToInt32(this->txt_ref_com_pay->Text));
+		this->oService_Payement->AjouterUnPayement(Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->txt_mon_pay->Text, Convert::ToString(this->txt_mon_pay->Text), Convert::ToInt32(this->txt_ref_com_pay->Text));
 		this->dataGridView4->Refresh();
-		this->oDs = this->oService->AfficherPayements();
-		this->dataGridView4->DataSource = this->oDs;
+		this->oDs_Payement = this->oService_Payement->AfficherPayements();
+		this->dataGridView4->DataSource = this->oDs_Payement;
 	}
 
 	private: System::Void but_upd_pay_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->ModifierUnPayement(Convert::ToInt32(this->txt_ID_pay->Text), Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->txt_mon_pay->Text, Convert::ToString(this->txt_mon_pay->Text), Convert::ToInt32(this->txt_ref_com_pay->Text));
+		this->oService_Payement->ModifierUnPayement(Convert::ToInt32(this->txt_ID_pay->Text), Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->txt_mon_pay->Text, Convert::ToString(this->txt_mon_pay->Text), Convert::ToInt32(this->txt_ref_com_pay->Text));
 		this->dataGridView4->Refresh();
-		this->oDs = this->oService->AfficherPayements();
-		this->dataGridView4->DataSource = this->oDs;
+		this->oDs_Payement = this->oService_Payement->AfficherPayements();
+		this->dataGridView4->DataSource = this->oDs_Payement;
 	}
 
 	private: System::Void but_del_pay_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->SupprimerUnPayement(Convert::ToInt32(this->txt_ID_pay->Text));
+		this->oService_Payement->SupprimerUnPayement(Convert::ToInt32(this->txt_ID_pay->Text));
 		this->dataGridView5->Refresh();
-		this->oDs = this->oService->AfficherPayements();
-		this->dataGridView5->DataSource = this->oDs;
+		this->oDs_Payement = this->oService_Payement->AfficherPayements();
+		this->dataGridView5->DataSource = this->oDs_Payement;
 	}
  
 	private: System::Void but_act_com_Click(System::Object^ sender, System::EventArgs^ e)
@@ -2328,7 +2362,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 
 	private: System::Void but_ins_com_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		System::String^ ref_comm = this->oService->RecupRefCommande(this->txt_ID_cli_com->Text, this->txt_adr_liv_com->Text);
+		System::String^ ref_comm = this->oService_Commande_RefCommande->RecupRefCommande(this->txt_ID_cli_com->Text, this->txt_adr_liv_com->Text);
 		this->oService_Commande->AjouterUneCommande(ref_comm, Convert::ToString(this->date_liv_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(0, 2), Convert::ToString(this->date_emi_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(0, 2), Convert::ToString(this->date_fac_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(0, 2), this->txt_tot_HT_com->Text, Convert::ToInt32(this->txt_ID_cli_com->Text), Convert::ToInt32(this->txt_adr_liv_com->Text), Convert::ToInt32(this->txt_adr_fac_com->Text));
 		this->dataGridView2->Refresh();
 		this->oDs_Commande = this->oService_Commande->AfficherCommandes();
@@ -2337,7 +2371,7 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 
 	private: System::Void but_upd_com_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		System::String^ ref_comm = this->oService->RecupRefCommande(this->txt_ID_cli_com->Text, this->txt_adr_liv_com->Text);
+		System::String^ ref_comm = this->oService_Commande_RefCommande->RecupRefCommande(this->txt_ID_cli_com->Text, this->txt_adr_liv_com->Text);
 		this->oService_Commande->ModifierUneCommande(Convert::ToInt32(this->txt_ref_com_com->Text), ref_comm, Convert::ToString(this->date_liv_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_liv_com->Value)->Substring(0, 2), Convert::ToString(this->date_emi_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_emi_com->Value)->Substring(0, 2), Convert::ToString(this->date_fac_com->Value)->Substring(6, 4) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(3, 2) + "-" + Convert::ToString(this->date_fac_com->Value)->Substring(0, 2), this->txt_tot_HT_com->Text, Convert::ToInt32(this->txt_ID_cli_com->Text), Convert::ToInt32(this->txt_adr_liv_com->Text), Convert::ToInt32(this->txt_adr_fac_com->Text));
 		this->dataGridView2->Refresh();
 		this->oDs_Commande = this->oService_Commande->AfficherCommandes();
@@ -2355,124 +2389,111 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 	private: System::Void but_act_lis_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->dataGridView3->Refresh();
-		this->oDs = this->oService->AfficherArticlesDeCommande();
-		this->dataGridView3->DataSource = this->oDs;
+		this->oDs_Commande_Liste = this->oService_Commande_Liste->AfficherArticlesDeCommande();
+		this->dataGridView3->DataSource = this->oDs_Commande_Liste;
 	}
 
 	private: System::Void but_ins_lis_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->AjouterUnArticleDeCommande(Convert::ToInt32(this->txt_ref_com_lis->Text), Convert::ToInt32(this->txt_ref_art_lis->Text), this->txt_pri_uni_rem_lis->Text, Convert::ToInt32(this->txt_qua_com_lis->Text), this->txt_tau_tva_lis->Text);
+		this->oService_Commande_Liste->AjouterUnArticleDeCommande(Convert::ToInt32(this->txt_ref_com_lis->Text), Convert::ToInt32(this->txt_ref_art_lis->Text), this->txt_pri_uni_rem_lis->Text, Convert::ToInt32(this->txt_qua_com_lis->Text), this->txt_tau_tva_lis->Text);
 		this->dataGridView3->Refresh();
-		this->oDs = this->oService->AfficherArticlesDeCommande();
-		this->dataGridView3->DataSource = this->oDs;
+		this->oDs_Commande_Liste = this->oService_Commande_Liste->AfficherArticlesDeCommande();
+		this->dataGridView3->DataSource = this->oDs_Commande_Liste;
 	}
 
 	private: System::Void but_upd_lis_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->ModifierUnArticleDeCommande(Convert::ToInt32(this->txt_ref_com_lis->Text), Convert::ToInt32(this->txt_ref_art_lis->Text), this->txt_pri_uni_rem_lis->Text, Convert::ToInt32(this->txt_qua_com_lis->Text), this->txt_tau_tva_lis->Text);
+		this->oService_Commande_Liste->ModifierUnArticleDeCommande(Convert::ToInt32(this->txt_ref_com_lis->Text), Convert::ToInt32(this->txt_ref_art_lis->Text), this->txt_pri_uni_rem_lis->Text, Convert::ToInt32(this->txt_qua_com_lis->Text), this->txt_tau_tva_lis->Text);
 		this->dataGridView3->Refresh();
-		this->oDs = this->oService->AfficherArticlesDeCommande();
-		this->dataGridView3->DataSource = this->oDs;
+		this->oDs_Commande_Liste = this->oService_Commande_Liste->AfficherArticlesDeCommande();
+		this->dataGridView3->DataSource = this->oDs_Commande_Liste;
 	}
 
 	private: System::Void but_del_lis_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->SupprimerUnArticleDeCommande(Convert::ToInt32(this->txt_ref_com_lis->Text), Convert::ToInt32(this->txt_ref_art_lis->Text));
+		this->oService_Commande_Liste->SupprimerUnArticleDeCommande(Convert::ToInt32(this->txt_ref_com_lis->Text), Convert::ToInt32(this->txt_ref_art_lis->Text));
 		this->dataGridView3->Refresh();
-		this->oDs = this->oService->AfficherArticlesDeCommande();
-		this->dataGridView3->DataSource = this->oDs;
+		this->oDs_Commande_Liste = this->oService_Commande_Liste->AfficherArticlesDeCommande();
+		this->dataGridView3->DataSource = this->oDs_Commande_Liste;
 	}
 
 	private: System::Void but_act_art_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->dataGridView1->Refresh();
-		this->oDs = this->oService->AfficherArticles();
-		this->dataGridView1->DataSource = this->oDs;
+		this->oDs_Article = this->oService_Article->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs_Article;
 	}
 
 	private: System::Void but_ins_art_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->AjouterUnStock(Convert::ToInt32(this->textBox6->Text), Convert::ToInt32(this->textBox8->Text));
-		this->oService->AjouterUnArticle(this->textBox3->Text, this->textBox5->Text, this->textBox7->Text, Convert::ToInt32(this->textBox2->Text), Convert::ToInt32(this->textBox4->Text));
+		System::Data::DataTable^ Table_id_Stock = this->oService_Article_Stock->AjouterUnStock(Convert::ToInt32(this->textBox6->Text), Convert::ToInt32(this->textBox8->Text));
+		System::String^ ID_Stock = System::Convert::ToString((Table_id_Stock->Rows[0])[0]);
+
+		this->oService_Article->AjouterUnArticle(this->textBox3->Text, this->textBox5->Text, this->textBox7->Text, Convert::ToInt32(this->textBox2->Text), Convert::ToInt32(ID_Stock));
 		this->dataGridView1->Refresh();
-		this->oDs = this->oService->AfficherArticles();
-		this->dataGridView1->DataSource = this->oDs;
+		this->oDs_Article = this->oService_Article->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs_Article;
 	}
 
 	private: System::Void but_upd_art_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->ModifierUnStock(Convert::ToInt32(this->textBox4->Text), Convert::ToInt32(this->textBox6->Text), Convert::ToInt32(this->textBox8->Text));
-		this->oService->ModifierUnArticle(Convert::ToInt32(this->textBox1->Text), this->textBox3->Text, this->textBox5->Text, this->textBox7->Text, Convert::ToInt32(this->textBox2->Text), Convert::ToInt32(this->textBox4->Text));
+		this->oService_Article->ModifierUnStock(Convert::ToInt32(this->textBox4->Text), Convert::ToInt32(this->textBox6->Text), Convert::ToInt32(this->textBox8->Text));
+		this->oService_Article->ModifierUnArticle(Convert::ToInt32(this->textBox1->Text), this->textBox3->Text, this->textBox5->Text, this->textBox7->Text, Convert::ToInt32(this->textBox2->Text), Convert::ToInt32(this->textBox4->Text));
 		this->dataGridView1->Refresh();
-		this->oDs = this->oService->AfficherArticles();
-		this->dataGridView1->DataSource = this->oDs;
+		this->oDs_Article = this->oService_Article->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs_Article;
 	}
 
 	private: System::Void but_del_art_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->SupprimerUnArticle(Convert::ToInt32(this->textBox1->Text));
-		this->oService->SupprimerUnStock(Convert::ToInt32(this->textBox4->Text));
+		this->oService_Article->SupprimerUnArticle(Convert::ToInt32(this->textBox1->Text));
+		this->oService_Article->SupprimerUnStock(Convert::ToInt32(this->textBox4->Text));
 		this->dataGridView1->Refresh();
-		this->oDs = this->oService->AfficherArticles();
-		this->dataGridView1->DataSource = this->oDs;
+		this->oDs_Article = this->oService_Article->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs_Article;
 	}
 
 	private: System::Void but_act_cou_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->dataGridView7->Refresh();
-		this->oDs = this->oService->AfficherCouleurs();
-		this->dataGridView7->DataSource = this->oDs;
+		this->oDs_Couleur = this->oService_Couleur->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs_Couleur;
 	}
 
 	private: System::Void but_ins_cou_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->AjouterUneCouleur(this->txt_nom_cou->Text);
+		this->oService_Couleur->AjouterUneCouleur(this->txt_nom_cou->Text);
 		this->dataGridView7->Refresh();
-		this->oDs = this->oService->AfficherCouleurs();
-		this->dataGridView7->DataSource = this->oDs;
+		this->oDs_Couleur = this->oService_Couleur->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs_Couleur;
 	}
 
 	private: System::Void but_upd_cou_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->ModifierUneCouleur(Convert::ToInt32(this->txt_ID_cou->Text), this->txt_nom_cou->Text);
+		this->oService_Couleur->ModifierUneCouleur(Convert::ToInt32(this->txt_ID_cou->Text), this->txt_nom_cou->Text);
 		this->dataGridView7->Refresh();
-		this->oDs = this->oService->AfficherCouleurs();
-		this->dataGridView7->DataSource = this->oDs;
+		this->oDs_Couleur = this->oService_Couleur->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs_Couleur;
 	}
 
 	private: System::Void but_del_cou_Click(System::Object^ sender, System::EventArgs^ e)
 	{
-		this->oService->SupprimerUneCouleur(Convert::ToInt32(this->txt_ID_cou->Text));
+		this->oService_Couleur->SupprimerUneCouleur(Convert::ToInt32(this->txt_ID_cou->Text));
 		this->dataGridView7->Refresh();
-		this->oDs = this->oService->AfficherCouleurs();
-		this->dataGridView7->DataSource = this->oDs;
+		this->oDs_Couleur = this->oService_Couleur->AfficherCouleurs();
+		this->dataGridView7->DataSource = this->oDs_Couleur;
 	}
-
-
-
-
-
-
-
-
 
 
 
 	private: System::Void dataGridView8_CellContentClick_1(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		this->txt_ID_adr->Text = Convert::ToString(e->RowIndex + 1);
-		this->txt_num_adr->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[1]);
-		this->txt_nom_rue_adr->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[2]);
-		this->txt_ID_ville_adr->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[3]);
+		this->txt_num_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[1]);
+		this->txt_nom_rue_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[2]);
+		this->txt_ID_ville_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[3]);
 	}
 		   
-
-
-
 		   
-
-
-
-
 
 
 
@@ -2543,10 +2564,34 @@ private: System::Windows::Forms::TextBox^ txt_ID_adr_emp;
 	private: System::Void tabPage5_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void tabControl1_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
+	if (Convert::ToInt32(e->TabPageIndex) == 0) {
+		this->dataGridView2->Refresh();
+		this->oDs_Commande = this->oService_Commande->AfficherCommandes();
+		this->dataGridView2->DataSource = this->oDs_Commande;
+	}
+
+	if (Convert::ToInt32(e->TabPageIndex) == 1) {
+		this->dataGridView5->Refresh();
+		this->oDs_Client = this->oService_Client->AfficherClients();
+		this->dataGridView5->DataSource = this->oDs_Client;
+	}
+
+	if (Convert::ToInt32(e->TabPageIndex) == 2) {
+		this->dataGridView6->Refresh();
+		this->oDs_Employe = this->oService_Employe->AfficherEmployes();
+		this->dataGridView6->DataSource = this->oDs_Employe;
+	}
+
+	if (Convert::ToInt32(e->TabPageIndex) == 3) {
+		this->dataGridView1->Refresh();
+		this->oDs_Article = this->oService_Article->AfficherArticles();
+		this->dataGridView1->DataSource = this->oDs_Article;
+	}
+	
 	if (Convert::ToInt32(e->TabPageIndex) == 4) {
 		this->dataGridView8->Refresh();
-		this->oDs = this->oService->AfficherAdresses();
-		this->dataGridView8->DataSource = this->oDs;
+		this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
+		this->dataGridView8->DataSource = this->oDs_Adresse;
 	}
 }
 private: System::Void dataGridView5_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) 
@@ -2554,6 +2599,25 @@ private: System::Void dataGridView5_CellContentClick(System::Object^ sender, Sys
 	this->txt_ID_cli->Text = Convert::ToString(e->RowIndex + 1);
 	this->txt_nom_cli->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[1]);
 	this->txt_pre_cli->Text = Convert::ToString((this->oDs->Rows[e->RowIndex])[2]);
+}
+private: System::Void tabControl2_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
+	if (Convert::ToInt32(e->TabPageIndex) == 0) {
+		this->dataGridView2->Refresh();
+		this->oDs_Commande = this->oService_Commande->AfficherCommandes();
+		this->dataGridView2->DataSource = this->oDs_Commande;
+	}
+
+	if (Convert::ToInt32(e->TabPageIndex) == 1) {
+		this->dataGridView3->Refresh();
+		this->oDs_Commande_Liste = this->oService_Commande_Liste->AfficherArticlesDeCommande();
+		this->dataGridView3->DataSource = this->oDs_Commande_Liste;
+	}
+
+	if (Convert::ToInt32(e->TabPageIndex) == 2) {
+		this->dataGridView4->Refresh();
+		this->oDs_Payement = this->oService_Payement->AfficherPayements();
+		this->dataGridView4->DataSource = this->oDs_Payement;
+	}
 }
 };
 }

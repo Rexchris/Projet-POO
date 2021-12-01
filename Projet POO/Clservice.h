@@ -52,7 +52,7 @@ namespace NS_Comp_Service {
 		void ModifierUneCouleur(int ID_Couleur, System::String^ Nom_Couleur);
 		void SupprimerUneCouleur(int ID_Couleur);
 		System::Data::DataTable^ AfficherStocks(void);
-		void AjouterUnStock(int Quantite_Stock, int Seuil_Reapprovisionnement);
+		System::Data::DataTable^ AjouterUnStock(int Quantite_Stock, int Seuil_Reapprovisionnement);
 		void ModifierUnStock(int ID_Stock, int Quantite_Stock, int Seuil_Reapprovisionnement);
 		void SupprimerUnStock(int ID_Stock);
 		System::Data::DataTable^ AfficherAdresses(void);

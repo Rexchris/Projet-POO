@@ -97,7 +97,7 @@ System::String^ NS_Comp_Stock::CLMappStock::Select(void)
 
 System::String^ NS_Comp_Stock::CLMappStock::Insert(void) 
 {
-	return "INSERT INTO Stock (Quantite_Stock, Seuil_Approvisionnement) VALUES ('" + this->getQuantite_Stock() + "','" + this->getSeuil_Reapprovisionnement() + "');";
+	return "INSERT INTO Stock (Quantite_Stock, Seuil_Approvisionnement) OUTPUT inserted.ID_Stock VALUES ('" + this->getQuantite_Stock() + "','" + this->getSeuil_Reapprovisionnement() + "');";
 }
 
 System::String^ NS_Comp_Stock::CLMappStock::Update(void) 

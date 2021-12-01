@@ -342,14 +342,14 @@ System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherStocks(void)
 	return this->oMapp->getRows(sql);
 }
 
-void NS_Comp_Service::Clservice::AjouterUnStock(int Quantite_Stock, int Seuil_Reapprovisionnement)
+System::Data::DataTable^ NS_Comp_Service::Clservice::AjouterUnStock(int Quantite_Stock, int Seuil_Reapprovisionnement)
 {
 	System::String^ sql;
 
 	this->oMappStock->setQuantite_Stock(Quantite_Stock);
 	this->oMappStock->setSeuil_Reapprovisionnement(Seuil_Reapprovisionnement);
 	sql = this->oMappStock->Insert();
-	return this->oMapp->actionRows(sql);
+	return this->oMapp->getRows(sql);
 }
 
 void NS_Comp_Service::Clservice::ModifierUnStock(int ID_Stock, int Quantite_Stock, int Seuil_Reapprovisionnement)
