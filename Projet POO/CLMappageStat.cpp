@@ -41,6 +41,11 @@ System::String^ NS_Comp_Stat::CLMappageStat::SelectValeurAchatStock(void)
 	return "SELECT ROUND(SUM(Prix_Article_HT * Quantite_Stock),2) AS 'Valeur d''achat du stock' FROM Article JOIN Stock ON Article.ID_Stock = Stock.ID_Stock";
 }
 
+System::String^ NS_Comp_Stat::CLMappageStat::SelectSimulation(System::String^ TVA, System::String^ marge, System::String^ remise, System::String^ demarque)
+{
+	return "EXECUTE Simulation " + TVA + "," + marge + "," + remise + "," + demarque +";";
+}
+
 System::String^ NS_Comp_Stat::CLMappageStat::SelectAllMonthCommande(void)
 {
 	return "Select MONTH(Date_Facturation) FROM Commande GROUP BY MONTH(Date_Facturation)";

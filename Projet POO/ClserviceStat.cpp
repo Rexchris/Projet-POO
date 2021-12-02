@@ -70,6 +70,14 @@ System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherValeurAcha
 	return this->oMapp->getRows(sql);
 }
 
+System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherSimulation(System::String^ TVA, System::String^ marge, System::String^ remise, System::String^ demarque)
+{
+	System::String^ sql;
+
+	sql = this->oMappStat->SelectSimulation(TVA, marge, remise, demarque);
+	return this->oMapp->getRows(sql);
+}
+
 System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherToutMoisCommande(void)
 {
 	System::String^ sql;

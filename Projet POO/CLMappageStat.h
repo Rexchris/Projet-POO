@@ -12,6 +12,7 @@ namespace NS_Comp_Stat {
 		System::String^ Select10MoinsVendus(void);
 		System::String^ SelectValeurCommercialeStock(void);
 		System::String^ SelectValeurAchatStock(void);
+		System::String^ SelectSimulation(System::String^ TVA, System::String^ marge, System::String^ remise, System::String^ demarque);
 
 		System::String^ SelectAllMonthCommande(void);
 		System::String^ SelectAllYearCommande(void);

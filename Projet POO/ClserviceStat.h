@@ -18,9 +18,12 @@ namespace NS_Comp_Service_Stat {
 		System::Data::DataTable^ Afficher10MoinsVendus(void);
 		System::Data::DataTable^ AfficherValeurCommercialeStock(void);
 		System::Data::DataTable^ AfficherValeurAchatStock(void);
+		System::Data::DataTable^ AfficherSimulation(System::String^ TVA, System::String^ marge, System::String^ remise, System::String^ demarque);
 
 
 		System::Data::DataTable^ AfficherToutMoisCommande(void);
 		System::Data::DataTable^ AfficherToutAnneeCommande(void);
+
+
 	};
 }

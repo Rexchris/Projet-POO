@@ -44,6 +44,7 @@ namespace ProjetPOO {
 			this->oService_Stat_10MoinsVendus = gcnew NS_Comp_Service_Stat::ClserviceStat();
 			this->oService_Stat_ValeurCommercialeStock = gcnew NS_Comp_Service_Stat::ClserviceStat();
 			this->oService_Stat_ValeurAchatStock = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Stat_Simulation = gcnew NS_Comp_Service_Stat::ClserviceStat();
 			this->oService_Adresse_Ville = gcnew NS_Comp_Service::Clservice();
 			this->oService_Adresse_Ville2 = gcnew NS_Comp_Service::Clservice();
 			this->oService_Stat_AllMonth = gcnew NS_Comp_Service_Stat::ClserviceStat();
@@ -377,6 +378,9 @@ namespace ProjetPOO {
 	//Valeur Achat Stock
 	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_ValeurAchatStock;
 	private: System::Data::DataTable^ oDs_Stat_ValeurAchatStock;
+	//Valeur Achat Stock
+	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_Simulation;
+	private: System::Data::DataTable^ oDs_Stat_Simulation;
 	//Valeur Stat_AllMonth
 	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_AllMonth;
 	private: System::Data::DataTable^ oDs_Stat_AllMonth;
@@ -410,6 +414,24 @@ private: System::Windows::Forms::Label^ lab_ann_stat;
 private: System::Windows::Forms::ComboBox^ txt_ann_stat;
 private: System::Windows::Forms::Button^ button1;
 private: System::Windows::Forms::Button^ but_test_uni;
+private: System::Windows::Forms::TextBox^ txt_test_uni_retour;
+private: System::Windows::Forms::TextBox^ txt_stat_demarqueInconnue;
+
+private: System::Windows::Forms::TextBox^ txt_stat_remiseCommercial;
+
+private: System::Windows::Forms::TextBox^ txt_stat_margeCommercial;
+
+private: System::Windows::Forms::TextBox^ txt_stat_TVA;
+private: System::Windows::Forms::Label^ lab_stat_TVA;
+private: System::Windows::Forms::Label^ lab_stat_demarqueInconnue;
+
+private: System::Windows::Forms::Label^ lab_stat_remiseCommercial;
+
+private: System::Windows::Forms::Label^ lab_stat_margeCommercial;
+
+
+
+
 
 
 
@@ -531,6 +553,8 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			this->but_act_cli = (gcnew System::Windows::Forms::Button());
 			this->dataGridView5 = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->txt_test_uni_retour = (gcnew System::Windows::Forms::TextBox());
+			this->but_test_uni = (gcnew System::Windows::Forms::Button());
 			this->label44 = (gcnew System::Windows::Forms::Label());
 			this->txt_ID_adr_emp = (gcnew System::Windows::Forms::TextBox());
 			this->txt_sup_hie_emp = (gcnew System::Windows::Forms::ComboBox());
@@ -599,6 +623,14 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			this->but_act_adr = (gcnew System::Windows::Forms::Button());
 			this->dataGridView8 = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage8 = (gcnew System::Windows::Forms::TabPage());
+			this->lab_stat_demarqueInconnue = (gcnew System::Windows::Forms::Label());
+			this->lab_stat_remiseCommercial = (gcnew System::Windows::Forms::Label());
+			this->lab_stat_margeCommercial = (gcnew System::Windows::Forms::Label());
+			this->lab_stat_TVA = (gcnew System::Windows::Forms::Label());
+			this->txt_stat_demarqueInconnue = (gcnew System::Windows::Forms::TextBox());
+			this->txt_stat_remiseCommercial = (gcnew System::Windows::Forms::TextBox());
+			this->txt_stat_margeCommercial = (gcnew System::Windows::Forms::TextBox());
+			this->txt_stat_TVA = (gcnew System::Windows::Forms::TextBox());
 			this->txt_ann_stat = (gcnew System::Windows::Forms::ComboBox());
 			this->lab_ann_stat = (gcnew System::Windows::Forms::Label());
 			this->lab_moi_stat = (gcnew System::Windows::Forms::Label());
@@ -606,7 +638,6 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			this->label45 = (gcnew System::Windows::Forms::Label());
 			this->comboBox_Stat = (gcnew System::Windows::Forms::ComboBox());
 			this->dataGridView9 = (gcnew System::Windows::Forms::DataGridView());
-			this->but_test_uni = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabControl2->SuspendLayout();
@@ -711,11 +742,11 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(505, 168);
+			this->button1->Location = System::Drawing::Point(493, 168);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(132, 62);
 			this->button1->TabIndex = 25;
-			this->button1->Text = L"button1";
+			this->button1->Text = L"Générer la facture";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
@@ -1484,6 +1515,7 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			// 
 			// tabPage3
 			// 
+			this->tabPage3->Controls->Add(this->txt_test_uni_retour);
 			this->tabPage3->Controls->Add(this->but_test_uni);
 			this->tabPage3->Controls->Add(this->label44);
 			this->tabPage3->Controls->Add(this->txt_ID_adr_emp);
@@ -1512,6 +1544,24 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Employes";
 			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// txt_test_uni_retour
+			// 
+			this->txt_test_uni_retour->Enabled = false;
+			this->txt_test_uni_retour->Location = System::Drawing::Point(685, 194);
+			this->txt_test_uni_retour->Name = L"txt_test_uni_retour";
+			this->txt_test_uni_retour->Size = System::Drawing::Size(116, 20);
+			this->txt_test_uni_retour->TabIndex = 22;
+			// 
+			// but_test_uni
+			// 
+			this->but_test_uni->Location = System::Drawing::Point(685, 165);
+			this->but_test_uni->Name = L"but_test_uni";
+			this->but_test_uni->Size = System::Drawing::Size(116, 23);
+			this->but_test_uni->TabIndex = 21;
+			this->but_test_uni->Text = L"Test Unitaire";
+			this->but_test_uni->UseVisualStyleBackColor = true;
+			this->but_test_uni->Click += gcnew System::EventHandler(this, &MyForm::but_test_uni_Click);
 			// 
 			// label44
 			// 
@@ -2311,6 +2361,14 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			// 
 			// tabPage8
 			// 
+			this->tabPage8->Controls->Add(this->lab_stat_demarqueInconnue);
+			this->tabPage8->Controls->Add(this->lab_stat_remiseCommercial);
+			this->tabPage8->Controls->Add(this->lab_stat_margeCommercial);
+			this->tabPage8->Controls->Add(this->lab_stat_TVA);
+			this->tabPage8->Controls->Add(this->txt_stat_demarqueInconnue);
+			this->tabPage8->Controls->Add(this->txt_stat_remiseCommercial);
+			this->tabPage8->Controls->Add(this->txt_stat_margeCommercial);
+			this->tabPage8->Controls->Add(this->txt_stat_TVA);
 			this->tabPage8->Controls->Add(this->txt_ann_stat);
 			this->tabPage8->Controls->Add(this->lab_ann_stat);
 			this->tabPage8->Controls->Add(this->lab_moi_stat);
@@ -2326,6 +2384,78 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			this->tabPage8->TabIndex = 5;
 			this->tabPage8->Text = L"Statistiques";
 			this->tabPage8->UseVisualStyleBackColor = true;
+			// 
+			// lab_stat_demarqueInconnue
+			// 
+			this->lab_stat_demarqueInconnue->AutoSize = true;
+			this->lab_stat_demarqueInconnue->Location = System::Drawing::Point(640, 150);
+			this->lab_stat_demarqueInconnue->Name = L"lab_stat_demarqueInconnue";
+			this->lab_stat_demarqueInconnue->Size = System::Drawing::Size(104, 13);
+			this->lab_stat_demarqueInconnue->TabIndex = 14;
+			this->lab_stat_demarqueInconnue->Text = L"Démarque Inconnue";
+			this->lab_stat_demarqueInconnue->Visible = false;
+			// 
+			// lab_stat_remiseCommercial
+			// 
+			this->lab_stat_remiseCommercial->AutoSize = true;
+			this->lab_stat_remiseCommercial->Location = System::Drawing::Point(520, 151);
+			this->lab_stat_remiseCommercial->Name = L"lab_stat_remiseCommercial";
+			this->lab_stat_remiseCommercial->Size = System::Drawing::Size(104, 13);
+			this->lab_stat_remiseCommercial->TabIndex = 13;
+			this->lab_stat_remiseCommercial->Text = L"Remise commerciale";
+			this->lab_stat_remiseCommercial->Visible = false;
+			// 
+			// lab_stat_margeCommercial
+			// 
+			this->lab_stat_margeCommercial->AutoSize = true;
+			this->lab_stat_margeCommercial->Location = System::Drawing::Point(400, 151);
+			this->lab_stat_margeCommercial->Name = L"lab_stat_margeCommercial";
+			this->lab_stat_margeCommercial->Size = System::Drawing::Size(99, 13);
+			this->lab_stat_margeCommercial->TabIndex = 12;
+			this->lab_stat_margeCommercial->Text = L"Marge commerciale";
+			this->lab_stat_margeCommercial->Visible = false;
+			// 
+			// lab_stat_TVA
+			// 
+			this->lab_stat_TVA->AutoSize = true;
+			this->lab_stat_TVA->Location = System::Drawing::Point(280, 151);
+			this->lab_stat_TVA->Name = L"lab_stat_TVA";
+			this->lab_stat_TVA->Size = System::Drawing::Size(55, 13);
+			this->lab_stat_TVA->TabIndex = 11;
+			this->lab_stat_TVA->Text = L"Taux TVA";
+			this->lab_stat_TVA->Visible = false;
+			// 
+			// txt_stat_demarqueInconnue
+			// 
+			this->txt_stat_demarqueInconnue->Location = System::Drawing::Point(640, 169);
+			this->txt_stat_demarqueInconnue->Name = L"txt_stat_demarqueInconnue";
+			this->txt_stat_demarqueInconnue->Size = System::Drawing::Size(100, 20);
+			this->txt_stat_demarqueInconnue->TabIndex = 10;
+			this->txt_stat_demarqueInconnue->Visible = false;
+			// 
+			// txt_stat_remiseCommercial
+			// 
+			this->txt_stat_remiseCommercial->Location = System::Drawing::Point(520, 169);
+			this->txt_stat_remiseCommercial->Name = L"txt_stat_remiseCommercial";
+			this->txt_stat_remiseCommercial->Size = System::Drawing::Size(100, 20);
+			this->txt_stat_remiseCommercial->TabIndex = 9;
+			this->txt_stat_remiseCommercial->Visible = false;
+			// 
+			// txt_stat_margeCommercial
+			// 
+			this->txt_stat_margeCommercial->Location = System::Drawing::Point(400, 169);
+			this->txt_stat_margeCommercial->Name = L"txt_stat_margeCommercial";
+			this->txt_stat_margeCommercial->Size = System::Drawing::Size(100, 20);
+			this->txt_stat_margeCommercial->TabIndex = 8;
+			this->txt_stat_margeCommercial->Visible = false;
+			// 
+			// txt_stat_TVA
+			// 
+			this->txt_stat_TVA->Location = System::Drawing::Point(280, 168);
+			this->txt_stat_TVA->Name = L"txt_stat_TVA";
+			this->txt_stat_TVA->Size = System::Drawing::Size(100, 20);
+			this->txt_stat_TVA->TabIndex = 7;
+			this->txt_stat_TVA->Visible = false;
 			// 
 			// txt_ann_stat
 			// 
@@ -2378,10 +2508,10 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			// comboBox_Stat
 			// 
 			this->comboBox_Stat->FormattingEnabled = true;
-			this->comboBox_Stat->Items->AddRange(gcnew cli::array< System::Object^  >(8) {
+			this->comboBox_Stat->Items->AddRange(gcnew cli::array< System::Object^  >(9) {
 				L"Panier moyen (après remise)", L"Chiffre d\'affaire sur un mois",
 					L"Produits sous le seuil de réapprovisionnement", L"Montant total d\'achat pour chaque client", L"Les 10 articles les plus vendus",
-					L"Les 10 articles les moins vendus", L"Valeur commerciale du stock", L"Valeur d\'achat du stock"
+					L"Les 10 articles les moins vendus", L"Valeur commerciale du stock", L"Valeur d\'achat du stock", L"Simulation des variations de la valeur du stock"
 			});
 			this->comboBox_Stat->Location = System::Drawing::Point(5, 168);
 			this->comboBox_Stat->Margin = System::Windows::Forms::Padding(2);
@@ -2421,16 +2551,6 @@ private: System::Windows::Forms::Button^ but_test_uni;
 			this->dataGridView9->RowTemplate->Height = 24;
 			this->dataGridView9->Size = System::Drawing::Size(823, 145);
 			this->dataGridView9->TabIndex = 0;
-			// 
-			// but_test_uni
-			// 
-			this->but_test_uni->Location = System::Drawing::Point(579, 245);
-			this->but_test_uni->Name = L"but_test_uni";
-			this->but_test_uni->Size = System::Drawing::Size(75, 23);
-			this->but_test_uni->TabIndex = 21;
-			this->but_test_uni->Text = L"but_test_uni";
-			this->but_test_uni->UseVisualStyleBackColor = true;
-			this->but_test_uni->Click += gcnew System::EventHandler(this, &MyForm::but_test_uni_Click);
 			// 
 			// MyForm
 			// 
@@ -2890,25 +3010,43 @@ private: System::Void comboBox_Stat_SelectedIndexChanged(System::Object^ sender,
 		this->lab_moi_stat->Visible = true;
 		this->txt_ann_stat->Visible = true;
 		this->lab_ann_stat->Visible = true;
-
 		this->oDs_Stat_AllMonth = this->oService_Stat_AllMonth->AfficherToutMoisCommande();
-
 		for (int i = 0; i <= (this->oDs_Stat_AllMonth->Rows->Count - 1); i++) {
 			this->txt_moi_stat->Items->Add(System::Convert::ToString((this->oDs_Stat_AllMonth->Rows[i])[0]));
 		}
-
 		this->oDs_Stat_AllYear = this->oService_Stat_AllYear->AfficherToutAnneeCommande();
-
 		for (int i = 0; i <= (this->oDs_Stat_AllYear->Rows->Count - 1); i++) {
 			this->txt_ann_stat->Items->Add(System::Convert::ToString((this->oDs_Stat_AllYear->Rows[i])[0]));
 		}
-		
 	}
 	else {
 		this->txt_moi_stat->Visible = false;
 		this->lab_moi_stat->Visible = false;
 		this->txt_ann_stat->Visible = false;
 		this->lab_ann_stat->Visible = false;
+	}
+
+	if (this->comboBox_Stat->SelectedIndex == 8) {
+		this->txt_stat_TVA->Visible = true;
+		this->txt_stat_margeCommercial->Visible = true;
+		this->txt_stat_remiseCommercial->Visible = true;
+		this->txt_stat_demarqueInconnue->Visible = true;
+		this->lab_stat_TVA->Visible = true;
+		this->lab_stat_margeCommercial->Visible = true;
+		this->lab_stat_remiseCommercial->Visible = true;
+		this->lab_stat_demarqueInconnue->Visible = true;
+	}
+	else {
+		this->txt_stat_TVA->Visible = false;
+		this->txt_stat_margeCommercial->Visible = false;
+		this->txt_stat_remiseCommercial->Visible = false;
+		this->txt_stat_demarqueInconnue->Visible = false;
+		this->lab_stat_TVA->Visible = false;
+		this->lab_stat_margeCommercial->Visible = false;
+		this->lab_stat_remiseCommercial->Visible = false;
+		this->lab_stat_demarqueInconnue->Visible = false;
+
+
 	}
 
 	if (this->comboBox_Stat->Text == "Panier moyen (après remise)") {
@@ -2957,6 +3095,20 @@ private: System::Void comboBox_Stat_SelectedIndexChanged(System::Object^ sender,
 		this->oDs_Stat_ValeurAchatStock = this->oService_Stat_ValeurAchatStock->AfficherValeurAchatStock();
 		this->dataGridView9->DataSource = this->oDs_Stat_ValeurAchatStock;
 	}
+	else if (this->comboBox_Stat->Text == "Simulation des variations de la valeur du stock") {
+		if (this->txt_stat_TVA->Text != "") {
+			if (this->txt_stat_margeCommercial->Text != "") {
+				if (this->txt_stat_remiseCommercial->Text != "") {
+					if (this->txt_stat_demarqueInconnue->Text != "") {
+						this->dataGridView9->Refresh();
+						this->oDs_Stat_ValeurAchatStock = this->oService_Stat_Simulation->AfficherSimulation(txt_stat_TVA->Text, txt_stat_margeCommercial->Text, txt_stat_remiseCommercial->Text, txt_stat_demarqueInconnue->Text);
+						this->dataGridView9->DataSource = this->oDs_Stat_ValeurAchatStock;
+					}
+				}
+			}
+		}
+		
+	}
 }
 	private: System::Void txt_nom_ville_adr_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		System::String^ search = this->txt_nom_ville_adr->Text;
@@ -2979,42 +3131,47 @@ private: System::Void txt_moi_stat_SelectedIndexChanged(System::Object^ sender, 
 
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->oDs_Facture_SelectInfoArticle1 = this->oService_Facture_SelectInfoArticle1->RecupTousLesArticles(this->txt_ref_com_com->Text);
-	this->oDs_Facture_SelectInfoCommande = this->oService_Facture_SelectInfoCommande->RecupToutCommande(this->txt_ref_com_com->Text);
+	if (this->txt_ref_com_com->Text != "") {
+		this->oDs_Facture_SelectInfoArticle1 = this->oService_Facture_SelectInfoArticle1->RecupTousLesArticles(this->txt_ref_com_com->Text);
+		this->oDs_Facture_SelectInfoCommande = this->oService_Facture_SelectInfoCommande->RecupToutCommande(this->txt_ref_com_com->Text);
 
-	this->txt_tot_HT_com->Text = System::Convert::ToString((this->oDs_Facture_SelectInfoArticle1->Rows[0])[0]);
-
-	Facture Commande(this->oDs_Facture_SelectInfoArticle1, this->oDs_Facture_SelectInfoCommande);
-	Commande.createBill();
+		Facture Commande(this->oDs_Facture_SelectInfoArticle1, this->oDs_Facture_SelectInfoCommande);
+		Commande.createBill();
+	}
 }
 
 private: System::Void but_test_uni_Click(System::Object^ sender, System::EventArgs^ e) {
 	bool error = false;
 
 	System::String^ NOM = "NOM";
-	System::String^ PRENOM = "NOM";
-	System::String^ DATE = "NOM";
-	bool SUP_HIE = 1;
+	System::String^ PRENOM = "PRENOM";
+	System::String^ DATE = "2021-01-01";
+	bool SUP_HIE = 0;
 	int ID_ADRESSE = 4;
-	int ID_SUP_HIE = 0;
+	int ID_SUP_HIE = 2;
 
 	System::String^ id_emp = this->oService_Employe_Test_Unitaire->AjouterUnEmploye(NOM, PRENOM, DATE, SUP_HIE, ID_ADRESSE, ID_SUP_HIE);
 
 	System::Data::DataTable^ emp = this->oService_Commande_RefCommande->RecupEmploye(id_emp);
 
-	if (NOM != Convert::ToString((emp->Rows[0])[0])) error = true;
-	if (PRENOM != Convert::ToString((emp->Rows[0])[1])) error = true;
-	if (DATE != Convert::ToString((emp->Rows[0])[0])) error = true;
-	if (NOM != Convert::ToString((emp->Rows[0])[0])) error = true;
-	if (NOM != Convert::ToString((emp->Rows[0])[0])) error = true;
-	this->txt_ID_emp->Text = Convert::ToString((emp->Rows[0])[0]);
-	this->txt_nom_emp->Text = Convert::ToString((emp->Rows[0])[1]);
-	this->txt_pre_emp->Text = Convert::ToString((emp->Rows[0])[2]);
-	this->dat_emb_emp->Text = Convert::ToString((emp->Rows[0])[3]);
-	this->txt_sup_hie_emp->Text = Convert::ToString((emp->Rows[0])[4]);
 
-	this->txt_ID_sup_hie_emp->Text = Convert::ToString((emp->Rows[0])[6]);
-	this->txt_ID_adr_emp->Text = Convert::ToString((emp->Rows[0])[5]);
+	if (NOM != Convert::ToString((emp->Rows[0])[1])) error = true;
+	if (PRENOM != Convert::ToString((emp->Rows[0])[2])) error = true;
+	if (DATE != Convert::ToString((emp->Rows[0])[3])->Substring(6, 4) + "-" + Convert::ToString((emp->Rows[0])[3])->Substring(3, 2) + "-" + Convert::ToString((emp->Rows[0])[3])->Substring(0, 2)) error = true;
+	if (SUP_HIE != Convert::ToInt32((emp->Rows[0])[4])) error = true;
+	if (ID_ADRESSE != Convert::ToInt32((emp->Rows[0])[5])) error = true;
+	if (ID_SUP_HIE != Convert::ToInt32((emp->Rows[0])[6])) error = true;
+
+	this->oService_Commande_RefCommande->SupprimerUnEmploye(Convert::ToInt32(id_emp));
+
+	if (error) {
+		this->txt_test_uni_retour->Text = "Test : FAIL";
+	}
+	else {
+		this->txt_test_uni_retour->Text = "Test : OK";
+	}
+
+	
 }
 };
 }

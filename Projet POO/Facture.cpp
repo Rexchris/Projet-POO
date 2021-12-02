@@ -108,7 +108,7 @@ String^ Facture::createBill() {
 		myFile << "|   Description   |   Quantité   |   Prix unitaire HT   |   %TVA   |   Total TVA   |   Total TTC   |" << std::endl;
 		myFile << "----------------------------------------------------------------------------------------------------" << std::endl;
 		for (int i = 0; i <= (System::Convert::ToInt32(Article1->Rows->Count) - 1); i++) {
-			myFile << "| "<< MarshalString1(Convert::ToString((Article1->Rows[i])[5])) << "                 " << MarshalString1(Convert::ToString((Article1->Rows[i])[6])) << "                 " << MarshalString1(Convert::ToString((Article1->Rows[i])[7])) << "               " << MarshalString1(Convert::ToString((Article1->Rows[i])[8])) << "           " << MarshalString1(Convert::ToString((Article1->Rows[i])[9])) << "           " << MarshalString1(Convert::ToString((Article1->Rows[i])[10])) << std::endl;
+			myFile << "| "<< MarshalString1(Convert::ToString((Article1->Rows[i])[5])) << "                 " << MarshalString1(Convert::ToString((Article1->Rows[i])[6])) << "                 " << MarshalString1(Convert::ToString((Article1->Rows[i])[7])) << "               " << MarshalString1(Convert::ToString((Article1->Rows[i])[8])) << "           " << MarshalString1(Convert::ToString((Article1->Rows[i])[9])) << "              " << MarshalString1(Convert::ToString((Article1->Rows[i])[10])) << std::endl;
 			myFile << "|  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -" << std::endl;
 		}
 
@@ -117,6 +117,11 @@ String^ Facture::createBill() {
 		myFile << totalTVAString << std::endl;
 		myFile << totalTTCString << std::endl;
 		myFile.close();
+
+		std::string str = "notepad " + filenameString;
+		char* cstr = new char[str.length() + 1];
+		strcpy(cstr, str.c_str());
+		system(cstr);
 	}
 	else {
 		return "Erreur d'écriture non trouvé";
