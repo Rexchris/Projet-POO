@@ -118,6 +118,7 @@
     <ClCompile Include="CLcad.cpp" />
     <ClCompile Include="CLmappage.cpp" />
     <ClCompile Include="CLMappAdresse.cpp" />
+    <ClCompile Include="CLMappageFacture.cpp" />
     <ClCompile Include="CLMappageStat.cpp" />
     <ClCompile Include="CLMappClient.cpp" />
     <ClCompile Include="CLMappCommande.cpp" />
@@ -125,6 +126,7 @@
     <ClCompile Include="CLMappStock.cpp" />
     <ClCompile Include="Clservice.cpp" />
     <ClCompile Include="ClserviceStat.cpp" />
+    <ClCompile Include="Facture.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Employe.cpp" />
   </ItemGroup>
@@ -139,6 +141,7 @@
     <ClInclude Include="CLcad.h" />
     <ClInclude Include="CLmappage.h" />
     <ClInclude Include="CLMappAdresse.h" />
+    <ClInclude Include="CLMappageFacture.h" />
     <ClInclude Include="CLMappageStat.h" />
     <ClInclude Include="CLMappClient.h" />
     <ClInclude Include="CLMappCommande.h" />
@@ -146,6 +149,7 @@
     <ClInclude Include="CLMappStock.h" />
     <ClInclude Include="Clservice.h" />
     <ClInclude Include="ClserviceStat.h" />
+    <ClInclude Include="Facture.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

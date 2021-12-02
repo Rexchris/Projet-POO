@@ -6,6 +6,7 @@
 #include "CLMappCommande.h"
 #include "CLMappStock.h"
 #include "CLMappAdresse.h"
+#include "CLMappageFacture.h"
 
 namespace NS_Comp_Service {
 	ref class Clservice
@@ -17,15 +18,18 @@ namespace NS_Comp_Service {
 		NS_Comp_Commande::CLMappCommande^ oMappCommande;
 		NS_Comp_Stock::CLMappStock^ oMappStock;
 		NS_Comp_Adresse::CLMappAdresse^ oMappAdr;
+		NS_Comp_Facture::CLMappageFacture^ oMappFacture;
 	public :
 		Clservice(void);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 		System::Data::DataTable^ AfficherEmployes(void);
-		void AjouterUnEmploye(System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, bool Superieur_Hierarchique, int ID_Adresse, int ID_Employe_Superieur_Hierarchique);
+		System::String^ AjouterUnEmploye(System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, bool Superieur_Hierarchique, int ID_Adresse, int ID_Employe_Superieur_Hierarchique);
 		void ModifierUnEmploye(int ID_Employe, System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, bool Superieur_Hierarchique, int ID_Adresse, int ID_Employe_Superieur_Hierarchique);
 		void SupprimerUnEmploye(int ID_Employe);
+
+		System::Data::DataTable^ RecupEmploye(System::String^);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -85,5 +89,11 @@ namespace NS_Comp_Service {
 		void SupprimerUneAdresse(int ID_Adresse);
 		int RecupID_VilleFromNom_Ville(System::String^ Nom_Ville);
 		System::Data::DataTable^ AfficherVilleTopX(System::String^);
+
+		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+		System::Data::DataTable^ RecupTousLesArticles(System::String^ Reference_Commande);
+		System::Data::DataTable^ RecupToutCommande(System::String^ Reference_Commande);
+
 	};
 }

@@ -1,4 +1,5 @@
 #include "Clservice.h"
+#include "Facture.h"
 
 NS_Comp_Service::Clservice::Clservice(void)
 {
@@ -8,6 +9,7 @@ NS_Comp_Service::Clservice::Clservice(void)
 	this->oMappCommande = gcnew NS_Comp_Commande::CLMappCommande();
 	this->oMappStock = gcnew NS_Comp_Stock::CLMappStock();
 	this->oMappAdr = gcnew NS_Comp_Adresse::CLMappAdresse();
+	this->oMappFacture = gcnew NS_Comp_Facture::CLMappageFacture();
 }
 
 System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherEmployes(void)
@@ -18,7 +20,7 @@ System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherEmployes(void)
 	return this->oMapp->getRows(sql);
 }
 
-void NS_Comp_Service::Clservice::AjouterUnEmploye(System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, bool Superieur_Hierarchique, int ID_Adresse, int ID_Employe_Superieur_Hierarchique)
+System::String^ NS_Comp_Service::Clservice::AjouterUnEmploye(System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, bool Superieur_Hierarchique, int ID_Adresse, int ID_Employe_Superieur_Hierarchique)
 {
 	System::String^ sql;
 
@@ -30,7 +32,8 @@ void NS_Comp_Service::Clservice::AjouterUnEmploye(System::String^ NomEmploye, Sy
 	this->oMappEmp->setID_Employe_Superieur_Hierarchique(ID_Employe_Superieur_Hierarchique);
 	sql = this->oMappEmp->Insert();
 
-	this->oMapp->actionRows(sql);
+	System::Data::DataTable^ id_emp = this->oMapp->getRows(sql);
+	return Convert::ToString((id_emp->Rows[0])[0]);
 }
 
 void NS_Comp_Service::Clservice::ModifierUnEmploye(int ID_Employe, System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, bool Superieur_Hierarchique, int ID_Adresse, int ID_Employe_Superieur_Hierarchique)
@@ -57,6 +60,14 @@ void NS_Comp_Service::Clservice::SupprimerUnEmploye(int ID_Employe)
 	sql = this->oMappEmp->Delete();
 
 	this->oMapp->actionRows(sql);
+}
+
+System::Data::DataTable^ NS_Comp_Service::Clservice::RecupEmploye(System::String^ ID_Employe)
+{
+	System::String^ sql;
+
+	sql = this->oMappEmp->getEmployeFromID(ID_Employe);
+	return this->oMapp->getRows(sql);
 }
 
 System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherClients(void)
@@ -417,5 +428,21 @@ System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherVilleTopX(System::S
 	System::String^ sql;
 
 	sql = this->oMappAdr->SelectVilleTopX(search);
+	return this->oMapp->getRows(sql);
+}
+
+System::Data::DataTable^ NS_Comp_Service::Clservice::RecupTousLesArticles(System::String^ Reference_Commande)
+{
+	System::String^ sql;
+
+	sql = this->oMappFacture->SelectInfoArticle(Reference_Commande);
+	return this->oMapp->getRows(sql);
+}
+
+System::Data::DataTable^ NS_Comp_Service::Clservice::RecupToutCommande(System::String^ Reference_Commande)
+{
+	System::String^ sql;
+
+	sql = this->oMappFacture->SelectInfoCommande(Reference_Commande);
 	return this->oMapp->getRows(sql);
 }

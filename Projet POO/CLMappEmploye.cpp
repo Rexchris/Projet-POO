@@ -68,10 +68,10 @@ System::String^ NS_Comp_Employe::CLMappEmploye::Select()
 System::String^ NS_Comp_Employe::CLMappEmploye::Insert()
 {
 	if (this->getSuperieur_Hierarchique() == false) {
-		return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', '" + getID_Employe_Superieur_Hierarchique() + "', '" + getID_Adresse() + "')";
+		return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) OUTPUT inserted.ID_Employe VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', '" + getID_Employe_Superieur_Hierarchique() + "', '" + getID_Adresse() + "')";
 	}
 	else {
-		return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', NULL, '" + getID_Adresse() + "')";
+		return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) OUTPUT inserted.ID_Employe VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', NULL, '" + getID_Adresse() + "')";
 	}
 }
 
@@ -83,6 +83,11 @@ System::String^ NS_Comp_Employe::CLMappEmploye::Update()
 	else{
 		return "UPDATE Employe SET Nom_Employe = '" + this->getNom_Employe() + "', Prenom_Employe = '" + this->getPrenom_Employe() + "', Date_embauche = '" + this->getDate_Embauche() + "', Superieur_Hierarchique = '" + this->getSuperieur_Hierarchique() + "', ID_Employe_Superieur_hierarchique = NULL, ID_Adresse = '" + this->getID_Adresse() + "' WHERE ID_Employe =" + this->getID_Employe();
 	}
+}
+
+System::String^ NS_Comp_Employe::CLMappEmploye::getEmployeFromID(System::String^ ID_Employe)
+{
+	return "SELECT * FROM Employe WHERE ID_Employe = " + ID_Employe + ";";
 }
 
 System::String^ NS_Comp_Employe::CLMappEmploye::Delete()

@@ -29,5 +29,6 @@ namespace NS_Comp_Employe
 		System::String^ Insert(void) override;
 		System::String^ Delete(void) override;
 		System::String^ Update(void) override;
+		System::String^ getEmployeFromID(System::String^ ID_Employe);
 	};
 }

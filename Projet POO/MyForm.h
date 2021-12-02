@@ -1,6 +1,7 @@
 #pragma once
 #include "Clservice.h"
 #include "CLserviceStat.h"
+#include "Facture.h"
 
 namespace ProjetPOO {
 
@@ -47,6 +48,9 @@ namespace ProjetPOO {
 			this->oService_Adresse_Ville2 = gcnew NS_Comp_Service::Clservice();
 			this->oService_Stat_AllMonth = gcnew NS_Comp_Service_Stat::ClserviceStat();
 			this->oService_Stat_AllYear = gcnew NS_Comp_Service_Stat::ClserviceStat();
+			this->oService_Facture_SelectInfoArticle1 = gcnew NS_Comp_Service::Clservice();
+			this->oService_Facture_SelectInfoCommande = gcnew NS_Comp_Service::Clservice();
+			this->oService_Employe_Test_Unitaire = gcnew NS_Comp_Service::Clservice();
 
 			this->dataGridView2->Refresh();
 			this->oDs_Commande = this->oService_Commande->AfficherCommandes();
@@ -379,6 +383,15 @@ namespace ProjetPOO {
 	//Valeur Stat_AllYear
 	private: NS_Comp_Service_Stat::ClserviceStat^ oService_Stat_AllYear;
 	private: System::Data::DataTable^ oDs_Stat_AllYear;
+	//Valeur Facture_SelectInfoArticle1
+	private: NS_Comp_Service::Clservice^ oService_Facture_SelectInfoArticle1;
+	private: System::Data::DataTable^ oDs_Facture_SelectInfoArticle1;
+	//Valeur Facture_SelectInfoCommande
+	private: NS_Comp_Service::Clservice^ oService_Facture_SelectInfoCommande;
+	private: System::Data::DataTable^ oDs_Facture_SelectInfoCommande;
+	//Valeur Employe_Test_Unitaire
+	private: NS_Comp_Service::Clservice^ oService_Employe_Test_Unitaire;
+	private: System::Data::DataTable^ oDs_Employe_Test_Unitaire;
 
 
 private: System::Windows::Forms::Label^ label44;
@@ -395,6 +408,8 @@ private: System::Windows::Forms::Label^ lab_ann_stat;
 
 
 private: System::Windows::Forms::ComboBox^ txt_ann_stat;
+private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::Button^ but_test_uni;
 
 
 
@@ -445,6 +460,7 @@ private: System::Windows::Forms::ComboBox^ txt_ann_stat;
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
 			this->Commande = (gcnew System::Windows::Forms::TabPage());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->date_fac_com = (gcnew System::Windows::Forms::DateTimePicker());
 			this->date_emi_com = (gcnew System::Windows::Forms::DateTimePicker());
 			this->date_liv_com = (gcnew System::Windows::Forms::DateTimePicker());
@@ -590,6 +606,7 @@ private: System::Windows::Forms::ComboBox^ txt_ann_stat;
 			this->label45 = (gcnew System::Windows::Forms::Label());
 			this->comboBox_Stat = (gcnew System::Windows::Forms::ComboBox());
 			this->dataGridView9 = (gcnew System::Windows::Forms::DataGridView());
+			this->but_test_uni = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabControl2->SuspendLayout();
@@ -661,6 +678,7 @@ private: System::Windows::Forms::ComboBox^ txt_ann_stat;
 			// 
 			// Commande
 			// 
+			this->Commande->Controls->Add(this->button1);
 			this->Commande->Controls->Add(this->date_fac_com);
 			this->Commande->Controls->Add(this->date_emi_com);
 			this->Commande->Controls->Add(this->date_liv_com);
@@ -690,6 +708,16 @@ private: System::Windows::Forms::ComboBox^ txt_ann_stat;
 			this->Commande->TabIndex = 0;
 			this->Commande->Text = L"Commande";
 			this->Commande->UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(505, 168);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 25;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// date_fac_com
 			// 
@@ -1456,6 +1484,7 @@ private: System::Windows::Forms::ComboBox^ txt_ann_stat;
 			// 
 			// tabPage3
 			// 
+			this->tabPage3->Controls->Add(this->but_test_uni);
 			this->tabPage3->Controls->Add(this->label44);
 			this->tabPage3->Controls->Add(this->txt_ID_adr_emp);
 			this->tabPage3->Controls->Add(this->txt_sup_hie_emp);
@@ -2393,6 +2422,16 @@ private: System::Windows::Forms::ComboBox^ txt_ann_stat;
 			this->dataGridView9->Size = System::Drawing::Size(823, 145);
 			this->dataGridView9->TabIndex = 0;
 			// 
+			// but_test_uni
+			// 
+			this->but_test_uni->Location = System::Drawing::Point(579, 245);
+			this->but_test_uni->Name = L"but_test_uni";
+			this->but_test_uni->Size = System::Drawing::Size(75, 23);
+			this->but_test_uni->TabIndex = 21;
+			this->but_test_uni->Text = L"but_test_uni";
+			this->but_test_uni->UseVisualStyleBackColor = true;
+			this->but_test_uni->Click += gcnew System::EventHandler(this, &MyForm::but_test_uni_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -2493,7 +2532,7 @@ private: System::Windows::Forms::ComboBox^ txt_ann_stat;
 		else {
 			this->oService_Employe->AjouterUnEmploye(this->txt_nom_emp->Text, this->txt_pre_emp->Text, Convert::ToString(this->dat_emb_emp->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(0, 2), Convert::ToBoolean(Convert::ToInt32(this->txt_sup_hie_emp->Text)), Convert::ToInt32(this->txt_ID_adr_emp->Text), 0);
 		}
-		//this->oService_Employe->AjouterUnEmploye(this->txt_nom_emp->Text, this->txt_pre_emp->Text, Convert::ToString(this->dat_emb_emp->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_emb_emp->Value)->Substring(0, 2), Convert::ToBoolean(Convert::ToInt32(this->txt_sup_hie_emp->Text)), Convert::ToInt32(this->txt_ID_adr_emp->Text), Convert::ToInt32(this->txt_ID_sup_hie_emp->Text));
+		
 		this->dataGridView6->Refresh();
 		this->oDs_Employe = this->oService_Employe->AfficherEmployes();
 		this->dataGridView6->DataSource = this->oDs_Employe;
@@ -2938,6 +2977,44 @@ private: System::Void comboBox_Stat_SelectedIndexChanged(System::Object^ sender,
 	}
 private: System::Void txt_moi_stat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->oDs_Facture_SelectInfoArticle1 = this->oService_Facture_SelectInfoArticle1->RecupTousLesArticles(this->txt_ref_com_com->Text);
+	this->oDs_Facture_SelectInfoCommande = this->oService_Facture_SelectInfoCommande->RecupToutCommande(this->txt_ref_com_com->Text);
+
+	this->txt_tot_HT_com->Text = System::Convert::ToString((this->oDs_Facture_SelectInfoArticle1->Rows[0])[0]);
+
+	Facture Commande(this->oDs_Facture_SelectInfoArticle1, this->oDs_Facture_SelectInfoCommande);
+	Commande.createBill();
+}
+
+private: System::Void but_test_uni_Click(System::Object^ sender, System::EventArgs^ e) {
+	bool error = false;
+
+	System::String^ NOM = "NOM";
+	System::String^ PRENOM = "NOM";
+	System::String^ DATE = "NOM";
+	bool SUP_HIE = 1;
+	int ID_ADRESSE = 4;
+	int ID_SUP_HIE = 0;
+
+	System::String^ id_emp = this->oService_Employe_Test_Unitaire->AjouterUnEmploye(NOM, PRENOM, DATE, SUP_HIE, ID_ADRESSE, ID_SUP_HIE);
+
+	System::Data::DataTable^ emp = this->oService_Commande_RefCommande->RecupEmploye(id_emp);
+
+	if (NOM != Convert::ToString((emp->Rows[0])[0])) error = true;
+	if (PRENOM != Convert::ToString((emp->Rows[0])[1])) error = true;
+	if (DATE != Convert::ToString((emp->Rows[0])[0])) error = true;
+	if (NOM != Convert::ToString((emp->Rows[0])[0])) error = true;
+	if (NOM != Convert::ToString((emp->Rows[0])[0])) error = true;
+	this->txt_ID_emp->Text = Convert::ToString((emp->Rows[0])[0]);
+	this->txt_nom_emp->Text = Convert::ToString((emp->Rows[0])[1]);
+	this->txt_pre_emp->Text = Convert::ToString((emp->Rows[0])[2]);
+	this->dat_emb_emp->Text = Convert::ToString((emp->Rows[0])[3]);
+	this->txt_sup_hie_emp->Text = Convert::ToString((emp->Rows[0])[4]);
+
+	this->txt_ID_sup_hie_emp->Text = Convert::ToString((emp->Rows[0])[6]);
+	this->txt_ID_adr_emp->Text = Convert::ToString((emp->Rows[0])[5]);
 }
 };
 }
