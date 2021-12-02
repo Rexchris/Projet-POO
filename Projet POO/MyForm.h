@@ -2432,6 +2432,7 @@ private: System::Windows::Forms::Label^ lab_stat_margeCommercial;
 			this->txt_stat_demarqueInconnue->Size = System::Drawing::Size(100, 20);
 			this->txt_stat_demarqueInconnue->TabIndex = 10;
 			this->txt_stat_demarqueInconnue->Visible = false;
+			this->txt_stat_demarqueInconnue->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_stat_demarqueInconnue_TextChanged);
 			// 
 			// txt_stat_remiseCommercial
 			// 
@@ -2440,6 +2441,7 @@ private: System::Windows::Forms::Label^ lab_stat_margeCommercial;
 			this->txt_stat_remiseCommercial->Size = System::Drawing::Size(100, 20);
 			this->txt_stat_remiseCommercial->TabIndex = 9;
 			this->txt_stat_remiseCommercial->Visible = false;
+			this->txt_stat_remiseCommercial->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_stat_remiseCommercial_TextChanged);
 			// 
 			// txt_stat_margeCommercial
 			// 
@@ -2448,6 +2450,7 @@ private: System::Windows::Forms::Label^ lab_stat_margeCommercial;
 			this->txt_stat_margeCommercial->Size = System::Drawing::Size(100, 20);
 			this->txt_stat_margeCommercial->TabIndex = 8;
 			this->txt_stat_margeCommercial->Visible = false;
+			this->txt_stat_margeCommercial->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_stat_margeCommercial_TextChanged);
 			// 
 			// txt_stat_TVA
 			// 
@@ -2456,15 +2459,18 @@ private: System::Windows::Forms::Label^ lab_stat_margeCommercial;
 			this->txt_stat_TVA->Size = System::Drawing::Size(100, 20);
 			this->txt_stat_TVA->TabIndex = 7;
 			this->txt_stat_TVA->Visible = false;
+			this->txt_stat_TVA->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_stat_TVA_TextChanged);
 			// 
 			// txt_ann_stat
 			// 
+			this->txt_ann_stat->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->txt_ann_stat->FormattingEnabled = true;
 			this->txt_ann_stat->Location = System::Drawing::Point(5, 254);
 			this->txt_ann_stat->Name = L"txt_ann_stat";
 			this->txt_ann_stat->Size = System::Drawing::Size(244, 21);
 			this->txt_ann_stat->TabIndex = 6;
 			this->txt_ann_stat->Visible = false;
+			this->txt_ann_stat->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::txt_ann_stat_SelectedIndexChanged);
 			// 
 			// lab_ann_stat
 			// 
@@ -2488,6 +2494,7 @@ private: System::Windows::Forms::Label^ lab_stat_margeCommercial;
 			// 
 			// txt_moi_stat
 			// 
+			this->txt_moi_stat->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->txt_moi_stat->FormattingEnabled = true;
 			this->txt_moi_stat->Location = System::Drawing::Point(5, 211);
 			this->txt_moi_stat->Name = L"txt_moi_stat";
@@ -3107,7 +3114,6 @@ private: System::Void comboBox_Stat_SelectedIndexChanged(System::Object^ sender,
 				}
 			}
 		}
-		
 	}
 }
 	private: System::Void txt_nom_ville_adr_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -3125,10 +3131,15 @@ private: System::Void comboBox_Stat_SelectedIndexChanged(System::Object^ sender,
 		for (int ii = 9; row_returned+1 <= ii; ii--) {
 			this->txt_nom_ville_adr->Items[ii] = "";
 		}
-
 	}
 private: System::Void txt_moi_stat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-
+	if (this->txt_moi_stat->Text != "") {
+		if (this->txt_ann_stat->Text != "") {
+			this->dataGridView9->Refresh();
+			this->oDs_Stat_ChiffreAffaire = this->oService_Stat_ChiffreAffaire->AfficherChiffreAffaire(this->txt_moi_stat->Text, this->txt_ann_stat->Text);
+			this->dataGridView9->DataSource = this->oDs_Stat_ChiffreAffaire;
+		}
+	}
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (this->txt_ref_com_com->Text != "") {
@@ -3172,6 +3183,67 @@ private: System::Void but_test_uni_Click(System::Object^ sender, System::EventAr
 	}
 
 	
+}
+private: System::Void txt_ann_stat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->txt_moi_stat->Text != "") {
+		if (this->txt_ann_stat->Text != "") {
+			this->dataGridView9->Refresh();
+			this->oDs_Stat_ChiffreAffaire = this->oService_Stat_ChiffreAffaire->AfficherChiffreAffaire(this->txt_moi_stat->Text, this->txt_ann_stat->Text);
+			this->dataGridView9->DataSource = this->oDs_Stat_ChiffreAffaire;
+		}
+	}
+}
+private: System::Void txt_stat_demarqueInconnue_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->txt_stat_TVA->Text != "") {
+		if (this->txt_stat_margeCommercial->Text != "") {
+			if (this->txt_stat_remiseCommercial->Text != "") {
+				if (this->txt_stat_demarqueInconnue->Text != "") {
+					this->dataGridView9->Refresh();
+					this->oDs_Stat_ValeurAchatStock = this->oService_Stat_Simulation->AfficherSimulation(txt_stat_TVA->Text, txt_stat_margeCommercial->Text, txt_stat_remiseCommercial->Text, txt_stat_demarqueInconnue->Text);
+					this->dataGridView9->DataSource = this->oDs_Stat_ValeurAchatStock;
+				}
+			}
+		}
+	}
+}
+private: System::Void txt_stat_TVA_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->txt_stat_TVA->Text != "") {
+		if (this->txt_stat_margeCommercial->Text != "") {
+			if (this->txt_stat_remiseCommercial->Text != "") {
+				if (this->txt_stat_demarqueInconnue->Text != "") {
+					this->dataGridView9->Refresh();
+					this->oDs_Stat_ValeurAchatStock = this->oService_Stat_Simulation->AfficherSimulation(txt_stat_TVA->Text, txt_stat_margeCommercial->Text, txt_stat_remiseCommercial->Text, txt_stat_demarqueInconnue->Text);
+					this->dataGridView9->DataSource = this->oDs_Stat_ValeurAchatStock;
+				}
+			}
+		}
+	}
+}
+private: System::Void txt_stat_margeCommercial_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->txt_stat_TVA->Text != "") {
+		if (this->txt_stat_margeCommercial->Text != "") {
+			if (this->txt_stat_remiseCommercial->Text != "") {
+				if (this->txt_stat_demarqueInconnue->Text != "") {
+					this->dataGridView9->Refresh();
+					this->oDs_Stat_ValeurAchatStock = this->oService_Stat_Simulation->AfficherSimulation(txt_stat_TVA->Text, txt_stat_margeCommercial->Text, txt_stat_remiseCommercial->Text, txt_stat_demarqueInconnue->Text);
+					this->dataGridView9->DataSource = this->oDs_Stat_ValeurAchatStock;
+				}
+			}
+		}
+	}
+}
+private: System::Void txt_stat_remiseCommercial_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	if (this->txt_stat_TVA->Text != "") {
+		if (this->txt_stat_margeCommercial->Text != "") {
+			if (this->txt_stat_remiseCommercial->Text != "") {
+				if (this->txt_stat_demarqueInconnue->Text != "") {
+					this->dataGridView9->Refresh();
+					this->oDs_Stat_ValeurAchatStock = this->oService_Stat_Simulation->AfficherSimulation(txt_stat_TVA->Text, txt_stat_margeCommercial->Text, txt_stat_remiseCommercial->Text, txt_stat_demarqueInconnue->Text);
+					this->dataGridView9->DataSource = this->oDs_Stat_ValeurAchatStock;
+				}
+			}
+		}
+	}
 }
 };
 }

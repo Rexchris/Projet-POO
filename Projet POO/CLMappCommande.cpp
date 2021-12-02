@@ -92,7 +92,7 @@ int NS_Comp_Commande::CLMappCommande::getID_Commande(void)
 
 System::String^ NS_Comp_Commande::CLMappCommande::getReference_Commande(System::String^ ID_Client, System::String^ ID_Adresse)
 {
-	return "DECLARE @IDCLIENT AS INT=" + ID_Client + "; DECLARE @IDADRESSE AS INT =" + ID_Adresse + "; SELECT TOP(1) SUBSTRING(Nom_Client, 0, 3) + UPPER(SUBSTRING(Prenom_Client, 0, 3)) + CAST(YEAR(GETDATE()) as varchar(20)) + SUBSTRING((SELECT Nom_Ville FROM Adresse INNER JOIN Ville ON Adresse.ID_Ville = Ville.ID_Ville WHERE ID_Adresse = @IDADRESSE), 0, 4) + CAST((CAST(SUBSTRING(Reference_Commande, 12, 12) as int) + 1) as varchar(20)) FROM Client INNER JOIN Commande ON Client.ID_Client = Commande.ID_Client INNER JOIN Adresse ON Commande.ID_Adresse_Livraison = Adresse.ID_Adresse INNER JOIN Ville ON Adresse.ID_Adresse = Ville.ID_Ville WHERE Client.ID_Client = @IDCLIENT ORDER BY Reference_Commande DESC;";
+	return "DECLARE @IDCLIENT AS INT=" + ID_Client + "; DECLARE @IDADRESSE AS INT = " + ID_Adresse + "; IF EXISTS(SELECT Reference_Commande FROM Commande WHERE ID_Client = @IDCLIENT) BEGIN SELECT TOP(1) UPPER(SUBSTRING(Nom_Client, 0, 3)) + UPPER(SUBSTRING(Prenom_Client, 0, 3)) + CAST(YEAR(GETDATE()) as varchar(20)) + UPPER(SUBSTRING((SELECT Nom_Ville FROM Adresse INNER JOIN Ville ON Adresse.ID_Ville = Ville.ID_Ville WHERE ID_Adresse = @IDADRESSE), 0, 4)) + CAST((CAST(SUBSTRING(Reference_Commande, 12, 20) AS int) + 1) as varchar(20)) FROM Client INNER JOIN Commande ON Client.ID_Client = Commande.ID_Client INNER JOIN Adresse ON Commande.ID_Adresse_Livraison = Adresse.ID_Adresse INNER JOIN Ville ON Adresse.ID_Adresse = Ville.ID_Ville WHERE Client.ID_Client = @IDCLIENT ORDER BY Reference_Commande DESC; END IF NOT EXISTS(SELECT Reference_Commande FROM Commande WHERE ID_Client = @IDCLIENT) BEGIN SELECT TOP(1) UPPER(SUBSTRING(Nom_Client, 0, 3)) + UPPER(SUBSTRING(Prenom_Client, 0, 3)) + CAST(YEAR(GETDATE()) as varchar(20)) + UPPER(SUBSTRING((SELECT Nom_Ville FROM Adresse INNER JOIN Ville ON Adresse.ID_Ville = Ville.ID_Ville WHERE ID_Adresse = @IDADRESSE), 0, 4)) + '1' FROM Client, Adresse WHERE Client.ID_Client = @IDCLIENT AND Adresse.ID_Adresse = @IDADRESSE END";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::getReference_Commande()
@@ -215,12 +215,12 @@ System::String^ NS_Comp_Commande::CLMappCommande::SelectArticleDeCommande(void)
 
 System::String^ NS_Comp_Commande::CLMappCommande::InsertArticleDeCommande(void)
 {
-	return "INSERT INTO Contenir (Reference_Article, ID_Commande, Prix_Quantitatif_Remise, Quantite_Commande_Article, Taux_TVA) VALUES ('" + this->getReference_Article() + "','" + this->getID_Commande() + "','" + this->getPrix_Unitaire_Remise() + "','" + this->getQuantite_Commande_Article() + "','" + this->getTaux_TVA() + "')";
+	return "INSERT INTO Contenir (Reference_Article, ID_Commande, Prix_Unitaire_Remise, Quantite_Commande_Article, Taux_TVA) VALUES ('" + this->getReference_Article() + "','" + this->getID_Commande() + "','" + this->getPrix_Unitaire_Remise() + "','" + this->getQuantite_Commande_Article() + "','" + this->getTaux_TVA() + "')";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::UpdateArticleDeCommande(void)
 {
-	return "UPDATE Contenir SET Prix_Quantitatif_Remise = '" + this->getPrix_Unitaire_Remise() + "', Quantite_Commande_Article = '" + this->getQuantite_Commande_Article() + "', Taux_TVA = '" + this->getTaux_TVA() + "' WHERE Reference_Article = " + this->getReference_Article() + " AND ID_Commande = " + this->getID_Commande() + ";";
+	return "UPDATE Contenir SET Prix_Unitaire_Remise = '" + this->getPrix_Unitaire_Remise() + "', Quantite_Commande_Article = '" + this->getQuantite_Commande_Article() + "', Taux_TVA = '" + this->getTaux_TVA() + "' WHERE Reference_Article = " + this->getReference_Article() + " AND ID_Commande = " + this->getID_Commande() + ";";
 }
 
 System::String^ NS_Comp_Commande::CLMappCommande::DeleteArticleDeCommande(void)
