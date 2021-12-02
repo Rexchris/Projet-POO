@@ -11,12 +11,16 @@ namespace NS_Comp_Service_Stat {
 	public:
 		ClserviceStat(void);
 		System::Data::DataTable^ AfficherPanierMoyen(void);
-		System::Data::DataTable^ AfficherChiffreAffaire(void);
+		System::Data::DataTable^ AfficherChiffreAffaire(System::String^ month, System::String^ year);
 		System::Data::DataTable^ AfficherSousSeuil(void);
 		System::Data::DataTable^ AfficherMontantAchatClient(void);
 		System::Data::DataTable^ Afficher10PlusVendus(void);
 		System::Data::DataTable^ Afficher10MoinsVendus(void);
 		System::Data::DataTable^ AfficherValeurCommercialeStock(void);
 		System::Data::DataTable^ AfficherValeurAchatStock(void);
+
+
+		System::Data::DataTable^ AfficherToutMoisCommande(void);
+		System::Data::DataTable^ AfficherToutAnneeCommande(void);
 	};
 }

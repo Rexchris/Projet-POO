@@ -6,9 +6,9 @@ System::String^ NS_Comp_Stat::CLMappageStat::SelectPanierMoyen(void)
 	return "SELECT avg(Montant_Total_HT) AS 'Panier moyen HT' FROM Commande;";
 }
 
-System::String^ NS_Comp_Stat::CLMappageStat::SelectChiffreAffaire(void)
+System::String^ NS_Comp_Stat::CLMappageStat::SelectChiffreAffaire(System::String^ month, System::String^ year)
 {
-	return "SELECT SUM(Montant_Total_HT) AS 'Chiffre d''affaire d''un mot spécifique' FROM Commande WHERE YEAR(Date_Facturation) = 2020 AND MONTH(Date_Facturation) = 6;";
+	return "SELECT SUM(Montant_Total_HT) AS 'Chiffre d''affaire d''un mot spécifique' FROM Commande WHERE YEAR(Date_Facturation) = " + year + "AND MONTH(Date_Facturation) = "+ month + "; ";
 }
 
 System::String^ NS_Comp_Stat::CLMappageStat::SelectSousSeuil(void)
@@ -39,4 +39,14 @@ System::String^ NS_Comp_Stat::CLMappageStat::SelectValeurCommercialeStock(void)
 System::String^ NS_Comp_Stat::CLMappageStat::SelectValeurAchatStock(void)
 {
 	return "SELECT ROUND(SUM(Prix_Article_HT * Quantite_Stock),2) AS 'Valeur d''achat du stock' FROM Article JOIN Stock ON Article.ID_Stock = Stock.ID_Stock";
+}
+
+System::String^ NS_Comp_Stat::CLMappageStat::SelectAllMonthCommande(void)
+{
+	return "Select MONTH(Date_Facturation) FROM Commande GROUP BY MONTH(Date_Facturation)";
+}
+
+System::String^ NS_Comp_Stat::CLMappageStat::SelectAllYearCommande(void)
+{
+	return "SELECT YEAR(Date_Facturation) FROM Commande GROUP BY YEAR(Date_Facturation)";
 }

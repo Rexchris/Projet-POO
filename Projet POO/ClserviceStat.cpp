@@ -14,11 +14,11 @@ System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherPanierMoye
 	return this->oMapp->getRows(sql);
 }
 
-System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherChiffreAffaire(void)
+System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherChiffreAffaire(System::String^ month, System::String^ year)
 {
 	System::String^ sql;
 
-	sql = this->oMappStat->SelectChiffreAffaire();
+	sql = this->oMappStat->SelectChiffreAffaire(month, year);
 	return this->oMapp->getRows(sql);
 }
 
@@ -67,5 +67,21 @@ System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherValeurAcha
 	System::String^ sql;
 
 	sql = this->oMappStat->SelectValeurAchatStock();
+	return this->oMapp->getRows(sql);
+}
+
+System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherToutMoisCommande(void)
+{
+	System::String^ sql;
+
+	sql = this->oMappStat->SelectAllMonthCommande();
+	return this->oMapp->getRows(sql);
+}
+
+System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherToutAnneeCommande(void)
+{
+	System::String^ sql;
+
+	sql = this->oMappStat->SelectAllYearCommande();
 	return this->oMapp->getRows(sql);
 }
