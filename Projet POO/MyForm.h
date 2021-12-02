@@ -3300,9 +3300,7 @@ private: System::Void but_test_uni_Click(System::Object^ sender, System::EventAr
 	int ID_SUP_HIE = 2;
 
 	System::String^ id_emp = this->oService_Employe_Test_Unitaire->AjouterUnEmploye(NOM, PRENOM, DATE, SUP_HIE, ID_ADRESSE, ID_SUP_HIE);
-
 	System::Data::DataTable^ emp = this->oService_Commande_RefCommande->RecupEmploye(id_emp);
-
 
 	if (NOM != Convert::ToString((emp->Rows[0])[1])) error = true;
 	if (PRENOM != Convert::ToString((emp->Rows[0])[2])) error = true;
