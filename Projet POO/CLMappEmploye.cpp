@@ -1,96 +1,34 @@
 #include "CLMappEmploye.h"
 
-void NS_Comp_Employe::CLMappEmploye::setID_Employe(int ID_Employe)
-{
-	this->ID_Employe = ID_Employe;
-}
+void NS_Comp_Employe::CLMappEmploye::setID_Employe(System::String^ ID_Employe) { this->ID_Employe = ID_Employe; }
+void NS_Comp_Employe::CLMappEmploye::setID_Employe_Superieur_Hierarchique(System::String^ ID_Employe_Superieur_Hierarchique) { this->ID_Employe_Superieur_Hierarchique = ID_Employe_Superieur_Hierarchique; }
+void NS_Comp_Employe::CLMappEmploye::setDate_Embauche(System::String^ Date_Embauche) { this->Date_Embauche = Date_Embauche; }
+void NS_Comp_Employe::CLMappEmploye::setNom_Employe(System::String^ Nom_Employe) { this->Nom_Employe = Nom_Employe; }
+void NS_Comp_Employe::CLMappEmploye::setPrenom_Employe(System::String^ Prenom_Employe) { this->Prenom_Employe = Prenom_Employe; }
+void NS_Comp_Employe::CLMappEmploye::setSuperieur_Hierarchique(System::String^ Superieur_Hierarchique) { this->Superieur_Hierarchique = Superieur_Hierarchique; }
 
-void NS_Comp_Employe::CLMappEmploye::setID_Employe_Superieur_Hierarchique(int ID_Employe_Superieur_Hierarchique)
-{
-	this->ID_Employe_Superieur_Hierarchique = ID_Employe_Superieur_Hierarchique;
-}
+System::String^ NS_Comp_Employe::CLMappEmploye::getID_Employe(void) { return this->ID_Employe; }
+System::String^ NS_Comp_Employe::CLMappEmploye::getID_Employe_Superieur_Hierarchique(void) { return this->ID_Employe_Superieur_Hierarchique; }
+System::String^ NS_Comp_Employe::CLMappEmploye::getDate_Embauche(void) { return this->Date_Embauche;}
+System::String^ NS_Comp_Employe::CLMappEmploye::getNom_Employe(void) { return this->Nom_Employe; }
+System::String^ NS_Comp_Employe::CLMappEmploye::getPrenom_Employe(void) { return this->Prenom_Employe; }
+System::String^ NS_Comp_Employe::CLMappEmploye::getSuperieur_Hierarchique(void) { return this->Superieur_Hierarchique; }
 
-void NS_Comp_Employe::CLMappEmploye::setDate_Embauche(System::String^ Date_Embauche)
-{
-	this->Date_Embauche = Date_Embauche;
-}
-
-void NS_Comp_Employe::CLMappEmploye::setNom_Employe(System::String^ Nom_Employe)
-{
-	this->Nom_Employe = Nom_Employe;
-}
-
-void NS_Comp_Employe::CLMappEmploye::setPrenom_Employe(System::String^ Prenom_Employe)
-{
-	this->Prenom_Employe = Prenom_Employe;
-}
-
-void NS_Comp_Employe::CLMappEmploye::setSuperieur_Hierarchique(bool Superieur_Hierarchique)
-{
-	this->Superieur_Hierarchique = Superieur_Hierarchique;
-}
-
-int NS_Comp_Employe::CLMappEmploye::getID_Employe(void) 
-{ 
-	return this->ID_Employe; 
-}
-
-int NS_Comp_Employe::CLMappEmploye::getID_Employe_Superieur_Hierarchique(void) 
-{ 
-	return this->ID_Employe_Superieur_Hierarchique;
-}
-
-System::String^ NS_Comp_Employe::CLMappEmploye::getDate_Embauche(void)
-{
-	return this->Date_Embauche;
-}
-
-System::String^ NS_Comp_Employe::CLMappEmploye::getNom_Employe(void)
-{
-	return this->Nom_Employe;
-}
-
-System::String^ NS_Comp_Employe::CLMappEmploye::getPrenom_Employe(void)
-{
-	return this->Prenom_Employe;
-}
-
-bool NS_Comp_Employe::CLMappEmploye::getSuperieur_Hierarchique(void)
-{
-	return this->Superieur_Hierarchique;
-}
-
-System::String^ NS_Comp_Employe::CLMappEmploye::Select()
-{
+System::String^ NS_Comp_Employe::CLMappEmploye::Select() {
 	return "SELECT Employe.ID_Employe, Employe.Nom_Employe, Employe.Prenom_Employe, Employe.Date_embauche, Employe.Superieur_Hierarchique, Employe.ID_Employe_Superieur_hierarchique, Employe.ID_Adresse, Adresse.Numero_Adresse, Adresse.Nom_Rue_Adresse, Adresse.ID_Ville, Ville.Nom_Ville, Ville.Code_Postal_Ville FROM Employe LEFT JOIN Adresse ON Employe.ID_Adresse = Adresse.ID_Adresse INNER JOIN Ville ON Adresse.ID_Ville = Ville.ID_Ville";
 }
-
-System::String^ NS_Comp_Employe::CLMappEmploye::Insert()
-{
-	if (this->getSuperieur_Hierarchique() == false) {
-		return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) OUTPUT inserted.ID_Employe VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', '" + getID_Employe_Superieur_Hierarchique() + "', '" + getID_Adresse() + "')";
-	}
-	else {
-		return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) OUTPUT inserted.ID_Employe VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', NULL, '" + getID_Adresse() + "')";
-	}
+System::String^ NS_Comp_Employe::CLMappEmploye::Insert() {
+	if (this->getSuperieur_Hierarchique() == "0") {	return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) OUTPUT inserted.ID_Employe VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', '" + getID_Employe_Superieur_Hierarchique() + "', '" + getID_Adresse() + "')"; }
+	else { return "INSERT INTO Employe (Nom_Employe, Prenom_Employe, Date_embauche, Superieur_Hierarchique, ID_Employe_Superieur_hierarchique, ID_Adresse) OUTPUT inserted.ID_Employe VALUES('" + this->getNom_Employe() + "', '" + getPrenom_Employe() + "', '" + getDate_Embauche() + "', '" + getSuperieur_Hierarchique() + "', NULL, '" + getID_Adresse() + "')"; }
 }
-
-System::String^ NS_Comp_Employe::CLMappEmploye::Update()
-{
-	if (this->getSuperieur_Hierarchique() == false) {
-		return "UPDATE Employe SET Nom_Employe = '" + this->getNom_Employe() + "', Prenom_Employe = '" + this->getPrenom_Employe() + "', Date_embauche = '" + this->getDate_Embauche() + "', Superieur_Hierarchique = '" + this->getSuperieur_Hierarchique() + "', ID_Employe_Superieur_hierarchique = '" + this->getID_Employe_Superieur_Hierarchique() + "', ID_Adresse = '" + this->getID_Adresse() + "' WHERE ID_Employe =" + this->getID_Employe();
-	}
-	else{
-		return "UPDATE Employe SET Nom_Employe = '" + this->getNom_Employe() + "', Prenom_Employe = '" + this->getPrenom_Employe() + "', Date_embauche = '" + this->getDate_Embauche() + "', Superieur_Hierarchique = '" + this->getSuperieur_Hierarchique() + "', ID_Employe_Superieur_hierarchique = NULL, ID_Adresse = '" + this->getID_Adresse() + "' WHERE ID_Employe =" + this->getID_Employe();
-	}
+System::String^ NS_Comp_Employe::CLMappEmploye::Update() {
+	if (this->getSuperieur_Hierarchique() == "0") { return "UPDATE Employe SET Nom_Employe = '" + this->getNom_Employe() + "', Prenom_Employe = '" + this->getPrenom_Employe() + "', Date_embauche = '" + this->getDate_Embauche() + "', Superieur_Hierarchique = '" + this->getSuperieur_Hierarchique() + "', ID_Employe_Superieur_hierarchique = '" + this->getID_Employe_Superieur_Hierarchique() + "', ID_Adresse = '" + this->getID_Adresse() + "' WHERE ID_Employe =" + this->getID_Employe(); }
+	else { return "UPDATE Employe SET Nom_Employe = '" + this->getNom_Employe() + "', Prenom_Employe = '" + this->getPrenom_Employe() + "', Date_embauche = '" + this->getDate_Embauche() + "', Superieur_Hierarchique = '" + this->getSuperieur_Hierarchique() + "', ID_Employe_Superieur_hierarchique = NULL, ID_Adresse = '" + this->getID_Adresse() + "' WHERE ID_Employe =" + this->getID_Employe(); }
 }
-
-System::String^ NS_Comp_Employe::CLMappEmploye::getEmployeFromID(System::String^ ID_Employe)
-{
-	return "SELECT * FROM Employe WHERE ID_Employe = " + ID_Employe + ";";
-}
-
-System::String^ NS_Comp_Employe::CLMappEmploye::Delete()
-{
+System::String^ NS_Comp_Employe::CLMappEmploye::Delete() {
 	return "DELETE FROM Employe WHERE ID_Employe =" + getID_Employe();
+}
+
+System::String^ NS_Comp_Employe::CLMappEmploye::getEmployeFromID(System::String^ ID_Employe) {
+	return "SELECT * FROM Employe WHERE ID_Employe = " + ID_Employe + ";";
 }

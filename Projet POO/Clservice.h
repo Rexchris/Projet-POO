@@ -25,9 +25,9 @@ namespace NS_Comp_Service {
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 		System::Data::DataTable^ AfficherEmployes(void);
-		System::String^ AjouterUnEmploye(System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, bool Superieur_Hierarchique, int ID_Adresse, int ID_Employe_Superieur_Hierarchique);
-		void ModifierUnEmploye(int ID_Employe, System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, bool Superieur_Hierarchique, int ID_Adresse, int ID_Employe_Superieur_Hierarchique);
-		void SupprimerUnEmploye(int ID_Employe);
+		System::String^ AjouterUnEmploye(System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, System::String^ Superieur_Hierarchique, System::String^ ID_Adresse, System::String^ ID_Employe_Superieur_Hierarchique);
+		void ModifierUnEmploye(System::String^ ID_Employe, System::String^ NomEmploye, System::String^ PrenomEmploye, System::String^ Date_Embauche, System::String^ Superieur_Hierarchique, System::String^ ID_Adresse, System::String^ ID_Employe_Superieur_Hierarchique);
+		void SupprimerUnEmploye(System::String^ ID_Employe);
 
 		System::Data::DataTable^ RecupEmploye(System::String^);
 
@@ -35,14 +35,14 @@ namespace NS_Comp_Service {
 
 		System::Data::DataTable^ AfficherClients(void);
 		void AjouterUnClient(System::String^ Date_Naissance_Client, System::String^ Date_1er_Achat, System::String^ Nom_Client, System::String^ Prenom_Client);
-		void ModifierUnClient(int ID_Client, System::String^ Date_Naissance_Client, System::String^ Date_1er_Achat, System::String^ Nom_Client, System::String^ Prenom_Client);
-		void SupprimerUnClient(int ID_Client);
+		void ModifierUnClient(System::String^ ID_Client, System::String^ Date_Naissance_Client, System::String^ Date_1er_Achat, System::String^ Nom_Client, System::String^ Prenom_Client);
+		void SupprimerUnClient(System::String^ ID_Client);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 		System::Data::DataTable^ AfficherCommandes(void);
-		void AjouterUneCommande(System::String^ Reference_Commande, System::String^ Date_Livraison, System::String^ Date_Emission, System::String^ Date_Facturation, System::String^ Montant_Total_HT, int ID_Client, int ID_Adresse_Livraison, int ID_Adresse_Facturation);
-		void ModifierUneCommande(System::String^ Reference_Commande, System::String^ Date_Livraison, System::String^ Date_Emission, System::String^ Date_Facturation, System::String^ Montant_Total_HT, int ID_Client, int ID_Adresse_Livraison, int ID_Adresse_Facturation);
+		void AjouterUneCommande(System::String^ Reference_Commande, System::String^ Date_Livraison, System::String^ Date_Emission, System::String^ Date_Facturation, System::String^ Montant_Total_HT, System::String^ ID_Client, System::String^ ID_Adresse_Livraison, System::String^ ID_Adresse_Facturation);
+		void ModifierUneCommande(System::String^ Reference_Commande, System::String^ Date_Livraison, System::String^ Date_Emission, System::String^ Date_Facturation, System::String^ Montant_Total_HT, System::String^ ID_Client, System::String^ ID_Adresse_Livraison, System::String^ ID_Adresse_Facturation);
 		void SupprimerUneCommande(System::String^ Reference_Commande);
 		System::String^ RecupRefCommande(System::String^ ID_Client, System::String^ ID_Adresse);
 
@@ -56,16 +56,16 @@ namespace NS_Comp_Service {
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 		System::Data::DataTable^ AfficherArticlesDeCommande(void);
-		void AjouterUnArticleDeCommande(int ID_Commande, int Reference_Article, System::String^ Prix_Unitaire_Remise, int Quantite_Commande_Article, System::String^ Taux_TVA);
-		void ModifierUnArticleDeCommande(int ID_Commande, int Reference_Article, System::String^ Prix_Unitaire_Remise, int Quantite_Commande_Article, System::String^ Taux_TVA);
-		void SupprimerUnArticleDeCommande(int ID_Commande, int Reference_Article);
+		void AjouterUnArticleDeCommande(System::String^ ID_Commande, System::String^ Reference_Article, System::String^ Prix_Unitaire_Remise, System::String^ Quantite_Commande_Article, System::String^ Taux_TVA);
+		void ModifierUnArticleDeCommande(System::String^ ID_Commande, System::String^ Reference_Article, System::String^ Prix_Unitaire_Remise, System::String^ Quantite_Commande_Article, System::String^ Taux_TVA);
+		void SupprimerUnArticleDeCommande(System::String^ ID_Commande, System::String^ Reference_Article);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 		System::Data::DataTable^ AfficherPayements(void);
-		void AjouterUnPayement(System::String^ Date_Payement, System::String^ Moyen_Payement, System::String^ Montant_Payement, int ID_Commande);
-		void ModifierUnPayement(int ID_Payement, System::String^ Date_Payement, System::String^ Moyen_Payement, System::String^ Montant_Payement, int ID_Commande);
-		void SupprimerUnPayement(int ID_Payement);
+		void AjouterUnPayement(System::String^ Date_Payement, System::String^ Moyen_Payement, System::String^ Montant_Payement, System::String^ ID_Commande);
+		void ModifierUnPayement(System::String^ ID_Payement, System::String^ Date_Payement, System::String^ Moyen_Payement, System::String^ Montant_Payement, System::String^ ID_Commande);
+		void SupprimerUnPayement(System::String^ ID_Payement);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -84,10 +84,10 @@ namespace NS_Comp_Service {
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 		System::Data::DataTable^ AfficherAdresses(void);
-		void AjouterUneAdresse(int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville);
-		void ModifierUneAdresse(int ID_Adresse, int Numero_Adresse, System::String^ Nom_Rue_Adresse, int ID_Ville);
-		void SupprimerUneAdresse(int ID_Adresse);
-		int RecupID_VilleFromNom_Ville(System::String^ Nom_Ville);
+		void AjouterUneAdresse(System::String^ Numero_Adresse, System::String^ Nom_Rue_Adresse, System::String^ ID_Ville);
+		void ModifierUneAdresse(System::String^ ID_Adresse, System::String^ Numero_Adresse, System::String^ Nom_Rue_Adresse, System::String^ ID_Ville);
+		void SupprimerUneAdresse(System::String^ ID_Adresse);
+		System::String^ RecupID_VilleFromNom_Ville(System::String^ Nom_Ville);
 		System::Data::DataTable^ AfficherVilleTopX(System::String^);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
