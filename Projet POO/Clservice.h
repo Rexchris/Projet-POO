@@ -49,9 +49,9 @@ namespace NS_Comp_Service {
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 		System::Data::DataTable^ AfficherArticles(void);
-		void AjouterUnArticle(System::String^ Nom_Article, System::String^ Taux_TVA_Article, System::String^ Prix_Article_HT, int ID_Couleur, int ID_Stock);
-		void ModifierUnArticle(int Reference_Article, System::String^ Nom_Article, System::String^ Taux_TVA_Article, System::String^ Prix_Article_HT, int ID_Couleur, int ID_Stock);
-		void SupprimerUnArticle(int Reference_Article);
+		void AjouterUnArticle(System::String^ Nom_Article, System::String^ Taux_TVA_Article, System::String^ Prix_Article_HT, System::String^ ID_Couleur, System::String^ ID_Stock);
+		void ModifierUnArticle(System::String^ Reference_Article, System::String^ Nom_Article, System::String^ Taux_TVA_Article, System::String^ Prix_Article_HT, System::String^ ID_Couleur, System::String^ ID_Stock);
+		void SupprimerUnArticle(System::String^ Reference_Article);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -71,15 +71,15 @@ namespace NS_Comp_Service {
 
 		System::Data::DataTable^ AfficherCouleurs(void);
 		void AjouterUneCouleur(System::String^ Nom_Couleur);
-		void ModifierUneCouleur(int ID_Couleur, System::String^ Nom_Couleur);
-		void SupprimerUneCouleur(int ID_Couleur);
+		void ModifierUneCouleur(System::String^ ID_Couleur, System::String^ Nom_Couleur);
+		void SupprimerUneCouleur(System::String^ ID_Couleur);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 		System::Data::DataTable^ AfficherStocks(void);
-		System::Data::DataTable^ AjouterUnStock(int Quantite_Stock, int Seuil_Reapprovisionnement);
-		void ModifierUnStock(int ID_Stock, int Quantite_Stock, int Seuil_Reapprovisionnement);
-		void SupprimerUnStock(int ID_Stock);
+		System::Data::DataTable^ AjouterUnStock(System::String^ Quantite_Stock, System::String^ Seuil_Reapprovisionnement);
+		void ModifierUnStock(System::String^ ID_Stock, System::String^ Quantite_Stock, System::String^ Seuil_Reapprovisionnement);
+		void SupprimerUnStock(System::String^ ID_Stock);
 
 		/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 

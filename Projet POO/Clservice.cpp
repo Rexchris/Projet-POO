@@ -133,7 +133,7 @@ System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherArticles(void) {
 	return this->oMapp->getRows(sql);
 }
 
-void  NS_Comp_Service::Clservice::AjouterUnArticle(System::String^ Nom_Article, System::String^ Taux_TVA_Article, System::String^ Prix_Article_HT, int ID_Couleur, int ID_Stock) {
+void  NS_Comp_Service::Clservice::AjouterUnArticle(System::String^ Nom_Article, System::String^ Taux_TVA_Article, System::String^ Prix_Article_HT, System::String^ ID_Couleur, System::String^ ID_Stock) {
 	this->oMappStock->setNom_Article(Nom_Article);
 	this->oMappStock->setTaux_TVA_Article(Taux_TVA_Article);
 	this->oMappStock->setPrix_Article_HT(Prix_Article_HT);
@@ -143,7 +143,7 @@ void  NS_Comp_Service::Clservice::AjouterUnArticle(System::String^ Nom_Article, 
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::ModifierUnArticle(int Reference_Article, System::String^ Nom_Article, System::String^ Taux_TVA_Article, System::String^ Prix_Article_HT, int ID_Couleur, int ID_Stock) {
+void NS_Comp_Service::Clservice::ModifierUnArticle(System::String^ Reference_Article, System::String^ Nom_Article, System::String^ Taux_TVA_Article, System::String^ Prix_Article_HT, System::String^ ID_Couleur, System::String^ ID_Stock) {
 	this->oMappStock->setReference_Article(Reference_Article);
 	this->oMappStock->setNom_Article(Nom_Article);
 	this->oMappStock->setTaux_TVA_Article(Taux_TVA_Article);
@@ -154,7 +154,7 @@ void NS_Comp_Service::Clservice::ModifierUnArticle(int Reference_Article, System
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::SupprimerUnArticle(int Reference_Article) {
+void NS_Comp_Service::Clservice::SupprimerUnArticle(System::String^ Reference_Article) {
 	this->oMappStock->setReference_Article(Reference_Article);
 	System::String^ sql = this->oMappStock->DeleteArticle();
 	return this->oMapp->actionRows(sql);
@@ -233,14 +233,14 @@ void NS_Comp_Service::Clservice::AjouterUneCouleur(System::String^ Nom_Couleur) 
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::ModifierUneCouleur(int ID_Couleur, System::String^ Nom_Couleur) {
+void NS_Comp_Service::Clservice::ModifierUneCouleur(System::String^ ID_Couleur, System::String^ Nom_Couleur) {
 	this->oMappStock->setID_Couleur(ID_Couleur);
 	this->oMappStock->setNom_Couleur(Nom_Couleur);
 	System::String^ sql = this->oMappStock->UpdateCouleur();
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::SupprimerUneCouleur(int ID_Couleur) {
+void NS_Comp_Service::Clservice::SupprimerUneCouleur(System::String^ ID_Couleur) {
 	this->oMappStock->setID_Couleur(ID_Couleur);
 	System::String^ sql = this->oMappStock->DeleteCouleur();
 	return this->oMapp->actionRows(sql);
@@ -251,14 +251,14 @@ System::Data::DataTable^ NS_Comp_Service::Clservice::AfficherStocks(void) {
 	return this->oMapp->getRows(sql);
 }
 
-System::Data::DataTable^ NS_Comp_Service::Clservice::AjouterUnStock(int Quantite_Stock, int Seuil_Reapprovisionnement) {
+System::Data::DataTable^ NS_Comp_Service::Clservice::AjouterUnStock(System::String^ Quantite_Stock, System::String^ Seuil_Reapprovisionnement) {
 	this->oMappStock->setQuantite_Stock(Quantite_Stock);
 	this->oMappStock->setSeuil_Reapprovisionnement(Seuil_Reapprovisionnement);
 	System::String^ sql = this->oMappStock->Insert();
 	return this->oMapp->getRows(sql);
 }
 
-void NS_Comp_Service::Clservice::ModifierUnStock(int ID_Stock, int Quantite_Stock, int Seuil_Reapprovisionnement) {
+void NS_Comp_Service::Clservice::ModifierUnStock(System::String^ ID_Stock, System::String^ Quantite_Stock, System::String^ Seuil_Reapprovisionnement) {
 	this->oMappStock->setID_Stock(ID_Stock);
 	this->oMappStock->setQuantite_Stock(Quantite_Stock);
 	this->oMappStock->setSeuil_Reapprovisionnement(Seuil_Reapprovisionnement);
@@ -266,7 +266,7 @@ void NS_Comp_Service::Clservice::ModifierUnStock(int ID_Stock, int Quantite_Stoc
 	return this->oMapp->actionRows(sql);
 }
 
-void NS_Comp_Service::Clservice::SupprimerUnStock(int ID_Stock) {
+void NS_Comp_Service::Clservice::SupprimerUnStock(System::String^ ID_Stock) {
 	this->oMappStock->setID_Stock(ID_Stock);
 	System::String^  sql = this->oMappStock->Delete();
 	return this->oMapp->actionRows(sql);

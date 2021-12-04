@@ -69,7 +69,7 @@ namespace ProjetPOO {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TabControl^ tabControl1;
+	private: System::Windows::Forms::TabControl^ tabControl_Principal;
 	protected:
 
 	protected:
@@ -80,7 +80,7 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::TabPage^ tabPage3;
 	private: System::Windows::Forms::TabPage^ tabPage4;
 
-	private: System::Windows::Forms::TabControl^ tabControl2;
+	private: System::Windows::Forms::TabControl^ tabControl_Commande;
 	private: System::Windows::Forms::TabPage^ Commande;
 	private: System::Windows::Forms::DataGridView^ dataGridView_Commande;
 	private: System::Windows::Forms::TabPage^ Liste;
@@ -246,15 +246,15 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::DateTimePicker^ date_fac_com;
 
 	private: System::Windows::Forms::DateTimePicker^ date_emi_com;
-	private: System::Windows::Forms::TabControl^ tabControl3;
+	private: System::Windows::Forms::TabControl^ tabControl_Article;
 	private: System::Windows::Forms::TabPage^ tabPage6;
-	private: System::Windows::Forms::TextBox^ textBox7;
-	private: System::Windows::Forms::TextBox^ textBox6;
-	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::TextBox^ textBox4;
-	private: System::Windows::Forms::TextBox^ textBox3;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ txt_prix_art;
+	private: System::Windows::Forms::TextBox^ txt_qua_sto_art;
+	private: System::Windows::Forms::TextBox^ txt_tva_art;
+	private: System::Windows::Forms::TextBox^ txt_ID_sto_art;
+	private: System::Windows::Forms::TextBox^ txt_nom_art;
+	private: System::Windows::Forms::TextBox^ txt_cou_art;
+	private: System::Windows::Forms::TextBox^ txt_ref_art;
 	private: System::Windows::Forms::Button^ but_del_art;
 
 	private: System::Windows::Forms::Button^ but_upd_art;
@@ -265,7 +265,7 @@ namespace ProjetPOO {
 
 	private: System::Windows::Forms::DataGridView^ dataGridView_Articles;
 	private: System::Windows::Forms::TabPage^ tabPage7;
-	private: System::Windows::Forms::TextBox^ textBox8;
+	private: System::Windows::Forms::TextBox^ txt_seuil_sto_art;
 	private: System::Windows::Forms::Label^ label37;
 	private: System::Windows::Forms::Label^ label36;
 	private: System::Windows::Forms::Label^ label35;
@@ -282,7 +282,7 @@ namespace ProjetPOO {
 	private: System::Windows::Forms::Button^ but_upd_cou;
 	private: System::Windows::Forms::Button^ but_ins_cou;
 	private: System::Windows::Forms::Button^ but_act_cou;
-	private: System::Windows::Forms::DataGridView^ dataGridView7;
+	private: System::Windows::Forms::DataGridView^ dataGridView_Couleur;
 	private: System::Windows::Forms::Button^ but_del_adr;
 
 
@@ -306,7 +306,7 @@ namespace ProjetPOO {
 
 	private: System::Windows::Forms::TextBox^ txt_ID_adr;
 	private: System::Windows::Forms::DateTimePicker^ dat_pay;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ comboBox_moy_pay;
 	private: System::Windows::Forms::DateTimePicker^ er_ach_cli;
 
 	private: System::Windows::Forms::DateTimePicker^ dat_nai_cli;
@@ -412,7 +412,7 @@ private: System::Windows::Forms::Label^ lab_ann_stat;
 
 
 private: System::Windows::Forms::ComboBox^ txt_ann_stat;
-private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::Button^ but_gen_fac;
 private: System::Windows::Forms::Button^ but_test_uni;
 private: System::Windows::Forms::TextBox^ txt_test_uni_retour;
 private: System::Windows::Forms::TextBox^ txt_stat_demarqueInconnue;
@@ -497,13 +497,13 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->tabControl_Principal = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
-			this->tabControl2 = (gcnew System::Windows::Forms::TabControl());
+			this->tabControl_Commande = (gcnew System::Windows::Forms::TabControl());
 			this->Commande = (gcnew System::Windows::Forms::TabPage());
 			this->but_res_com = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->but_gen_fac = (gcnew System::Windows::Forms::Button());
 			this->date_fac_com = (gcnew System::Windows::Forms::DateTimePicker());
 			this->date_emi_com = (gcnew System::Windows::Forms::DateTimePicker());
 			this->date_liv_com = (gcnew System::Windows::Forms::DateTimePicker());
@@ -546,7 +546,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->Payement = (gcnew System::Windows::Forms::TabPage());
 			this->but_res_pay = (gcnew System::Windows::Forms::Button());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox_moy_pay = (gcnew System::Windows::Forms::ComboBox());
 			this->dat_pay = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->label17 = (gcnew System::Windows::Forms::Label());
@@ -604,11 +604,11 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_act_emp = (gcnew System::Windows::Forms::Button());
 			this->dataGridView_Employes = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
-			this->tabControl3 = (gcnew System::Windows::Forms::TabControl());
+			this->tabControl_Article = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage6 = (gcnew System::Windows::Forms::TabPage());
 			this->but_res_art = (gcnew System::Windows::Forms::Button());
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_seuil_sto_art = (gcnew System::Windows::Forms::TextBox());
 			this->label37 = (gcnew System::Windows::Forms::Label());
 			this->label36 = (gcnew System::Windows::Forms::Label());
 			this->label35 = (gcnew System::Windows::Forms::Label());
@@ -617,13 +617,13 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->label32 = (gcnew System::Windows::Forms::Label());
 			this->label31 = (gcnew System::Windows::Forms::Label());
 			this->label30 = (gcnew System::Windows::Forms::Label());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_prix_art = (gcnew System::Windows::Forms::TextBox());
+			this->txt_qua_sto_art = (gcnew System::Windows::Forms::TextBox());
+			this->txt_tva_art = (gcnew System::Windows::Forms::TextBox());
+			this->txt_ID_sto_art = (gcnew System::Windows::Forms::TextBox());
+			this->txt_nom_art = (gcnew System::Windows::Forms::TextBox());
+			this->txt_cou_art = (gcnew System::Windows::Forms::TextBox());
+			this->txt_ref_art = (gcnew System::Windows::Forms::TextBox());
 			this->but_del_art = (gcnew System::Windows::Forms::Button());
 			this->but_upd_art = (gcnew System::Windows::Forms::Button());
 			this->but_ins_act = (gcnew System::Windows::Forms::Button());
@@ -640,7 +640,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_upd_cou = (gcnew System::Windows::Forms::Button());
 			this->but_ins_cou = (gcnew System::Windows::Forms::Button());
 			this->but_act_cou = (gcnew System::Windows::Forms::Button());
-			this->dataGridView7 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridView_Couleur = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
 			this->but_res_adr = (gcnew System::Windows::Forms::Button());
 			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
@@ -674,9 +674,9 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->label45 = (gcnew System::Windows::Forms::Label());
 			this->comboBox_Stat = (gcnew System::Windows::Forms::ComboBox());
 			this->dataGridView_Stat = (gcnew System::Windows::Forms::DataGridView());
-			this->tabControl1->SuspendLayout();
+			this->tabControl_Principal->SuspendLayout();
 			this->tabPage1->SuspendLayout();
-			this->tabControl2->SuspendLayout();
+			this->tabControl_Commande->SuspendLayout();
 			this->Commande->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_Commande))->BeginInit();
@@ -693,13 +693,13 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_Employes))->BeginInit();
 			this->tabPage4->SuspendLayout();
-			this->tabControl3->SuspendLayout();
+			this->tabControl_Article->SuspendLayout();
 			this->tabPage6->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_Articles))->BeginInit();
 			this->tabPage7->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_Couleur))->BeginInit();
 			this->tabPage5->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_Adresses))->BeginInit();
@@ -708,27 +708,27 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_Stat))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// tabControl1
+			// tabControl_Principal
 			// 
-			this->tabControl1->Controls->Add(this->tabPage1);
-			this->tabControl1->Controls->Add(this->tabPage2);
-			this->tabControl1->Controls->Add(this->tabPage3);
-			this->tabControl1->Controls->Add(this->tabPage4);
-			this->tabControl1->Controls->Add(this->tabPage5);
-			this->tabControl1->Controls->Add(this->tabPage8);
-			this->tabControl1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->tabControl1->Location = System::Drawing::Point(-1, 0);
-			this->tabControl1->Margin = System::Windows::Forms::Padding(2);
-			this->tabControl1->Name = L"tabControl1";
-			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1081, 496);
-			this->tabControl1->TabIndex = 0;
-			this->tabControl1->Selected += gcnew System::Windows::Forms::TabControlEventHandler(this, &MyForm::tabControl1_Selected);
+			this->tabControl_Principal->Controls->Add(this->tabPage1);
+			this->tabControl_Principal->Controls->Add(this->tabPage2);
+			this->tabControl_Principal->Controls->Add(this->tabPage3);
+			this->tabControl_Principal->Controls->Add(this->tabPage4);
+			this->tabControl_Principal->Controls->Add(this->tabPage5);
+			this->tabControl_Principal->Controls->Add(this->tabPage8);
+			this->tabControl_Principal->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->tabControl_Principal->Location = System::Drawing::Point(-1, 0);
+			this->tabControl_Principal->Margin = System::Windows::Forms::Padding(2);
+			this->tabControl_Principal->Name = L"tabControl_Principal";
+			this->tabControl_Principal->SelectedIndex = 0;
+			this->tabControl_Principal->Size = System::Drawing::Size(1081, 496);
+			this->tabControl_Principal->TabIndex = 0;
+			this->tabControl_Principal->Selected += gcnew System::Windows::Forms::TabControlEventHandler(this, &MyForm::tabControl_Principal_Selected);
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Controls->Add(this->tabControl2);
+			this->tabPage1->Controls->Add(this->tabControl_Commande);
 			this->tabPage1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
@@ -739,24 +739,24 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Commandes";
 			// 
-			// tabControl2
+			// tabControl_Commande
 			// 
-			this->tabControl2->Controls->Add(this->Commande);
-			this->tabControl2->Controls->Add(this->Liste);
-			this->tabControl2->Controls->Add(this->Payement);
-			this->tabControl2->Location = System::Drawing::Point(0, 0);
-			this->tabControl2->Margin = System::Windows::Forms::Padding(2);
-			this->tabControl2->Name = L"tabControl2";
-			this->tabControl2->SelectedIndex = 0;
-			this->tabControl2->Size = System::Drawing::Size(1075, 474);
-			this->tabControl2->TabIndex = 0;
-			this->tabControl2->Selected += gcnew System::Windows::Forms::TabControlEventHandler(this, &MyForm::tabControl2_Selected);
+			this->tabControl_Commande->Controls->Add(this->Commande);
+			this->tabControl_Commande->Controls->Add(this->Liste);
+			this->tabControl_Commande->Controls->Add(this->Payement);
+			this->tabControl_Commande->Location = System::Drawing::Point(0, 0);
+			this->tabControl_Commande->Margin = System::Windows::Forms::Padding(2);
+			this->tabControl_Commande->Name = L"tabControl_Commande";
+			this->tabControl_Commande->SelectedIndex = 0;
+			this->tabControl_Commande->Size = System::Drawing::Size(1075, 474);
+			this->tabControl_Commande->TabIndex = 0;
+			this->tabControl_Commande->Selected += gcnew System::Windows::Forms::TabControlEventHandler(this, &MyForm::tabControl_Commande_Selected);
 			// 
 			// Commande
 			// 
 			this->Commande->Controls->Add(this->but_res_com);
 			this->Commande->Controls->Add(this->pictureBox1);
-			this->Commande->Controls->Add(this->button1);
+			this->Commande->Controls->Add(this->but_gen_fac);
 			this->Commande->Controls->Add(this->date_fac_com);
 			this->Commande->Controls->Add(this->date_emi_com);
 			this->Commande->Controls->Add(this->date_liv_com);
@@ -807,15 +807,16 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->pictureBox1->TabIndex = 26;
 			this->pictureBox1->TabStop = false;
 			// 
-			// button1
+			// but_gen_fac
 			// 
-			this->button1->Location = System::Drawing::Point(115, 403);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(351, 27);
-			this->button1->TabIndex = 25;
-			this->button1->Text = L"Générer la facture";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->but_gen_fac->BackColor = System::Drawing::Color::Transparent;
+			this->but_gen_fac->Location = System::Drawing::Point(115, 403);
+			this->but_gen_fac->Name = L"but_gen_fac";
+			this->but_gen_fac->Size = System::Drawing::Size(351, 27);
+			this->but_gen_fac->TabIndex = 25;
+			this->but_gen_fac->Text = L"Générer la facture";
+			this->but_gen_fac->UseVisualStyleBackColor = false;
+			this->but_gen_fac->Click += gcnew System::EventHandler(this, &MyForm::but_gen_fac_Click);
 			// 
 			// date_fac_com
 			// 
@@ -963,35 +964,38 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// 
 			// but_del_com
 			// 
+			this->but_del_com->BackColor = System::Drawing::Color::Transparent;
 			this->but_del_com->Location = System::Drawing::Point(5, 356);
 			this->but_del_com->Margin = System::Windows::Forms::Padding(2);
 			this->but_del_com->Name = L"but_del_com";
 			this->but_del_com->Size = System::Drawing::Size(94, 34);
 			this->but_del_com->TabIndex = 4;
 			this->but_del_com->Text = L"Supprimer";
-			this->but_del_com->UseVisualStyleBackColor = true;
+			this->but_del_com->UseVisualStyleBackColor = false;
 			this->but_del_com->Click += gcnew System::EventHandler(this, &MyForm::but_del_com_Click);
 			// 
 			// but_upd_com
 			// 
+			this->but_upd_com->BackColor = System::Drawing::Color::Transparent;
 			this->but_upd_com->Location = System::Drawing::Point(5, 316);
 			this->but_upd_com->Margin = System::Windows::Forms::Padding(2);
 			this->but_upd_com->Name = L"but_upd_com";
 			this->but_upd_com->Size = System::Drawing::Size(94, 34);
 			this->but_upd_com->TabIndex = 3;
 			this->but_upd_com->Text = L"Modifier";
-			this->but_upd_com->UseVisualStyleBackColor = true;
+			this->but_upd_com->UseVisualStyleBackColor = false;
 			this->but_upd_com->Click += gcnew System::EventHandler(this, &MyForm::but_upd_com_Click);
 			// 
 			// but_ins_com
 			// 
+			this->but_ins_com->BackColor = System::Drawing::Color::Transparent;
 			this->but_ins_com->Location = System::Drawing::Point(5, 276);
 			this->but_ins_com->Margin = System::Windows::Forms::Padding(2);
 			this->but_ins_com->Name = L"but_ins_com";
 			this->but_ins_com->Size = System::Drawing::Size(94, 34);
 			this->but_ins_com->TabIndex = 2;
 			this->but_ins_com->Text = L"Insérer";
-			this->but_ins_com->UseVisualStyleBackColor = true;
+			this->but_ins_com->UseVisualStyleBackColor = false;
 			this->but_ins_com->Click += gcnew System::EventHandler(this, &MyForm::but_ins_com_Click);
 			// 
 			// but_act_com
@@ -1057,6 +1061,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_res_lis->TabIndex = 28;
 			this->but_res_lis->Text = L"Réinitialisation";
 			this->but_res_lis->UseVisualStyleBackColor = true;
+			this->but_res_lis->Click += gcnew System::EventHandler(this, &MyForm::but_res_lis_Click);
 			// 
 			// pictureBox2
 			// 
@@ -1222,7 +1227,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// 
 			this->Payement->Controls->Add(this->but_res_pay);
 			this->Payement->Controls->Add(this->pictureBox3);
-			this->Payement->Controls->Add(this->comboBox1);
+			this->Payement->Controls->Add(this->comboBox_moy_pay);
 			this->Payement->Controls->Add(this->dat_pay);
 			this->Payement->Controls->Add(this->label18);
 			this->Payement->Controls->Add(this->label17);
@@ -1254,6 +1259,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_res_pay->TabIndex = 28;
 			this->but_res_pay->Text = L"Réinitialisation";
 			this->but_res_pay->UseVisualStyleBackColor = true;
+			this->but_res_pay->Click += gcnew System::EventHandler(this, &MyForm::but_res_pay_Click);
 			// 
 			// pictureBox3
 			// 
@@ -1265,15 +1271,15 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->pictureBox3->TabIndex = 17;
 			this->pictureBox3->TabStop = false;
 			// 
-			// comboBox1
+			// comboBox_moy_pay
 			// 
-			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"CB", L"PayPal" });
-			this->comboBox1->Location = System::Drawing::Point(115, 334);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(164, 21);
-			this->comboBox1->TabIndex = 16;
+			this->comboBox_moy_pay->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboBox_moy_pay->FormattingEnabled = true;
+			this->comboBox_moy_pay->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"CB", L"PayPal" });
+			this->comboBox_moy_pay->Location = System::Drawing::Point(115, 334);
+			this->comboBox_moy_pay->Name = L"comboBox_moy_pay";
+			this->comboBox_moy_pay->Size = System::Drawing::Size(164, 21);
+			this->comboBox_moy_pay->TabIndex = 16;
 			// 
 			// dat_pay
 			// 
@@ -1451,6 +1457,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_res_cli->TabIndex = 28;
 			this->but_res_cli->Text = L"Réinitialisation";
 			this->but_res_cli->UseVisualStyleBackColor = true;
+			this->but_res_cli->Click += gcnew System::EventHandler(this, &MyForm::but_res_cli_Click);
 			// 
 			// pictureBox4
 			// 
@@ -1687,6 +1694,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_res_emp->TabIndex = 28;
 			this->but_res_emp->Text = L"Réinitialisation";
 			this->but_res_emp->UseVisualStyleBackColor = true;
+			this->but_res_emp->Click += gcnew System::EventHandler(this, &MyForm::but_res_emp_Click);
 			// 
 			// pictureBox5
 			// 
@@ -1738,7 +1746,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// 
 			this->txt_sup_hie_emp->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->txt_sup_hie_emp->FormattingEnabled = true;
-			this->txt_sup_hie_emp->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"1", L"0" });
+			this->txt_sup_hie_emp->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"0", L"1" });
 			this->txt_sup_hie_emp->Location = System::Drawing::Point(302, 291);
 			this->txt_sup_hie_emp->Name = L"txt_sup_hie_emp";
 			this->txt_sup_hie_emp->Size = System::Drawing::Size(164, 21);
@@ -1942,7 +1950,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// 
 			// tabPage4
 			// 
-			this->tabPage4->Controls->Add(this->tabControl3);
+			this->tabPage4->Controls->Add(this->tabControl_Article);
 			this->tabPage4->Location = System::Drawing::Point(4, 22);
 			this->tabPage4->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage4->Name = L"tabPage4";
@@ -1952,25 +1960,25 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->tabPage4->Text = L"Articles";
 			this->tabPage4->UseVisualStyleBackColor = true;
 			// 
-			// tabControl3
+			// tabControl_Article
 			// 
-			this->tabControl3->Controls->Add(this->tabPage6);
-			this->tabControl3->Controls->Add(this->tabPage7);
-			this->tabControl3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->tabControl3->Location = System::Drawing::Point(0, 0);
-			this->tabControl3->Margin = System::Windows::Forms::Padding(2);
-			this->tabControl3->Name = L"tabControl3";
-			this->tabControl3->SelectedIndex = 0;
-			this->tabControl3->Size = System::Drawing::Size(1077, 474);
-			this->tabControl3->TabIndex = 0;
-			this->tabControl3->Selected += gcnew System::Windows::Forms::TabControlEventHandler(this, &MyForm::tabControl3_Selected);
+			this->tabControl_Article->Controls->Add(this->tabPage6);
+			this->tabControl_Article->Controls->Add(this->tabPage7);
+			this->tabControl_Article->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->tabControl_Article->Location = System::Drawing::Point(0, 0);
+			this->tabControl_Article->Margin = System::Windows::Forms::Padding(2);
+			this->tabControl_Article->Name = L"tabControl_Article";
+			this->tabControl_Article->SelectedIndex = 0;
+			this->tabControl_Article->Size = System::Drawing::Size(1077, 474);
+			this->tabControl_Article->TabIndex = 0;
+			this->tabControl_Article->Selected += gcnew System::Windows::Forms::TabControlEventHandler(this, &MyForm::tabControl_Article_Selected);
 			// 
 			// tabPage6
 			// 
 			this->tabPage6->Controls->Add(this->but_res_art);
 			this->tabPage6->Controls->Add(this->pictureBox6);
-			this->tabPage6->Controls->Add(this->textBox8);
+			this->tabPage6->Controls->Add(this->txt_seuil_sto_art);
 			this->tabPage6->Controls->Add(this->label37);
 			this->tabPage6->Controls->Add(this->label36);
 			this->tabPage6->Controls->Add(this->label35);
@@ -1979,13 +1987,13 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->tabPage6->Controls->Add(this->label32);
 			this->tabPage6->Controls->Add(this->label31);
 			this->tabPage6->Controls->Add(this->label30);
-			this->tabPage6->Controls->Add(this->textBox7);
-			this->tabPage6->Controls->Add(this->textBox6);
-			this->tabPage6->Controls->Add(this->textBox5);
-			this->tabPage6->Controls->Add(this->textBox4);
-			this->tabPage6->Controls->Add(this->textBox3);
-			this->tabPage6->Controls->Add(this->textBox2);
-			this->tabPage6->Controls->Add(this->textBox1);
+			this->tabPage6->Controls->Add(this->txt_prix_art);
+			this->tabPage6->Controls->Add(this->txt_qua_sto_art);
+			this->tabPage6->Controls->Add(this->txt_tva_art);
+			this->tabPage6->Controls->Add(this->txt_ID_sto_art);
+			this->tabPage6->Controls->Add(this->txt_nom_art);
+			this->tabPage6->Controls->Add(this->txt_cou_art);
+			this->tabPage6->Controls->Add(this->txt_ref_art);
 			this->tabPage6->Controls->Add(this->but_del_art);
 			this->tabPage6->Controls->Add(this->but_upd_art);
 			this->tabPage6->Controls->Add(this->but_ins_act);
@@ -2010,6 +2018,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_res_art->TabIndex = 28;
 			this->but_res_art->Text = L"Réinitialisation";
 			this->but_res_art->UseVisualStyleBackColor = true;
+			this->but_res_art->Click += gcnew System::EventHandler(this, &MyForm::but_res_art_Click);
 			// 
 			// pictureBox6
 			// 
@@ -2021,13 +2030,13 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->pictureBox6->TabIndex = 21;
 			this->pictureBox6->TabStop = false;
 			// 
-			// textBox8
+			// txt_seuil_sto_art
 			// 
-			this->textBox8->Location = System::Drawing::Point(302, 377);
-			this->textBox8->Margin = System::Windows::Forms::Padding(2);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(164, 19);
-			this->textBox8->TabIndex = 20;
+			this->txt_seuil_sto_art->Location = System::Drawing::Point(302, 377);
+			this->txt_seuil_sto_art->Margin = System::Windows::Forms::Padding(2);
+			this->txt_seuil_sto_art->Name = L"txt_seuil_sto_art";
+			this->txt_seuil_sto_art->Size = System::Drawing::Size(164, 19);
+			this->txt_seuil_sto_art->TabIndex = 20;
 			// 
 			// label37
 			// 
@@ -2109,61 +2118,61 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->label30->TabIndex = 12;
 			this->label30->Text = L"Référence de l\'article";
 			// 
-			// textBox7
+			// txt_prix_art
 			// 
-			this->textBox7->Location = System::Drawing::Point(115, 377);
-			this->textBox7->Margin = System::Windows::Forms::Padding(2);
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(164, 19);
-			this->textBox7->TabIndex = 11;
+			this->txt_prix_art->Location = System::Drawing::Point(115, 377);
+			this->txt_prix_art->Margin = System::Windows::Forms::Padding(2);
+			this->txt_prix_art->Name = L"txt_prix_art";
+			this->txt_prix_art->Size = System::Drawing::Size(164, 19);
+			this->txt_prix_art->TabIndex = 11;
 			// 
-			// textBox6
+			// txt_qua_sto_art
 			// 
-			this->textBox6->Location = System::Drawing::Point(302, 334);
-			this->textBox6->Margin = System::Windows::Forms::Padding(2);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(164, 19);
-			this->textBox6->TabIndex = 10;
+			this->txt_qua_sto_art->Location = System::Drawing::Point(302, 334);
+			this->txt_qua_sto_art->Margin = System::Windows::Forms::Padding(2);
+			this->txt_qua_sto_art->Name = L"txt_qua_sto_art";
+			this->txt_qua_sto_art->Size = System::Drawing::Size(164, 19);
+			this->txt_qua_sto_art->TabIndex = 10;
 			// 
-			// textBox5
+			// txt_tva_art
 			// 
-			this->textBox5->Location = System::Drawing::Point(115, 334);
-			this->textBox5->Margin = System::Windows::Forms::Padding(2);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(164, 19);
-			this->textBox5->TabIndex = 9;
+			this->txt_tva_art->Location = System::Drawing::Point(115, 334);
+			this->txt_tva_art->Margin = System::Windows::Forms::Padding(2);
+			this->txt_tva_art->Name = L"txt_tva_art";
+			this->txt_tva_art->Size = System::Drawing::Size(164, 19);
+			this->txt_tva_art->TabIndex = 9;
 			// 
-			// textBox4
+			// txt_ID_sto_art
 			// 
-			this->textBox4->Location = System::Drawing::Point(302, 291);
-			this->textBox4->Margin = System::Windows::Forms::Padding(2);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(164, 19);
-			this->textBox4->TabIndex = 8;
+			this->txt_ID_sto_art->Location = System::Drawing::Point(302, 291);
+			this->txt_ID_sto_art->Margin = System::Windows::Forms::Padding(2);
+			this->txt_ID_sto_art->Name = L"txt_ID_sto_art";
+			this->txt_ID_sto_art->Size = System::Drawing::Size(164, 19);
+			this->txt_ID_sto_art->TabIndex = 8;
 			// 
-			// textBox3
+			// txt_nom_art
 			// 
-			this->textBox3->Location = System::Drawing::Point(115, 291);
-			this->textBox3->Margin = System::Windows::Forms::Padding(2);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(164, 19);
-			this->textBox3->TabIndex = 7;
+			this->txt_nom_art->Location = System::Drawing::Point(115, 291);
+			this->txt_nom_art->Margin = System::Windows::Forms::Padding(2);
+			this->txt_nom_art->Name = L"txt_nom_art";
+			this->txt_nom_art->Size = System::Drawing::Size(164, 19);
+			this->txt_nom_art->TabIndex = 7;
 			// 
-			// textBox2
+			// txt_cou_art
 			// 
-			this->textBox2->Location = System::Drawing::Point(302, 248);
-			this->textBox2->Margin = System::Windows::Forms::Padding(2);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(164, 19);
-			this->textBox2->TabIndex = 6;
+			this->txt_cou_art->Location = System::Drawing::Point(302, 248);
+			this->txt_cou_art->Margin = System::Windows::Forms::Padding(2);
+			this->txt_cou_art->Name = L"txt_cou_art";
+			this->txt_cou_art->Size = System::Drawing::Size(164, 19);
+			this->txt_cou_art->TabIndex = 6;
 			// 
-			// textBox1
+			// txt_ref_art
 			// 
-			this->textBox1->Location = System::Drawing::Point(115, 248);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(164, 19);
-			this->textBox1->TabIndex = 5;
+			this->txt_ref_art->Location = System::Drawing::Point(115, 248);
+			this->txt_ref_art->Margin = System::Windows::Forms::Padding(2);
+			this->txt_ref_art->Name = L"txt_ref_art";
+			this->txt_ref_art->Size = System::Drawing::Size(164, 19);
+			this->txt_ref_art->TabIndex = 5;
 			// 
 			// but_del_art
 			// 
@@ -2236,7 +2245,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->tabPage7->Controls->Add(this->but_upd_cou);
 			this->tabPage7->Controls->Add(this->but_ins_cou);
 			this->tabPage7->Controls->Add(this->but_act_cou);
-			this->tabPage7->Controls->Add(this->dataGridView7);
+			this->tabPage7->Controls->Add(this->dataGridView_Couleur);
 			this->tabPage7->Location = System::Drawing::Point(4, 22);
 			this->tabPage7->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage7->Name = L"tabPage7";
@@ -2254,6 +2263,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_res_cou->TabIndex = 28;
 			this->but_res_cou->Text = L"Réinitialisation";
 			this->but_res_cou->UseVisualStyleBackColor = true;
+			this->but_res_cou->Click += gcnew System::EventHandler(this, &MyForm::but_res_cou_Click);
 			// 
 			// pictureBox7
 			// 
@@ -2345,20 +2355,20 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_act_cou->UseVisualStyleBackColor = true;
 			this->but_act_cou->Click += gcnew System::EventHandler(this, &MyForm::but_act_cou_Click);
 			// 
-			// dataGridView7
+			// dataGridView_Couleur
 			// 
-			this->dataGridView7->AllowUserToAddRows = false;
-			this->dataGridView7->AllowUserToDeleteRows = false;
-			this->dataGridView7->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView7->Location = System::Drawing::Point(0, 0);
-			this->dataGridView7->Margin = System::Windows::Forms::Padding(2);
-			this->dataGridView7->Name = L"dataGridView7";
-			this->dataGridView7->ReadOnly = true;
-			this->dataGridView7->RowHeadersWidth = 51;
-			this->dataGridView7->RowTemplate->Height = 24;
-			this->dataGridView7->Size = System::Drawing::Size(1067, 225);
-			this->dataGridView7->TabIndex = 0;
-			this->dataGridView7->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView7_CellContentClick);
+			this->dataGridView_Couleur->AllowUserToAddRows = false;
+			this->dataGridView_Couleur->AllowUserToDeleteRows = false;
+			this->dataGridView_Couleur->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView_Couleur->Location = System::Drawing::Point(0, 0);
+			this->dataGridView_Couleur->Margin = System::Windows::Forms::Padding(2);
+			this->dataGridView_Couleur->Name = L"dataGridView_Couleur";
+			this->dataGridView_Couleur->ReadOnly = true;
+			this->dataGridView_Couleur->RowHeadersWidth = 51;
+			this->dataGridView_Couleur->RowTemplate->Height = 24;
+			this->dataGridView_Couleur->Size = System::Drawing::Size(1067, 225);
+			this->dataGridView_Couleur->TabIndex = 0;
+			this->dataGridView_Couleur->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView_Couleur_CellContentClick);
 			// 
 			// tabPage5
 			// 
@@ -2394,6 +2404,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->but_res_adr->TabIndex = 28;
 			this->but_res_adr->Text = L"Réinitialisation";
 			this->but_res_adr->UseVisualStyleBackColor = true;
+			this->but_res_adr->Click += gcnew System::EventHandler(this, &MyForm::but_res_adr_Click);
 			// 
 			// pictureBox8
 			// 
@@ -2409,7 +2420,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// 
 			this->txt_nom_ville_adr->FormattingEnabled = true;
 			this->txt_nom_ville_adr->Items->AddRange(gcnew cli::array< System::Object^  >(10) {
-				L"", L"", L"", L"", L"", L"", L"", L"",
+				L"1", L"", L"", L"", L"", L"", L"", L"",
 					L"", L""
 			});
 			this->txt_nom_ville_adr->Location = System::Drawing::Point(116, 377);
@@ -2417,6 +2428,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->txt_nom_ville_adr->Name = L"txt_nom_ville_adr";
 			this->txt_nom_ville_adr->Size = System::Drawing::Size(275, 21);
 			this->txt_nom_ville_adr->TabIndex = 13;
+			this->txt_nom_ville_adr->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::txt_nom_ville_adr_SelectedIndexChanged);
 			this->txt_nom_ville_adr->TextChanged += gcnew System::EventHandler(this, &MyForm::txt_nom_ville_adr_TextChanged);
 			// 
 			// label43
@@ -2792,14 +2804,14 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1076, 492);
-			this->Controls->Add(this->tabControl1);
+			this->Controls->Add(this->tabControl_Principal);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"MyForm";
 			this->Text = L"BugsBunny Inc.";
-			this->tabControl1->ResumeLayout(false);
+			this->tabControl_Principal->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
-			this->tabControl2->ResumeLayout(false);
+			this->tabControl_Commande->ResumeLayout(false);
 			this->Commande->ResumeLayout(false);
 			this->Commande->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -2821,7 +2833,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_Employes))->EndInit();
 			this->tabPage4->ResumeLayout(false);
-			this->tabControl3->ResumeLayout(false);
+			this->tabControl_Article->ResumeLayout(false);
 			this->tabPage6->ResumeLayout(false);
 			this->tabPage6->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
@@ -2829,7 +2841,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->tabPage7->ResumeLayout(false);
 			this->tabPage7->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView_Couleur))->EndInit();
 			this->tabPage5->ResumeLayout(false);
 			this->tabPage5->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
@@ -2876,30 +2888,37 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		this->txt_ID_cli_com->Text = "";
 		this->txt_adr_liv_com->Text = "";
 		this->txt_adr_fac_com->Text = "";
-		this->date_liv_com->Text = "2021-01-01";
-		this->date_emi_com->Text = "2021-01-01";
-		this->date_fac_com->Text = "2021-01-01";
+		this->date_liv_com->Text = "";
+		this->date_emi_com->Text = "";
+		this->date_fac_com->Text = "";
 	}
 
 
 	/*--- Buttons Listes ----------------------------------------------------------------------------*/
-	private: System::Void but_act_lis_Click(System::Object^ sender, System::EventArgs^ e) { lis_lis(); }
+	private: System::Void but_act_lis_Click(System::Object^ sender, System::EventArgs^ e) { lis_act(); }
 	private: System::Void but_ins_lis_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oService_Commande_Liste->AjouterUnArticleDeCommande(this->txt_ref_com_lis->Text, this->txt_ref_art_lis->Text, this->txt_pri_uni_rem_lis->Text, this->txt_qua_com_lis->Text, this->txt_tau_tva_lis->Text);
-		lis_lis();
+		lis_act();
 	}
 	private: System::Void but_upd_lis_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oService_Commande_Liste->ModifierUnArticleDeCommande(this->txt_ref_com_lis->Text, this->txt_ref_art_lis->Text, this->txt_pri_uni_rem_lis->Text, this->txt_qua_com_lis->Text, this->txt_tau_tva_lis->Text);
-		lis_lis();
+		lis_act();
 	}
 	private: System::Void but_del_lis_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oService_Commande_Liste->SupprimerUnArticleDeCommande(this->txt_ref_com_lis->Text, this->txt_ref_art_lis->Text);
-		lis_lis();
+		lis_act();
 	}
-	private: Void lis_lis() {
+	private: Void lis_act() {
 		this->dataGridView_Liste->Refresh();
 		this->oDs_Commande_Liste = this->oService_Commande_Liste->AfficherArticlesDeCommande();
 		this->dataGridView_Liste->DataSource = this->oDs_Commande_Liste;
+	}
+	private: System::Void but_res_lis_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->txt_ref_com_lis->Text = "";
+		this->txt_ref_art_lis->Text = "";
+		this->txt_pri_uni_rem_lis->Text = "";
+		this->txt_qua_com_lis->Text = "";
+		this->txt_tau_tva_lis->Text = "";
 	}
 
 
@@ -2910,7 +2929,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		pay_act();
 	}
 	private: System::Void but_upd_pay_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oService_Payement->ModifierUnPayement(this->txt_ID_pay->Text, Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->comboBox1->Text, Convert::ToString(this->txt_mon_pay->Text), this->txt_ref_com_pay->Text);
+		this->oService_Payement->ModifierUnPayement(this->txt_ID_pay->Text, Convert::ToString(this->dat_pay->Value)->Substring(6, 4) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(3, 2) + "-" + Convert::ToString(this->dat_pay->Value)->Substring(0, 2), this->comboBox_moy_pay->Text, Convert::ToString(this->txt_mon_pay->Text), this->txt_ref_com_pay->Text);
 		pay_act();
 	}
 	private: System::Void but_del_pay_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -2921,6 +2940,13 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		this->dataGridView_Payement->Refresh();
 		this->oDs_Payement = this->oService_Payement->AfficherPayements();
 		this->dataGridView_Payement->DataSource = this->oDs_Payement;
+	}
+	private: System::Void but_res_pay_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->txt_ID_pay->Text = "";
+		this->dat_pay->Text = "";
+		this->comboBox_moy_pay->Text = "";
+		this->txt_mon_pay->Text = "";
+		this->txt_ref_com_pay->Text = "";
 	}
 
 
@@ -2942,6 +2968,13 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		this->dataGridView_Client->Refresh();
 		this->oDs_Client = this->oService_Client->AfficherClients();
 		this->dataGridView_Client->DataSource = this->oDs_Client;
+	}
+	private: System::Void but_res_cli_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->txt_ID_cli->Text = "";
+		this->txt_nom_cli->Text = "";
+		this->txt_pre_cli->Text = "";
+		this->dat_nai_cli->Text = "";
+		this->er_ach_cli->Text = "";
 	}
 	
 		   
@@ -2966,54 +2999,76 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		this->oDs_Employe = this->oService_Employe->AfficherEmployes();
 		this->dataGridView_Employes->DataSource = this->oDs_Employe;
 	}
+	private: System::Void but_res_emp_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->txt_ID_emp->Text = "";
+		this->txt_nom_emp->Text = "";
+		this->txt_pre_emp->Text = "";
+		this->dat_emb_emp->Text = "";
+		this->txt_sup_hie_emp->Text = "0";
+		this->txt_ID_sup_hie_emp->Text = "";
+		this->txt_ID_adr_emp->Text = "";
+	}
 
 
 	/*--- Buttons Articles ----------------------------------------------------------------------------*/
-	private: System::Void but_act_art_Click(System::Object^ sender, System::EventArgs^ e) { lis_art(); }
-
+	private: System::Void but_act_art_Click(System::Object^ sender, System::EventArgs^ e) { art_act(); }
 	private: System::Void but_ins_art_Click(System::Object^ sender, System::EventArgs^ e) {
-		System::Data::DataTable^ Table_id_Stock = this->oService_Article_Stock->AjouterUnStock(Convert::ToInt32(this->textBox6->Text), Convert::ToInt32(this->textBox8->Text));
+		System::Data::DataTable^ Table_id_Stock = this->oService_Article_Stock->AjouterUnStock(this->txt_qua_sto_art->Text, this->txt_seuil_sto_art->Text);
 		System::String^ ID_Stock = System::Convert::ToString((Table_id_Stock->Rows[0])[0]);
-		this->oService_Article->AjouterUnArticle(this->textBox3->Text, this->textBox5->Text, this->textBox7->Text, Convert::ToInt32(this->textBox2->Text), Convert::ToInt32(ID_Stock));
-		lis_art();
+		this->oService_Article->AjouterUnArticle(this->txt_nom_art->Text, this->txt_tva_art->Text, this->txt_prix_art->Text, this->txt_cou_art->Text, ID_Stock);
+		art_act();
 	}
 
 	private: System::Void but_upd_art_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oService_Article->ModifierUnStock(Convert::ToInt32(this->textBox4->Text), Convert::ToInt32(this->textBox6->Text), Convert::ToInt32(this->textBox8->Text));
-		this->oService_Article->ModifierUnArticle(Convert::ToInt32(this->textBox1->Text), this->textBox3->Text, this->textBox5->Text, this->textBox7->Text, Convert::ToInt32(this->textBox2->Text), Convert::ToInt32(this->textBox4->Text));
-		lis_art();
+		this->oService_Article->ModifierUnStock(this->txt_ID_sto_art->Text, this->txt_qua_sto_art->Text, this->txt_seuil_sto_art->Text);
+		this->oService_Article->ModifierUnArticle(this->txt_ref_art->Text, this->txt_nom_art->Text, this->txt_tva_art->Text, this->txt_prix_art->Text, this->txt_cou_art->Text, this->txt_ID_sto_art->Text);
+		art_act();
 	}
 
 	private: System::Void but_del_art_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oService_Article->SupprimerUnArticle(Convert::ToInt32(this->textBox1->Text));
-		this->oService_Article->SupprimerUnStock(Convert::ToInt32(this->textBox4->Text));
-		lis_art();
+		this->oService_Article->SupprimerUnArticle(this->txt_ref_art->Text);
+		this->oService_Article->SupprimerUnStock(this->txt_ID_sto_art->Text);
+		art_act();
 	}
-	private: Void lis_art() {
+	private: Void art_act() {
 		this->dataGridView_Articles->Refresh();
 		this->oDs_Article = this->oService_Article->AfficherArticles();
 		this->dataGridView_Articles->DataSource = this->oDs_Article;
 	}
+	private: System::Void but_res_art_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->txt_ref_art->Text = "";
+		this->txt_nom_art->Text = "";
+		this->txt_tva_art->Text = "";
+		this->txt_prix_art->Text = "";
+		this->txt_cou_art->Text = "";
+		this->txt_ID_sto_art->Text = "";
+		this->txt_qua_sto_art->Text = "";
+		this->txt_seuil_sto_art->Text = "";
+	}
+
 
 	/*--- Buttons Couleurs ----------------------------------------------------------------------------*/
-	private: System::Void but_act_cou_Click(System::Object^ sender, System::EventArgs^ e) { cou_art(); }
-
+	private: System::Void but_act_cou_Click(System::Object^ sender, System::EventArgs^ e) { cou_act(); }
 	private: System::Void but_ins_cou_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->oService_Couleur->AjouterUneCouleur(this->txt_nom_cou->Text);
-		cou_art();
+		cou_act();
 	}
 	private: System::Void but_upd_cou_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oService_Couleur->ModifierUneCouleur(Convert::ToInt32(this->txt_ID_cou->Text), this->txt_nom_cou->Text);
-		cou_art();
+		this->oService_Couleur->ModifierUneCouleur(this->txt_ID_cou->Text, this->txt_nom_cou->Text);
+		cou_act();
 	}
 	private: System::Void but_del_cou_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->oService_Couleur->SupprimerUneCouleur(Convert::ToInt32(this->txt_ID_cou->Text));
-		cou_art();
+		this->oService_Couleur->SupprimerUneCouleur(this->txt_ID_cou->Text);
+		cou_act();
 	}
-	private: Void cou_art() {
-		this->dataGridView7->Refresh();
+	private: Void cou_act() {
+		this->dataGridView_Couleur->Refresh();
 		this->oDs_Couleur = this->oService_Couleur->AfficherCouleurs();
-		this->dataGridView7->DataSource = this->oDs_Couleur;
+		this->dataGridView_Couleur->DataSource = this->oDs_Couleur;
+	}
+	private: System::Void but_res_cou_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->txt_ID_cou->Text = "";
+		this->txt_nom_cou->Text = "";
 	}
 
 
@@ -3038,82 +3093,15 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
 		this->dataGridView_Adresses->DataSource = this->oDs_Adresse;
 	}
-
-	/*--- Statistiques ----------------------------------------------------------------------------*/
-
-	private: System::Void tabControl1_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
-		if (Convert::ToInt32(e->TabPageIndex) == 0) {
-			this->dataGridView_Commande->Refresh();
-			this->oDs_Commande = this->oService_Commande->AfficherCommandes();
-			this->dataGridView_Commande->DataSource = this->oDs_Commande;
-		}
-
-		if (Convert::ToInt32(e->TabPageIndex) == 1) {
-			this->dataGridView_Client->Refresh();
-			this->oDs_Client = this->oService_Client->AfficherClients();
-			this->dataGridView_Client->DataSource = this->oDs_Client;
-		}
-
-		if (Convert::ToInt32(e->TabPageIndex) == 2) {
-			this->dataGridView_Employes->Refresh();
-			this->oDs_Employe = this->oService_Employe->AfficherEmployes();
-			this->dataGridView_Employes->DataSource = this->oDs_Employe;
-		}
-
-		if (Convert::ToInt32(e->TabPageIndex) == 3) {
-			this->dataGridView_Articles->Refresh();
-			this->oDs_Article = this->oService_Article->AfficherArticles();
-			this->dataGridView_Articles->DataSource = this->oDs_Article;
-		}
-	
-		if (Convert::ToInt32(e->TabPageIndex) == 4) {
-			this->dataGridView_Adresses->Refresh();
-			this->oDs_Adresse = this->oService_Adresse->AfficherAdresses();
-			this->dataGridView_Adresses->DataSource = this->oDs_Adresse;
-		}
-	}
-
-	private: System::Void tabControl2_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
-		if (Convert::ToInt32(e->TabPageIndex) == 0) {
-			this->dataGridView_Commande->Refresh();
-			this->oDs_Commande = this->oService_Commande->AfficherCommandes();
-			this->dataGridView_Commande->DataSource = this->oDs_Commande;
-		}
-
-		if (Convert::ToInt32(e->TabPageIndex) == 1) {
-			this->dataGridView_Liste->Refresh();
-			this->oDs_Commande_Liste = this->oService_Commande_Liste->AfficherArticlesDeCommande();
-			this->dataGridView_Liste->DataSource = this->oDs_Commande_Liste;
-		}
-
-		if (Convert::ToInt32(e->TabPageIndex) == 2) {
-			this->dataGridView_Payement->Refresh();
-			this->oDs_Payement = this->oService_Payement->AfficherPayements();
-			this->dataGridView_Payement->DataSource = this->oDs_Payement;
-		}
-	}
-	private: System::Void tabControl3_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
-		if (Convert::ToInt32(e->TabPageIndex) == 0) {
-			this->dataGridView_Articles->Refresh();
-			this->oDs_Article = this->oService_Article->AfficherArticles();
-			this->dataGridView_Articles->DataSource = this->oDs_Article;
-		}
-
-		if (Convert::ToInt32(e->TabPageIndex) == 1) {
-			this->dataGridView7->Refresh();
-			this->oDs_Couleur = this->oService_Couleur->AfficherCouleurs();
-			this->dataGridView7->DataSource = this->oDs_Couleur;
-		}
+	private: System::Void but_res_adr_Click(System::Object^ sender, System::EventArgs^ e) {
+		//this->txt_ID_adr->Text = "";
+		//this->txt_num_adr->Text = "";
+		//this->txt_nom_rue_adr->Text = "";
+		this->txt_nom_ville_adr->Text = " ";
 	}
 
 
-	private: System::Void dataGridView_Adresses_CellContentClick_1(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		this->txt_ID_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[0]);
-		this->txt_num_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[1]);
-		this->txt_nom_rue_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[2]);
-		this->txt_nom_ville_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[4]);
-	}
-
+	/*--- Auto-complete des champs ----------------------------------------------------------------------------*/
 	private: System::Void dataGridView_Commande_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		this->txt_ref_com_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[1]);
 		this->txt_tot_HT_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[5]);
@@ -3124,17 +3112,6 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		this->date_emi_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[3]);
 		this->date_fac_com->Text = Convert::ToString((this->oDs_Commande->Rows[e->RowIndex])[4]);
 	}
-
-	private: System::Void dataGridView_Client_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
-	{
-		this->txt_ID_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[0]);
-		this->txt_nom_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[1]);
-		this->txt_pre_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[2]);
-		this->dat_nai_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[3]);
-		this->er_ach_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[4]);
-	}
-
-
 	private: System::Void dataGridView_Liste_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		this->txt_ref_com_lis->Text = Convert::ToString((this->oDs_Commande_Liste->Rows[e->RowIndex])[1]);
 		this->txt_ref_art_lis->Text = Convert::ToString((this->oDs_Commande_Liste->Rows[e->RowIndex])[0]);
@@ -3145,37 +3122,70 @@ private: System::Windows::Forms::Button^ but_res_adr;
 	private: System::Void dataGridView_Payement_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		this->txt_ID_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[0]);
 		this->dat_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[1]);
-		this->comboBox1->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[2]);
+		this->comboBox_moy_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[2]);
 		this->txt_mon_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[3]);
 		this->txt_ref_com_pay->Text = Convert::ToString((this->oDs_Payement->Rows[e->RowIndex])[4]);
+	}
+	private: System::Void dataGridView_Client_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		this->txt_ID_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[0]);
+		this->txt_nom_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[1]);
+		this->txt_pre_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[2]);
+		this->dat_nai_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[3]);
+		this->er_ach_cli->Text = Convert::ToString((this->oDs_Client->Rows[e->RowIndex])[4]);
 	}
 	private: System::Void dataGridView_Employes_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		this->txt_ID_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[0]);
 		this->txt_nom_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[1]);
 		this->txt_pre_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[2]);
 		this->dat_emb_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[3]);
-		if (Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[4]) == "False"){ this->txt_sup_hie_emp->Text = "0"; }
-		else{ this->txt_sup_hie_emp->Text = "1"; }
-	
+		if (Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[4]) == "False") { this->txt_sup_hie_emp->Text = "0"; }
+		else { this->txt_sup_hie_emp->Text = "1"; }
 		this->txt_ID_sup_hie_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[5]);
 		this->txt_ID_adr_emp->Text = Convert::ToString((this->oDs_Employe->Rows[e->RowIndex])[6]);
 	}
 	private: System::Void dataGridView_Articles_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-		this->textBox1->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[0]);
-		this->textBox3->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[1]);
-		this->textBox5->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[2]);
-		this->textBox7->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[3]);
-		this->textBox2->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[4]);
-		this->textBox4->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[5]);
-		this->textBox6->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[7]);
-		this->textBox8->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[8]);
+		this->txt_ref_art->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[0]);
+		this->txt_nom_art->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[1]);
+		this->txt_tva_art->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[2]);
+		this->txt_prix_art->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[3]);
+		this->txt_cou_art->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[4]);
+		this->txt_ID_sto_art->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[5]);
+		this->txt_qua_sto_art->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[7]);
+		this->txt_seuil_sto_art->Text = Convert::ToString((this->oDs_Article->Rows[e->RowIndex])[8]);
 	}
-
-	private: System::Void dataGridView7_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	private: System::Void dataGridView_Couleur_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 		this->txt_ID_cou->Text = Convert::ToString((this->oDs_Couleur->Rows[e->RowIndex])[0]);
 		this->txt_nom_cou->Text = Convert::ToString((this->oDs_Couleur->Rows[e->RowIndex])[1]);
 	}
+	private: System::Void dataGridView_Adresses_CellContentClick_1(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		this->txt_ID_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[0]);
+		this->txt_num_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[1]);
+		this->txt_nom_rue_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[2]);
+		this->txt_nom_ville_adr->Text = Convert::ToString((this->oDs_Adresse->Rows[e->RowIndex])[4]);
+	}
 
+
+	/*--- Auto-refresh when changing tab ----------------------------------------------------------------------------*/
+	private: System::Void tabControl_Principal_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
+		if (Convert::ToInt32(e->TabPageIndex) == 0) { com_act(); }
+		if (Convert::ToInt32(e->TabPageIndex) == 1) { cli_act(); }
+		if (Convert::ToInt32(e->TabPageIndex) == 2) { emp_act(); }
+		if (Convert::ToInt32(e->TabPageIndex) == 3) { art_act(); }
+		if (Convert::ToInt32(e->TabPageIndex) == 4) { adr_act(); }
+	}
+
+	private: System::Void tabControl_Commande_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
+		if (Convert::ToInt32(e->TabPageIndex) == 0) { com_act(); }
+		if (Convert::ToInt32(e->TabPageIndex) == 1) { lis_act(); }
+		if (Convert::ToInt32(e->TabPageIndex) == 2) { pay_act(); }
+	}
+	private: System::Void tabControl_Article_Selected(System::Object^ sender, System::Windows::Forms::TabControlEventArgs^ e) {
+		if (Convert::ToInt32(e->TabPageIndex) == 0) { art_act(); }
+		if (Convert::ToInt32(e->TabPageIndex) == 1) { cou_act(); }
+	}
+
+
+	/*--- Statistiques ----------------------------------------------------------------------------*/
 	private: System::Void comboBox_Stat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (this->comboBox_Stat->SelectedIndex == 1) {
 			this->txt_moi_stat->Visible = true;
@@ -3221,12 +3231,12 @@ private: System::Windows::Forms::Button^ but_res_adr;
 
 		}
 
-		if (this->comboBox_Stat->Text == "Panier moyen (après remise)") {
+		if (this->comboBox_Stat->SelectedIndex == 0) { // Panier moyen (après remise)
 			this->dataGridView_Stat->Refresh();
 			this->oDs_Stat_PanierMoyen = this->oService_Stat_PanierMoyen->AfficherPanierMoyen();
 			this->dataGridView_Stat->DataSource = this->oDs_Stat_PanierMoyen;
 		}
-		else if (this->comboBox_Stat->Text == "Chiffre d'affaire sur un mois") {
+		else if (this->comboBox_Stat->SelectedIndex == 1) { //Chiffre d'affaire sur un mois
 			if (this->txt_moi_stat->Text != "") {
 				if (this->txt_ann_stat->Text != "") {
 					this->dataGridView_Stat->Refresh();
@@ -3234,40 +3244,38 @@ private: System::Windows::Forms::Button^ but_res_adr;
 					this->dataGridView_Stat->DataSource = this->oDs_Stat_ChiffreAffaire;
 				}
 			}
-		
-
 		}
-		else if (this->comboBox_Stat->Text == "Produits sous le seuil de réapprovisionnement") {
+		else if (this->comboBox_Stat->SelectedIndex == 2) { //Produits sous le seuil de réapprovisionnement
 			this->dataGridView_Stat->Refresh();
 			this->oDs_Stat_SousSeuil = this->oService_Stat_SousSeuil->AfficherSousSeuil();
 			this->dataGridView_Stat->DataSource = this->oDs_Stat_SousSeuil;
 		}
-		else if (this->comboBox_Stat->Text == "Montant total d'achat pour chaque client") {
+		else if (this->comboBox_Stat->SelectedIndex == 3) { //Montant total d'achat pour chaque client
 			this->dataGridView_Stat->Refresh();
 			this->oDs_Stat_MontantAchatClient = this->oService_Stat_MontantAchatClient->AfficherMontantAchatClient();
 			this->dataGridView_Stat->DataSource = this->oDs_Stat_MontantAchatClient;
 		}
-		else if (this->comboBox_Stat->Text == "Les 10 articles les plus vendus") {
+		else if (this->comboBox_Stat->SelectedIndex == 4) { //Les 10 articles les plus vendus
 			this->dataGridView_Stat->Refresh();
 			this->oDs_Stat_10PlusVendus = this->oService_Stat_10PlusVendus->Afficher10PlusVendus();
 			this->dataGridView_Stat->DataSource = this->oDs_Stat_10PlusVendus;
 		}
-		else if (this->comboBox_Stat->Text == "Les 10 articles les moins vendus") {
+		else if (this->comboBox_Stat->SelectedIndex == 5) { //Les 10 articles les moins vendus
 			this->dataGridView_Stat->Refresh();
 			this->oDs_Stat_10MoinsVendus = this->oService_Stat_10MoinsVendus->Afficher10MoinsVendus();
 			this->dataGridView_Stat->DataSource = this->oDs_Stat_10MoinsVendus;
 		}
-		else if (this->comboBox_Stat->Text == "Valeur commerciale du stock") {
+		else if (this->comboBox_Stat->SelectedIndex == 6) { //Valeur commerciale du stock
 			this->dataGridView_Stat->Refresh();
 			this->oDs_Stat_ValeurCommercialeStock = this->oService_Stat_ValeurCommercialeStock->AfficherValeurCommercialeStock();
 			this->dataGridView_Stat->DataSource = this->oDs_Stat_ValeurCommercialeStock;
 		}
-		else if (this->comboBox_Stat->Text == "Valeur d'achat du stock") {
+		else if (this->comboBox_Stat->SelectedIndex == 7) { //Valeur d'achat du stock
 			this->dataGridView_Stat->Refresh();
 			this->oDs_Stat_ValeurAchatStock = this->oService_Stat_ValeurAchatStock->AfficherValeurAchatStock();
 			this->dataGridView_Stat->DataSource = this->oDs_Stat_ValeurAchatStock;
 		}
-		else if (this->comboBox_Stat->Text == "Simulation des variations de la valeur du stock") {
+		else if (this->comboBox_Stat->SelectedIndex == 8) { //Simulation des variations de la valeur du stock
 			if (this->txt_stat_TVA->Text != "") {
 				if (this->txt_stat_margeCommercial->Text != "") {
 					if (this->txt_stat_remiseCommercial->Text != "") {
@@ -3279,32 +3287,6 @@ private: System::Windows::Forms::Button^ but_res_adr;
 					}
 				}
 			}
-		}
-	}
-	private: System::Void txt_nom_ville_adr_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-		System::String^ search = this->txt_nom_ville_adr->Text;
-		this->oDs_Adresse_Ville = this->oService_Adresse_Ville->AfficherVilleTopX(search);
-
-		int row_returned = System::Convert::ToInt32(oDs_Adresse_Ville->Rows->Count);
-
-		for (int i = 0; i <= row_returned - 1; i++) {
-			if ((this->oDs_Adresse_Ville->Rows[0])[0]) {
-				this->txt_nom_ville_adr->Items[i] = System::Convert::ToString((this->oDs_Adresse_Ville->Rows[i])[0]);
-			}
-		}
-
-		for (int ii = 9; row_returned+1 <= ii; ii--) {
-			this->txt_nom_ville_adr->Items[ii] = "";
-		}
-	}
-	
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (this->txt_ref_com_com->Text != "") {
-			this->oDs_Facture_SelectInfoArticle1 = this->oService_Facture_SelectInfoArticle1->RecupTousLesArticles(this->txt_ref_com_com->Text);
-			this->oDs_Facture_SelectInfoCommande = this->oService_Facture_SelectInfoCommande->RecupToutCommande(this->txt_ref_com_com->Text);
-
-			Facture Commande(this->oDs_Facture_SelectInfoArticle1, this->oDs_Facture_SelectInfoCommande);
-			Commande.createBill();
 		}
 	}
 
@@ -3345,6 +3327,41 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		}
 	}
 
+
+	/*--- Auto-complete Ville ----------------------------------------------------------------------------*/
+	private: System::Void txt_nom_ville_adr_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+		int row_returned;
+
+		if (this->txt_nom_ville_adr->Text != "") {
+			this->oDs_Adresse_Ville = this->oService_Adresse_Ville->AfficherVilleTopX(this->txt_nom_ville_adr->Text);
+			row_returned = System::Convert::ToInt32(oDs_Adresse_Ville->Rows->Count);
+		}
+		else { row_returned = 0; }
+
+		if (row_returned == 1) { this->txt_nom_ville_adr->Items[0] = System::Convert::ToString((this->oDs_Adresse_Ville->Rows[0])[0]); }
+		else {
+			for (int i = 0; i <= 9; i++) {
+				if (i <= row_returned - 1) {
+					this->txt_nom_ville_adr->Items[i] = System::Convert::ToString((this->oDs_Adresse_Ville->Rows[i])[0]);
+				}
+				else { this->txt_nom_ville_adr->Items[i] = ""; }
+			}
+		}
+		
+	}
+
+
+	/*--- Bouton génération facture ----------------------------------------------------------------------------*/
+	private: System::Void but_gen_fac_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (this->txt_ref_com_com->Text != "") {
+			this->oDs_Facture_SelectInfoArticle1 = this->oService_Facture_SelectInfoArticle1->RecupTousLesArticles(this->txt_ref_com_com->Text);
+			this->oDs_Facture_SelectInfoCommande = this->oService_Facture_SelectInfoCommande->RecupToutCommande(this->txt_ref_com_com->Text);
+			Facture Commande(this->oDs_Facture_SelectInfoArticle1, this->oDs_Facture_SelectInfoCommande);
+			Commande.createBill();
+		}
+	}
+
+
 	/*--- Test unitaire AjouterUnEmploye ----------------------------------------------------------------------------*/
 	private: System::Void but_test_uni_Click(System::Object^ sender, System::EventArgs^ e) {
 		bool error = false;
@@ -3375,5 +3392,8 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->txt_test_uni_retour->Text = "Test : OK";
 		}
 	}
+private: System::Void txt_nom_ville_adr_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	
+}
 };
 }
