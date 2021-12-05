@@ -56,6 +56,14 @@ namespace ProjetPOO {
 			this->dataGridView_Commande->Refresh();
 			this->oDs_Commande = this->oService_Commande->AfficherCommandes();
 			this->dataGridView_Commande->DataSource = this->oDs_Commande;
+
+			this->oDs_Client = this->oService_Client->AfficherClients();
+			this->txt_ID_cli_com->Items->Clear();
+			this->txt_ID_cli_com->Items->Add("");
+			for (int i = 0; (System::Convert::ToInt32(this->oDs_Client->Rows->Count)-1)>=i; i++) {
+				this->txt_ID_cli_com->Items->Add((this->oDs_Client->Rows[i])[0] + " : " + (this->oDs_Client->Rows[i])[1] + " "+ (this->oDs_Client->Rows[i])[2]);
+			}
+
 		}
 
 	protected:
@@ -103,7 +111,8 @@ namespace ProjetPOO {
 
 
 	private: System::Windows::Forms::TextBox^ txt_tot_HT_com;
-	private: System::Windows::Forms::TextBox^ txt_ID_cli_com;
+
+
 
 
 
@@ -445,6 +454,8 @@ private: System::Windows::Forms::Button^ but_res_emp;
 private: System::Windows::Forms::Button^ but_res_art;
 private: System::Windows::Forms::Button^ but_res_cou;
 private: System::Windows::Forms::Button^ but_res_adr;
+private: System::Windows::Forms::ComboBox^ txt_ID_cli_com;
+
 
 
 
@@ -501,6 +512,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabControl_Commande = (gcnew System::Windows::Forms::TabControl());
 			this->Commande = (gcnew System::Windows::Forms::TabPage());
+			this->txt_ID_cli_com = (gcnew System::Windows::Forms::ComboBox());
 			this->but_res_com = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->but_gen_fac = (gcnew System::Windows::Forms::Button());
@@ -518,7 +530,6 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->txt_adr_fac_com = (gcnew System::Windows::Forms::TextBox());
 			this->txt_adr_liv_com = (gcnew System::Windows::Forms::TextBox());
 			this->txt_tot_HT_com = (gcnew System::Windows::Forms::TextBox());
-			this->txt_ID_cli_com = (gcnew System::Windows::Forms::TextBox());
 			this->txt_ref_com_com = (gcnew System::Windows::Forms::TextBox());
 			this->but_del_com = (gcnew System::Windows::Forms::Button());
 			this->but_upd_com = (gcnew System::Windows::Forms::Button());
@@ -754,6 +765,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// 
 			// Commande
 			// 
+			this->Commande->Controls->Add(this->txt_ID_cli_com);
 			this->Commande->Controls->Add(this->but_res_com);
 			this->Commande->Controls->Add(this->pictureBox1);
 			this->Commande->Controls->Add(this->but_gen_fac);
@@ -771,7 +783,6 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->Commande->Controls->Add(this->txt_adr_fac_com);
 			this->Commande->Controls->Add(this->txt_adr_liv_com);
 			this->Commande->Controls->Add(this->txt_tot_HT_com);
-			this->Commande->Controls->Add(this->txt_ID_cli_com);
 			this->Commande->Controls->Add(this->txt_ref_com_com);
 			this->Commande->Controls->Add(this->but_del_com);
 			this->Commande->Controls->Add(this->but_upd_com);
@@ -786,6 +797,17 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->Commande->TabIndex = 0;
 			this->Commande->Text = L"Commande";
 			this->Commande->UseVisualStyleBackColor = true;
+			// 
+			// txt_ID_cli_com
+			// 
+			this->txt_ID_cli_com->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->txt_ID_cli_com->FormattingEnabled = true;
+			this->txt_ID_cli_com->Items->AddRange(gcnew cli::array< System::Object^  >(1) { L"" });
+			this->txt_ID_cli_com->Location = System::Drawing::Point(115, 334);
+			this->txt_ID_cli_com->Name = L"txt_ID_cli_com";
+			this->txt_ID_cli_com->Size = System::Drawing::Size(164, 21);
+			this->txt_ID_cli_com->TabIndex = 28;
+			this->txt_ID_cli_com->DropDown += gcnew System::EventHandler(this, &MyForm::txt_ID_cli_com_DropDown);
 			// 
 			// but_res_com
 			// 
@@ -945,14 +967,6 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->txt_tot_HT_com->Name = L"txt_tot_HT_com";
 			this->txt_tot_HT_com->Size = System::Drawing::Size(164, 19);
 			this->txt_tot_HT_com->TabIndex = 10;
-			// 
-			// txt_ID_cli_com
-			// 
-			this->txt_ID_cli_com->Location = System::Drawing::Point(115, 334);
-			this->txt_ID_cli_com->Margin = System::Windows::Forms::Padding(2);
-			this->txt_ID_cli_com->Name = L"txt_ID_cli_com";
-			this->txt_ID_cli_com->Size = System::Drawing::Size(164, 19);
-			this->txt_ID_cli_com->TabIndex = 9;
 			// 
 			// txt_ref_com_com
 			// 
@@ -2705,7 +2719,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// 
 			this->txt_ann_stat->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->txt_ann_stat->FormattingEnabled = true;
-			this->txt_ann_stat->Location = System::Drawing::Point(5, 336);
+			this->txt_ann_stat->Location = System::Drawing::Point(5, 293);
 			this->txt_ann_stat->Name = L"txt_ann_stat";
 			this->txt_ann_stat->Size = System::Drawing::Size(244, 21);
 			this->txt_ann_stat->TabIndex = 6;
@@ -2715,7 +2729,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// lab_ann_stat
 			// 
 			this->lab_ann_stat->AutoSize = true;
-			this->lab_ann_stat->Location = System::Drawing::Point(5, 319);
+			this->lab_ann_stat->Location = System::Drawing::Point(5, 276);
 			this->lab_ann_stat->Name = L"lab_ann_stat";
 			this->lab_ann_stat->Size = System::Drawing::Size(38, 13);
 			this->lab_ann_stat->TabIndex = 5;
@@ -2725,7 +2739,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// lab_moi_stat
 			// 
 			this->lab_moi_stat->AutoSize = true;
-			this->lab_moi_stat->Location = System::Drawing::Point(9, 276);
+			this->lab_moi_stat->Location = System::Drawing::Point(9, 323);
 			this->lab_moi_stat->Name = L"lab_moi_stat";
 			this->lab_moi_stat->Size = System::Drawing::Size(29, 13);
 			this->lab_moi_stat->TabIndex = 4;
@@ -2736,7 +2750,7 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			// 
 			this->txt_moi_stat->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->txt_moi_stat->FormattingEnabled = true;
-			this->txt_moi_stat->Location = System::Drawing::Point(5, 293);
+			this->txt_moi_stat->Location = System::Drawing::Point(5, 340);
 			this->txt_moi_stat->Name = L"txt_moi_stat";
 			this->txt_moi_stat->Size = System::Drawing::Size(244, 21);
 			this->txt_moi_stat->TabIndex = 3;
@@ -2891,6 +2905,14 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		this->date_liv_com->Text = "";
 		this->date_emi_com->Text = "";
 		this->date_fac_com->Text = "";
+	}
+	private: System::Void txt_ID_cli_com_DropDown(System::Object^ sender, System::EventArgs^ e) {
+		this->oDs_Client = this->oService_Client->AfficherClients();
+		this->txt_ID_cli_com->Items->Clear();
+		this->txt_ID_cli_com->Items->Add("");
+		for (int i = 0; (System::Convert::ToInt32(this->oDs_Client->Rows->Count) - 1) >= i; i++) {
+			this->txt_ID_cli_com->Items->Add((this->oDs_Client->Rows[i])[0] + " : " + (this->oDs_Client->Rows[i])[1] + " " + (this->oDs_Client->Rows[i])[2]);
+		}
 	}
 
 
@@ -3192,11 +3214,8 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			this->lab_moi_stat->Visible = true;
 			this->txt_ann_stat->Visible = true;
 			this->lab_ann_stat->Visible = true;
-			this->oDs_Stat_AllMonth = this->oService_Stat_AllMonth->AfficherToutMoisCommande();
-			for (int i = 0; i <= (this->oDs_Stat_AllMonth->Rows->Count - 1); i++) {
-				this->txt_moi_stat->Items->Add(System::Convert::ToString((this->oDs_Stat_AllMonth->Rows[i])[0]));
-			}
-			this->oDs_Stat_AllYear = this->oService_Stat_AllYear->AfficherToutAnneeCommande();
+
+			this->oDs_Stat_AllYear = this->oService_Stat_AllYear->AfficherToutAnneeCommande("");
 			for (int i = 0; i <= (this->oDs_Stat_AllYear->Rows->Count - 1); i++) {
 				this->txt_ann_stat->Items->Add(System::Convert::ToString((this->oDs_Stat_AllYear->Rows[i])[0]));
 			}
@@ -3300,6 +3319,13 @@ private: System::Windows::Forms::Button^ but_res_adr;
 		}
 	}
 	private: System::Void txt_ann_stat_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+		this->txt_moi_stat->Items->Clear();
+		this->oDs_Stat_AllMonth = this->oService_Stat_AllMonth->AfficherToutMoisCommande(this->txt_ann_stat->Text);
+		for (int i = 0; i <= (this->oDs_Stat_AllMonth->Rows->Count - 1); i++) {
+			this->txt_moi_stat->Items->Add(System::Convert::ToString((this->oDs_Stat_AllMonth->Rows[i])[0]));
+		}
+
+
 		if (this->txt_moi_stat->Text != "") {
 			if (this->txt_ann_stat->Text != "") {
 				this->dataGridView_Stat->Refresh();
@@ -3326,7 +3352,6 @@ private: System::Windows::Forms::Button^ but_res_adr;
 			}
 		}
 	}
-
 
 	/*--- Auto-complete Ville ----------------------------------------------------------------------------*/
 	private: System::Void txt_nom_ville_adr_TextChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -3395,5 +3420,6 @@ private: System::Windows::Forms::Button^ but_res_adr;
 private: System::Void txt_nom_ville_adr_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	
 }
+
 };
 }

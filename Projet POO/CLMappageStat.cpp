@@ -46,12 +46,12 @@ System::String^ NS_Comp_Stat::CLMappageStat::SelectSimulation(System::String^ TV
 	return "EXECUTE Simulation " + TVA + "," + marge + "," + remise + "," + demarque +";";
 }
 
-System::String^ NS_Comp_Stat::CLMappageStat::SelectAllMonthCommande(void)
+System::String^ NS_Comp_Stat::CLMappageStat::SelectAllMonthCommande(System::String^ year)
 {
-	return "Select MONTH(Date_Facturation) FROM Commande GROUP BY MONTH(Date_Facturation)";
+	return "SELECT MONTH(Date_Facturation) FROM Commande WHERE YEAR(Date_facturation) LIKE '" + year + "%' GROUP BY(MONTH(Date_Facturation)); ";
 }
 
-System::String^ NS_Comp_Stat::CLMappageStat::SelectAllYearCommande(void)
+System::String^ NS_Comp_Stat::CLMappageStat::SelectAllYearCommande(System::String^ month)
 {
-	return "SELECT YEAR(Date_Facturation) FROM Commande GROUP BY YEAR(Date_Facturation)";
+	return "SELECT YEAR(Date_Facturation) FROM Commande WHERE MONTH(Date_facturation) LIKE '" + month + "%' GROUP BY(YEAR(Date_Facturation)); ";
 }

@@ -78,18 +78,18 @@ System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherSimulation
 	return this->oMapp->getRows(sql);
 }
 
-System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherToutMoisCommande(void)
+System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherToutMoisCommande(System::String^ annee)
 {
 	System::String^ sql;
 
-	sql = this->oMappStat->SelectAllMonthCommande();
+	sql = this->oMappStat->SelectAllMonthCommande(annee);
 	return this->oMapp->getRows(sql);
 }
 
-System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherToutAnneeCommande(void)
+System::Data::DataTable^ NS_Comp_Service_Stat::ClserviceStat::AfficherToutAnneeCommande(System::String^ mois)
 {
 	System::String^ sql;
 
-	sql = this->oMappStat->SelectAllYearCommande();
+	sql = this->oMappStat->SelectAllYearCommande(mois);
 	return this->oMapp->getRows(sql);
 }

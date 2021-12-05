@@ -21,8 +21,8 @@ namespace NS_Comp_Service_Stat {
 		System::Data::DataTable^ AfficherSimulation(System::String^ TVA, System::String^ marge, System::String^ remise, System::String^ demarque);
 
 
-		System::Data::DataTable^ AfficherToutMoisCommande(void);
-		System::Data::DataTable^ AfficherToutAnneeCommande(void);
+		System::Data::DataTable^ AfficherToutMoisCommande(System::String^ annee);
+		System::Data::DataTable^ AfficherToutAnneeCommande(System::String^ mois);
 
 
 	};

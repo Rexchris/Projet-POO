@@ -14,7 +14,7 @@ namespace NS_Comp_Stat {
 		System::String^ SelectValeurAchatStock(void);
 		System::String^ SelectSimulation(System::String^ TVA, System::String^ marge, System::String^ remise, System::String^ demarque);
 
-		System::String^ SelectAllMonthCommande(void);
-		System::String^ SelectAllYearCommande(void);
+		System::String^ SelectAllMonthCommande(System::String^ year);
+		System::String^ SelectAllYearCommande(System::String^ month);
 	};
 }
